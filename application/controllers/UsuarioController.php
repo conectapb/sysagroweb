@@ -1,12 +1,9 @@
 <?php
 
 /**
- * @see Zend_Paginator_Adapter_DbSelect
- */
-//require_once 'Zend/Paginator/Adapter/DbSelect.php';
-
-/**
- * @see Ingot_JQuery_JqGrid_Adapter_Interface
+ * Description of Usuario-Controller
+ *
+ * @author Kadisley
  */
 
 class UsuarioController extends Zend_Controller_Action{
