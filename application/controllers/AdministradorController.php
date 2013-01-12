@@ -11,9 +11,7 @@ class AdministradorController extends Zend_Controller_Action{
          //$this->_helper->layout->setLayout('administrator');
     }
     public function indexAction(){
-
-        //$this->_helper->layout->setLayout('login');
-        $this->_helper->layout->setLayout('administrator');
+		$this->_helper->layout->setLayout('administrator');
         $dados = "Registra-te!";
         $this->view->assign("dados", $dados);     
     }
