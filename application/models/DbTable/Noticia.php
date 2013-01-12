@@ -6,6 +6,8 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
     protected $_name 	= 'site_noticias';
     protected $_primary = 'id';
 
+	
+	
     public function getId ($id){
         $id = (int) $id;
         $row = $this->fetchRow('id = ' . $id);
@@ -24,8 +26,8 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
           'noticia'     => $noticia,
           'foto'        => $foto,
           'fonte'  	    => $fonte,
-  		    'ativo'  	    => $ativo, 
-  		    'categoria_noticia_id' => $categoria_noticia_id);
+  		   'ativo'  	    => $ativo, 
+  		   'categoria_noticia_id' => $categoria_noticia_id);
   	    parent::insert($data);
       }
       catch (Exception $e)
@@ -84,7 +86,7 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
       $db     = Zend_Registry::get('db');
       $where  = (null == $where) ? 1 : $where;
       $fields = (!isset($fields)) ? '*' : $fields;
-      $select = $db->select()
+      $select = $this->select()
                        ->from("site_noticias", $fields)
                        ->where($where)
                        ->order($order)

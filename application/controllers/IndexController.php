@@ -4,15 +4,10 @@ require_once APPLICATION_PATH.'/models/Artigo.php';
 class IndexController extends Zend_Controller_Action
 {
 
-    public function init(){
-    	//$layout = $this->_helper->layout();
-    	//$layout->setLayout('agro');
-    	//$this->_helper->layout->setLayout('agro');
-    }
-
+    
     public function indexAction(){
 		
-		      //$this->_helper->layout->setLayout('layout');
+		  //$this->_helper->layout->setLayout('layout');
           $colunas    = array('id' ,'titulo', 'comentario' ,'categoria_noticia_id' );  
           //Noticia Principal
           $model 		   = new Application_Model_Noticia();

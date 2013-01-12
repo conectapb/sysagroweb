@@ -13,7 +13,7 @@
 require_once 'Zend/Controller/Action/Helper/Abstract.php';
 require_once 'Zend/Controller/Action/HelperBroker.php';
 require_once 'Zend/Session/Namespace.php';
-class Didi_View_Helper_Linkvoltar extends Zend_Controller_Action_Helper_Abstract
+class Agro_View_Helper_linkvoltar extends Zend_Controller_Action_Helper_Abstract
 {
     
 
