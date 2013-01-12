@@ -9,6 +9,7 @@
  * @see Ingot_JQuery_JqGrid_Adapter_Interface
  */
 require_once 'Ingot/JQuery/JqGrid/Adapter/Interface.php';
+
 class UsuarioController extends Zend_Controller_Action{
 
      public function init(){
