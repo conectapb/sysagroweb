@@ -8,7 +8,7 @@ require_once 'Zend/Session/Namespace.php';
  * @author Administrador
  */
       
-class Didi_View_Helper_OutputLink extends Zend_Controller_Action_Helper_Abstract
+class Agro1_View_Helper_OutputLink extends Zend_Controller_Action_Helper_Abstract
 {
     public function outputLink($anchor, $description)
     {

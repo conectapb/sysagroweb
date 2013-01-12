@@ -4,7 +4,7 @@
  *
  * @author Administrador
  */
-class Didi_View_Helper_Photo extends Zend_View_Helper_Abstract
+class Agro_View_Helper_Photo extends Zend_View_Helper_Abstract
 {
     protected $_html;
 
