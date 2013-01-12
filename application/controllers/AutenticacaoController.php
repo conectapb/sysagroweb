@@ -1,13 +1,15 @@
 <?php
 require_once 'Zend/Session/Namespace.php';
-class AuthController extends Zend_Controller_Action
+class AutenticacaoController extends Zend_Controller_Action
 {
     public function init(){
-        /* Initialize action controller here */
-        $this->_helper->layout->setLayout('auth');
+        /* Inicialização do controller*/
+        
+        /* setando o layout default*/
+        $this->_helper->layout->setLayout('autenticacao');
     }
     public function indexAction(){
-        $form = new Application_Form_Login();
+        $form = new Application_Form_Autenticacao();
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
@@ -51,12 +53,10 @@ class AuthController extends Zend_Controller_Action
     protected function _getAuthAdapter(){
         $dbAdapter = Zend_Db_Table::getDefaultAdapter();
         $authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
-
         $authAdapter->setTableName('users')
                     ->setIdentityColumn('username')
                     ->setCredentialColumn('password')
                     ->setCredentialTreatment('SHA1(CONCAT(?,salt))');
-
         return $authAdapter;
     }
     public function logoutAction(){
