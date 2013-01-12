@@ -5,9 +5,8 @@
  * 
  --------------------------------------------------------------------------*/
 
-var base_url       = 'http://localhost/agronegocio/public/';
-var base_url1      = 'http://www.dididjmix.com/public/';
-var texto_deletar  = "Está seguro que desea eliminar";
+var base_url       = 'http://localhost/sysagroweb/public/';
+var texto_deletar  = "Deseja relamente excluir o registro";
 var $divPagina     = "";
 var $divWindow     = "";
 
