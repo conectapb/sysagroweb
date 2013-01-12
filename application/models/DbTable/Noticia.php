@@ -86,7 +86,7 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
       $db     = Zend_Registry::get('db');
       $where  = (null == $where) ? 1 : $where;
       $fields = (!isset($fields)) ? '*' : $fields;
-      $select = $this->select()
+      $select = $db->select()
                        ->from("site_noticias", $fields)
                        ->where($where)
                        ->order($order)
