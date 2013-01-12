@@ -1,0 +1,68 @@
+	html {overflow-x: auto;}
+	body {direction: ltr;}
+	select {font-size: x-small;}
+	.bold {font-weight:bold;}
+	.ftq_vertical, .ftqv {vertical-align:middle;}
+	.ftq_arial_11, .ftqa11 {font:11px arial; color:#000;}
+	.ftq_arial_11_white_b, .ftqa11wb {font:bold 11px arial; color:#FFF; text-decoration:none;}
+	.ftq_arial_11_blue_b, .ftqa11bb {font:bold 11px arial; color:#0059b0; text-decoration:none;}
+	.ftq_arial_11_green_b, .ftq11gb {font:bold 11px arial; color:#2a8215;}
+	.ftq_tr_1, .ftqtr1 {height:20px;text-align:center;background-color:#F6F6F6;}
+	.ftq_tr_2, .ftqtr2 {height:20px;text-align:center;background-color:#FFF;}
+	.ftq_bottom_border, .ftqbb {border-bottom:solid 1px #CBCBCB;}
+	.ftq_right_blue_border, .ftqrbb {border-right:solid 1px #CBCBCB;}
+	.ftq_width_1, .ftqw1 {height:20px;line-height:20px;overflow:visible;text-align:left;padding-right:10px;}
+	.ftq_width_2, .ftqw2 {text-align:right;padding-right:3px;width:60px;height:20px;line-height:20px;overflow:hidden;}
+	.ftq_width_3, .ftqw3 {padding:0 2px;}
+	.ftq_width_4, .ftqw4 {height:20px;line-height:20px;overflow:hidden;text-align:center;vertical-align:center;}
+	.ftq_4, .ftq4 {border:solid 1px #CBCBCB;border-bottom:0px;}
+	.ftq_5, .ftq5 {background:url('http://c1802182.cdn.cloudfiles.rackspacecloud.com/bg_grey_tools.gif') repeat-x;height:20px;text-align:center;}
+	.ftq_5_2, .ftq52 {	background:url('http://c1802182.cdn.cloudfiles.rackspacecloud.com/bg_grey_tools.gif') repeat-x;height:20px;text-align:center;}
+	.red-background, .rbg {background-color:#FFE2E2;}
+	.green-background, .gbg {background-color:#B7F4C2;}
+	.red-font, .rfnt {color:#DC0001;}
+	.green-font, .gfnt {color:#2A8215;}
+	.fix-margin, .fixm {margin-left:5px;}
+	.add div{text-align:right; padding-right:10px; margin-bottom:5px;}
+	.add img {border:0px; padding:0px;}
+	.arrow_green_up, .agu {background-image:url("http://c1802182.cdn.cloudfiles.rackspacecloud.com/mastertools-arrows.gif"); background-position:5px 3px; background-repeat:no-repeat; padding:0px 0px 0px 19px;}
+	.arrow_red_down, .ard {background-image:url("http://c1802182.cdn.cloudfiles.rackspacecloud.com/mastertools-arrows.gif"); background-position:5px -14px; background-repeat:no-repeat; padding:0px 0px 0px 19px;}
+
+	/* New Buttons */
+	.newBtn, .nb {background-image:url('http://c1308342.cdn.cloudfiles.rackspacecloud.com/new_btn.png');height:21px;}
+	.newBtnHover, .nbh {text-decoration:none !important;white-space:nowrap;}
+	
+	.newBtnLeft, .nbl {background-repeat:no-repeat;padding:4px 0px 3px 0px;width:5px;margin:0px 0px 0px 0px;}
+	.newBtnCenter, .nbc {background-repeat:repeat-x;padding:2px 11px 3px 11px;color:#fff;font-size:14px;}
+	.newBtnRight, .nbr {background-repeat:no-repeat;padding:4px 2px 3px 0px;width:5px;margin:0px 0px 0px 0px;}
+	
+	.leftNewBtnGreen, .lnbgrn {background-position:left 0px;}
+	.centerNewBtnGreen, .cnbgrn {background-position:0px -26px;text-shadow:#137000 0px 0px 5px;}
+	.rightNewBtnGreen, .rnbgrn {background-position:left -52px;}
+	
+	.leftNewBtnGray, .lnbgry {background-position:left -78px;}
+	.centerNewBtnGray, .cnbgry {background-position:0px -104px;text-shadow:#5d5d5d 0px 0px 5px;}
+	.rightNewBtnGray, .rnbgry {background-position:left -130px;}
+	
+	.leftNewBtnOrange, .lnborn {background-position:left -156px;padding:4px 2px 3px 0px !important;}
+	.centerNewBtnOrange, .cnborn {background-position:0px -182px;text-shadow:#bb3000 0px 0px 5px;}
+	.rightNewBtnOrange, .rnborn {background-position:left -208px;}
+	
+	.leftNewBtnBlue, .lnbblu {background-position:left -234px;padding:4px 1px 3px 0px !important;}
+	.centerNewBtnBlue, .cnbblu {background-position:0px -260px;text-shadow:#07598c 0px 0px 5px;}
+	.rightNewBtnBlue, .rnbblu {background-position:left -286px;padding:4px 2px 3px 0 !important;}
+	
+	.leftNewBtnBigBlue, .lnbbblu {background-position:left -312px;padding:10px 0px 7px 0px !important;}
+	.centerNewBtnBigBlue, .cnbbblu {background-position:0px -348px;padding:6px 11px 7px 11px !important;text-shadow:#002a54 0px 0px 5px;font-size:16px !important;}
+	.rightNewBtnBigBlue, .rnbbblu {background-position:left -384px;padding:10px 5px 7px 0px !important;}
+	
+	.newBtnSpecial, .nbs {background-image:url('http://c1308342.cdn.cloudfiles.rackspacecloud.com/new_btn_special_v2.png');height:16px;font-family:arial;}
+	
+	.newBtnSpecialLeft, .nbsl {background-repeat:no-repeat;padding:0px 11px 1px 0px;width:15px;margin:0px 0px 0px 0px;}
+	.newBtnSpecialCenter, .nbsc {background-repeat:repeat-x;padding:4px 5px 3px 5px;color:#fff;font-size:10px;} 
+	.newBtnSpecialRight, .nbsr {background-repeat:no-repeat;padding:0px 8px 1px 0px;width:15px;margin:0px 0px 0px 0px;}
+	
+	.leftNewBtnSpecialGreen, .lnbsgrn {background-position:left 2px;}
+	.centerNewBtnSpecialGreen, .cnbsgrn {background-position:0px -20px;}
+	.rightNewBtnSpecialGreen, .rnbsgrn {background-position:left -40px;}
+	/* New Buttons */

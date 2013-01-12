@@ -1,0 +1,140 @@
+/********************
+*** MENU
+*********************/
+#menu {
+	padding:0;
+    font-family:Arial,"Trebuchet MS", Helvetica;
+	font-size:12px;
+	letter-spacing:0.02em;
+	text-align:center;
+	height:30px;
+	background-color:#c00;
+	border-bottom:3px solid #c00;
+	border-top:2px solid #c00;
+
+}
+
+#menu {
+  padding-left:2px;
+}
+
+
+#menu .menuprincipal:link { text-decoration:none; color:#FFF; }
+#menu .menuprincipal:visited { text-decoration:none; color:#FFF; }
+#menu .menuprincipal:hover { text-decoration:none; color:#FFF; }
+
+
+#menu .menuitem {
+	color:#FFF;
+	text-decoration:none;
+	display: block;
+	padding:5px 10px;
+	margin:3px 0 0 0;
+	float:left;
+	border-left:1px solid #c00;
+	border-right:1px solid #c00;
+}
+#menu .menuitem:hover {
+	background-image:none;
+	background-color:#c00;
+}
+
+#menu .menuitem ul li a {
+	color:#c00;
+	font-size:14px;
+	text-decoration:none;
+	display: block;
+	padding:5px 0px 3px 5px;
+	min-height:11px;
+	width:195px;
+	border-bottom:1px solid #EEE;
+	text-align: left;
+}
+#menu .menuitem ul li a:hover {
+	color:#FFF;
+}
+#menu .menuitem ul {
+	margin: 5px 0 0 -12px;
+	*margin:25px 0 0 -102px;
+	padding: 0 0 0 0;
+	list-style-type: none;
+	width:200px;
+	display:none;
+	position:absolute;
+	border: 1px solid #CCC;
+	/*border-bottom:1px solid #006633;
+  	border-left: 1px solid #006633;
+  	border-right:1px solid #006633; */
+    background-color:#FFF;
+	z-index:999;
+}
+#menu .menuitem ul li {
+	padding: 0 0 0 0;
+	border: 0px;
+	display: block;
+	float:left;
+}
+#menu .menuitem ul li:hover {
+  background-color:#c00;
+}
+
+
+#menu .menuitem2 ul {
+	margin:0 0 0 0;
+	border-left:none;
+	border-top:2px solid #1A5493;
+}
+
+#menu .menuitem2 ul li {
+    background-color:#FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+#rodape .menuprincipal:link { text-decoration:none; color:#FFF; font-family:'Century Gothic', Arial, 'Trebuchet MS'; font-weight:bold; font-size:12px;}
+#rodape .menuprincipal:visited { text-decoration:none; color:#FFF; font-family:'Century Gothic', Arial, 'Trebuchet MS'; font-weight:bold; font-size:12px;}
+#rodape .menuprincipal:hover { text-decoration:none; color:#FFF; font-family:'Century Gothic', Arial, 'Trebuchet MS'; font-weight:bold; font-size:12px; }
+
+
+#rodape .menuitem {
+	color:#FFF;
+	text-decoration:none;
+	padding:2px 0 0 4px;
+	margin:0 0 0 0;
+	float:left;
+	border-left:1px solid #06529D;
+	border-right:1px solid #06529D;
+	min-height:270px;
+	width:92px;
+	text-align:left;
+}
+
+#rodape .menuitem ul li a {
+	color:#C9E0D6;
+	font-size:10px;
+	text-decoration:none;
+}
+#rodape .menuitem ul li a:hover {
+	color:#FFF;
+	text-decoration:underline;
+}
+#rodape .menuitem ul {
+	padding: 0 0 0 0;
+	list-style-type: none;
+	width:92px;
+}
+#rodape .menuitem ul li {
+	padding:3px 0px;
+	border: 0px;
+	float:left;
+	width:92px;
+}
+#rodape .menuitem ul li:hover {
+}

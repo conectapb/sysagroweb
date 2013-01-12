@@ -1,0 +1,182 @@
+/********************
+*** GERAL
+*********************/
+body {
+  margin:0 0 0 0;
+  font-size:12px;
+  font-family: Arial, Verdana, Arial;
+  color:#333;
+  background-color:#FFF;
+  line-height:15px;
+}
+
+/********************
+*** TOPO
+*********************/
+#barra {
+	/* background-color:#F3F3F3; */
+	/*background-color:#28825D;  */
+	/* background-color:#008A17;  */
+	background-color:#004B8B;  
+	/*height:28px; padding-top:12px;*/
+	height:54px;
+	padding-top:2px;
+}
+
+div#barra-menu{
+ 	/* margin-top: -100px; */
+	width:960px; 
+	margin:auto;
+	border: 0px solid #c00;
+	height: 50px;
+}
+
+div#barra-menu ul{  
+	padding:0px;
+    margin:0px;
+    float: left;
+    width: 49%;
+    list-style:none;
+}
+
+div#barra-menu ul li  {
+  display: inline; 
+}
+
+div#barra-menu ul li a {
+    padding: 15px 10px;
+    float:left;
+    /* visual do link */
+    /* background-color:#EDEDED; */
+    color: #fff;
+    text-decoration: none;
+    border-bottom:3px solid #004B8B;
+}
+
+div#barra-menu ul li a:hover {
+    /* background-color: #fff; */
+    background-color: #00709F;
+    color: #fff;
+    /* color: #004B8B; */
+	/* color: rgba(00, 75, 139, .8); */
+    border-bottom:3px solid #fff;
+}
+
+
+div#barra-menu-right{
+ 	float:right; 
+ 	width:30%; 
+ 	font-weight:bold; 
+ 	/* background-color:#008A17; 
+ 	color:#FFF; */
+ 	margin-top: 30px;
+}
+
+div#barra-menu-right a{
+ 	 color:#FFF;
+ 	
+}
+
+
+/*
+div#barra-menu-item{
+	width:92px;
+	height:30px;
+	margin-top: -10px;
+	background-color:#FFF;
+	font-family:'Century Gothic', Arial, 'Trebuchet MS';
+	font-weight:bold;
+	font-size:16px;	
+	padding: 5px; 
+}
+*/
+#barra div div div {
+	display:block;
+	float:left;
+	padding:0 10px;
+	/* border-right:0px solid #666;
+	border-left: 0px solid #666; */
+}
+
+#topo {
+	text-align:left;
+	height:100px;
+	margin:0;
+}
+
+
+
+
+/********************
+*** PAGINA
+*********************/
+#pagina {
+  clear:both;
+  width:980px;
+  margin:auto;
+  padding:0;
+}
+
+
+
+/********************
+*** CORPO
+*********************/
+#corpo {
+	margin:0 8px;
+	border: 0px solid #c00;
+}
+
+/********************
+*** CENTRO
+*********************/
+#centro {
+	width:828px;
+	text-align:left;
+	float:left;
+	margin:5px 0;
+	border: 0px solid #c00;
+
+}
+
+#coluna_publicidade {
+	width:125px;
+	text-align:center;
+	float:right;
+	margin:5px 0;
+	 border: 2px solid #063;
+}
+
+
+
+/********************
+*** RODAPÉ
+*********************/
+#rodape {
+	margin:0;
+	padding-top:10px;
+	font-size:11px;
+	color:#FFF;
+	/* background-color:#1276BB; */
+	/* background-color:#F3F3F3; */
+	/*background-color:#28825D;  */
+	/* background-color:#008A17;  */
+	background-color:#004B8B;  
+	text-align:center;
+	z-index:1;
+}
+
+
+
+/********************
+*** POPUP
+*********************/
+#popup{
+	zzzwidth: 330px;
+	zzzheight: 340px;
+	position: absolute;
+	top: 220px;
+	left:30%;
+	zzzzoverflow:auto;
+	z-index:900;
+}

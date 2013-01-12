@@ -1,0 +1,89 @@
+	 <div class="pager" id="pager">
+                    <form action="">
+                        <div>
+                            <img class="first" src="<?php echo $this->baseUrl() ?>/images/icon/arrow-stop-180.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-stop-180.gif" alt="first"/>
+                            <img class="prev"  src="<?php echo $this->baseUrl() ?>/images/icon/arrow-180.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-180.gif" alt="prev"/>
+                            <input type="text" class="pagedisplay input-short align-center"/>
+                            <img class="next" src="<?php echo $this->baseUrl() ?>/images/icon/arrow.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow.gif" alt="next"/>
+                            <img class="last" src="<?php echo $this->baseUrl() ?>/images/icon/arrow-stop.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-stop.gif" alt="last"/>
+                            <select class="pagesize input-short align-center">
+                                <option value="10" selected="selected">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-apply">
+                    <form action="">
+                        <div>
+                            <span>opciones:</span>
+                            <select class="input-medium">
+                                <option value="" selected="selected">Selecione</option>
+                                <option value="show">Show</option>
+                                <option value="editar">Editar</option>
+                                <option value="excluir">Excluir</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div style="clear: both"></div>
+            </div> <!-- End .module-table-body -->
+        </div> <!-- End .module -->
+
+	<div class="pagination">
+           <!-- Link para a primeira página -->
+	   <?php if (isset($this->previous)): ?>
+			
+			 <a href="<?php echo $this->url(array('pagina' => $this->first)); ?>" class="button">
+			 <span>
+			 <img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-stop-180-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-stop-180-small.gif" height="9" width="12" alt="First" />Primero
+			 </span>
+			 </a>
+			<?php else: ?>
+			<a href="<?php echo $this->url(array('pagina' => $this->first)); ?>" class="button">
+			 <span>
+			 <img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-stop-180-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-stop-180-small.gif" height="9" width="12" alt="First" />Primero
+			 </span>
+			 </a>
+			<?php endif; ?>
+			
+			<!-- Link para a página anterior -->
+			<?php if (isset($this->previous)): ?>
+			<a href="<?php echo $this->url(array('pagina' => $this->previous)); ?>" class="button"><span><img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-180-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-180-small.gif" height="9" width="12" alt="Previous" />Anterior</span></a>
+			<?php else: ?>
+			<a href="<?php echo $this->url(array('pagina' => $this->previous)); ?>" class="button"><span><img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-180-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-180-small.gif" height="9" width="12" alt="Previous" />Anterior</span></a>
+			<?php endif; ?>
+			<div class="numbers">
+                                <span>Pagina:</span>
+				 <!-- Links numerados -->
+                                <?php foreach ($this->pagesInRange as $page): ?>
+                                <?php if ($page != $this->current): ?>
+                                <a title="<?php echo $page; ?>" href="<?php echo $this->url(array('pagina' => $page)); ?>"><?php echo $page; ?></a>|
+                                <?php else: ?>
+                                <a class="current" title="<?php echo $page; ?>" href="<?php echo $this->url(array('pagina' => $page)); ?>"><?php echo $page; ?></a>|
+                                <?php endif; ?>
+                                <?php endforeach; ?>
+                                <span>...</span>
+                        </div>
+            
+			<!-- Link para a próxima página -->
+			<?php if (isset($this->next)): ?>
+				<a href="<?php echo $this->url(array('pagina' => $this->next)); ?>" class="button"><span>Proximo<img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-000-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-000-small.gif" height="9" width="12" alt="Next" /></span></a>
+			<?php else: ?>
+				<a href="<?php echo $this->url(array('pagina' => $this->next)); ?>" class="button"><span>Proximo<img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-000-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-000-small.gif" height="9" width="12" alt="Next" /></span></a>
+			<?php endif; ?>
+			
+			
+			<!-- última página -->
+			<?php if (isset($this->next)): ?>
+				<a href="<?php echo $this->url(array('pagina' => $this->last)); ?>" class="button last"><span>Ultimo <img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-stop-000-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-stop-000-small.gif" height="9" width="12" alt="Last" /></span></a>
+			<?php else: ?>
+				<a href="<?php echo $this->url(array('pagina' => $this->last)); ?>" class="button last"><span>Ultimo <img src="<?php echo $this->baseUrl() ?>/images/icon/arrow-stop-000-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/arrow-stop-000-small.gif" height="9" width="12" alt="Last" /></span></a>
+			<?php endif; ?>
+        <div style="clear: both;"></div>
+    </div>
+
+
+ 

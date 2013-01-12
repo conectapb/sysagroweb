@@ -1,0 +1,41 @@
+<?php echo $this->partial('comun/msg_construcao.phtml'); ?> 
+<?php echo $this->render('comun/menu_principal.phtml') ?>
+<div id='wrapper'>
+    <?php echo $this->partial('comun/menu_banner.phtml'); ?>	
+    <div id='red-bg'><!--Begin red-bg box -->   
+       <!--black content box -->
+       <div id='top-box'></div>
+         <div id='middle-box'><!--Begin middle-box box -->  
+            <div id="spacer"></div>
+            <div id="spacer"></div>
+            <div id="content_form"><!--Begin content_form -->  
+             <h1>An error occurred</h1>
+                <h2><?php echo $this->message ?></h2>
+                 <?php if (isset($this->exception)): ?>
+
+                <h3>Exception information:</h3>
+                <p>
+                    <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+                </p>
+
+                <h3>Stack trace:</h3>
+                <pre>
+                    <?php echo $this->exception->getTraceAsString() ?>
+                </pre>
+
+                <h3>Request Parameters:</h3>
+                <pre>
+                    <?php echo var_export($this->request->getParams(), true) ?>
+                </pre>
+            <?php endif ?>
+           </div><!--End content_form -->  
+        
+            <div id="copy">
+              <span>Registrate - para participar de premios y eventos</span> by
+              <div id="spacer"></div>
+              <a href="<?php echo $this->url(array('controller'=>'Contato','action'=>'registro'));?>">click aqu&iacute;...</a>
+            </div>
+        <div style="clear:both;"></div>
+        <div style="clear:both;"></div>
+     </div><!--End middle-box box -->  
+    </div><!--Begin red-bg box -->       
