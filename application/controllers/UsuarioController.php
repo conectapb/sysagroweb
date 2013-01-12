@@ -3,11 +3,6 @@
 /**
  * @see Zend_Paginator_Adapter_DbSelect
  */
-
-
-//
-// testando subversion do netbeans
-//
 //require_once 'Zend/Paginator/Adapter/DbSelect.php';
 
 /**
