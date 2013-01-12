@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Jan 12, 2013 as 12:00 PM
+-- Tempo de Geração: Jan 12, 2013 as 02:13 PM
 -- Versão do Servidor: 5.1.41
 -- Versão do PHP: 5.3.1
 
@@ -999,25 +999,21 @@ INSERT INTO `site_vagas_empregos` (`id`, `codigo`, `vaga`, `descricao`, `benefic
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(9) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '1',
-  `created_ip` varchar(255) NOT NULL,
-  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_logged_ip` varchar(255) DEFAULT NULL,
-  `last_logged_on` timestamp NULL DEFAULT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`user_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `salt` varchar(50) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `date_created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `status`, `created_ip`, `created_on`, `last_logged_ip`, `last_logged_on`, `admin`) VALUES
-(1, 'Axel', 'axel_nomore@hotmail.com', 'axel', 1, '127.0.0.1', '2012-11-15 19:18:58', '127.0.0.1', '2012-11-15 19:18:58', 0);
+INSERT INTO `users` (`id`, `username`, `password`, `salt`, `role`, `date_created`) VALUES
+(1, 'axel', 'eb7da2365c1e4c6920704868072bb0f24c88cc3f', '6804a56d7db90ccad4bdb3df4bf2f390a265aa12', 'Administrador', '2012-09-01 00:00:00');
 
 -- --------------------------------------------------------
 
