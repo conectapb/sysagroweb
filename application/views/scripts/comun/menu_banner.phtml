@@ -1,0 +1,37 @@
+ <div id='banner'><!-- Begin banner -->
+    <div id='menu'><!-- Begin menu -->
+        <div class='menu-btn'>
+          <a href="<?php echo $this->url(array('controller'=>'Index','action'=>'index'), null, true);?>">Home</a>
+        </div>
+        <div class='menu-btn' style="margin-left:10px;">
+           <a href="<?php echo $this->url(array('controller'=>'Sobre','action'=>'sobre'), null, true);?>">Sobre</a>
+        </div>
+        <div class='menu-btn' style="margin-left:15px;">
+           <a href="<?php echo $this->url(array('controller'=>'Evento','action'=>'listar'), null, true);?>">Eventos</a>
+        </div>
+        <div class='menu-btn' style="margin-left:10px;">
+           <a href="<?php echo $this->url(array('controller'=>'Musica','action'=>'player'), null, true);?>">Player</a>
+        </div>
+        <div class='menu-btn'>
+            <a href="<?php echo $this->url(array('controller'=>'Contato','action'=>'index'), null, true);?>">Contato</a>			 
+        </div>
+        
+        
+     </div> <!-- End menu -->          
+            
+            <div id='main-img' style="border:0px solid #CCC; background: url('<?php echo $this->baseUrl()?>/css/home/dj/main-img.jpg') top left no-repeat;">
+            	<div id='logo'>
+                    <!-- <img alt="" src="<?php echo $this->baseUrl()?>/css/home/dj/logo1.png"/> -->
+                </div>
+            </div>
+            <div style="clear:both;"></div>       
+            <div>
+              <a style="display:scroll;position:fixed;center:5px;left:5px;" href="https://www.facebook.com/derlis.paredes" title="facebook">
+                 <img alt="" src="<?php echo $this->baseUrl()?>/images/icon/fb.png" border="0"/>
+              </a>
+              <br/><br/>
+               <a style="display:scroll;position:fixed;center:5px;left:5px;" href="#" title="siga em twitter">
+                 <img alt="" src="<?php echo $this->baseUrl()?>/images/icon/twitter_icon.png" border="0"/>
+               </a>
+            </div>
+   </div><!-- End banner -->

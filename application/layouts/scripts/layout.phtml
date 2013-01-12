@@ -1,0 +1,552 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="title" content="Portal do Agronegócio" />
+<meta name="description" content="Portal do Agronegócio - Notícias, Eventos, Artigos e tudo sobre o agronegócio brasileiro e mundial" />
+<meta name="language" content="Portugues" />
+<meta http-equiv="content-language" content="pt-br" />
+<meta name="copyright" content="Portal do Agronegócio" /> 
+<meta name="keywords" content="agronegocio, agrobusiness, agropecuária, agropecuaria, agroindustriais, flores, leite, produção, biodiesel, apicultura, apicultura, copo de leite, minhocario, minhocario, minhocas, minhocas, transgênicos, biotecnologia" />
+<meta name="author" content="Desenvolvimento: Axel Alexander" />
+<meta name="reply-to" content="fred@portaldoagronegocio.com.br" />
+<meta name="Resource-type" content="document" />
+<meta name="Distribution" content="local" />
+<meta name="DateCreated" content="20/01/2004" />
+<meta name="Revisit-after" content="1" />
+
+<title>Portal do Agroneg&oacute;cio - Not&iacute;cias, Eventos, Artigos e tudo sobre o agroneg&oacute;cio brasileiro e mundial</title>
+
+<base href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/" />	
+<link href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/icon/agro.png" type="image/png" rel="shortcut icon" />
+
+<link rev="made" href="mailto:axelpatton@gmail.com" /> 
+<link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/reset.css" type="text/css" />
+<link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/layout.css" type="text/css" />
+<link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/estilo.css" type="text/css" />
+<link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/menu.css" type="text/css" />
+
+<!--
+<link rel="alternate" type="application/rss+xml" title="Portal do Agronegócio" href="http://www.portaldoagronegocio.com.br/rss.xml" />
+-->
+
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/js/AC_RunActiveContent.js" type="text/javascript"></script>
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/chili-1.7.pack.js" type="text/javascript"></script>
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.cycle.all.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.validate.js"></script>
+
+<!-- 
+*** FANCYBOX
+-->
+<link type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/css/jquery.fancybox-1.3.1.css" rel="stylesheet" media="screen" />
+
+<script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.fancybox-1.3.1.pack.js"></script>
+
+<script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.easy-ticker.js"></script>
+
+
+
+
+<script>
+$(document).ready(function() {
+	
+   // Menu
+	$('#menu .menuitem').mouseenter(function(event) {
+		$('> ul', this).fadeIn();
+	}).mouseleave(function(event) {
+		$('> ul', this).fadeOut('fast');
+	});
+
+	//FormAjax
+	$(".formAjax").submit(function(event) {
+		  idretorno = $(this).attr('name');					   
+		  $.ajax({
+			 type: "POST",
+			 url: $(this).attr('action'),
+			 data: $(this).serialize(),
+			 beforeSend: function(){$('.enviando', this).html("enviando...");},
+			 success: function(data){
+				 $('.enviando').hide("slow");
+				 $(idretorno).html(data);
+			}
+		   });
+	});	
+
+	//atualizar = window.setTimeout(function(){window.location.reload()}, 300000);
+
+
+});
+</script>
+
+
+
+
+<!-- 
+*** ANALYTICS
+-->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1031947-1"; urchinTracker();
+</script>
+
+</head>
+<body>
+<div align="center">
+
+<!-- 
+<div id="barra-menu-dentro">
+                <div id="barra-menu-item">
+                	<a href="#">Inicio</a>
+                </div>
+                <div class="noticias">
+                	<a href="#">not&iacute;cias</a>
+                </div>
+                <div class="eventos">
+                	<a href="#">eventos</a>
+                </div>
+                <div class="artigos" style="border-right:none">
+                	<a href="#">artigos</a>
+                </div>
+            </div>
+            <div style="float:right; width:30%; font-weight:bold; color:#666">
+            	<div>
+            		<a href="#" class="barra-gray">contato</a>
+            	</div>
+            	<div>
+            		<a href="#" class="barra-gray">anuncie conosco</a>
+            	</div>
+            	<div>
+            		<a href="#" class="barra-gray">consultoria</a>
+            	</div>
+            </div>
+-->
+	<div id="barra"><!-- Begin barra --> 
+        <div id="barra-menu">    
+            <ul>
+                <li>
+                	<a href="#">Inicio</a>
+                </li>
+                  <li>
+                	<a href="#">Not&iacute;cias</a>
+                </li>
+                  <li>
+                	<a href="#">Eventos</a>
+                </li>
+                 <li>
+                	<a href="#">Artigos</a>
+                </li>
+                <li>
+                	<a href="#">Contato</a>
+                </li>
+            </ul>
+            <div id="barra-menu-right">
+            	<div>
+            		<a href="#" >Registre-se</a>
+            	</div>
+            	<div>
+            		<a href="#">anuncie conosco</a>
+            	</div>
+            	<div>
+            		<a href="#">consultoria</a>
+            	</div>
+            </div>
+        </div>
+    </div><!-- end barra --> 
+    
+    <div id="pagina"><!-- Begin pagina -->   
+		<div id ="pagina-dentro"><!-- Begin pagina dentro -->   
+            <script type="text/javascript">
+				AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','728','height','90','title','Banner','src','flash/publicidade','quality','high','wmode','transparent','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','scale','exactfit','wmode','transparent','movie','flash/publicidade' ); //end AC code
+			</script>
+		  
+			<noscript>
+			  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="728" height="90" title="Banner">
+				<param name="movie" value="/flash/publicidade.swf" />
+				<param name="quality" value="high" />
+				<param name="SCALE" value="exactfit" />
+				<param name="wmode" value="transparent" />
+				<embed src="/flash/publicidade.swf" width="728" height="90" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" scale="exactfit" wmode="transparent">
+				</embed>
+			</object>
+		  </noscript>
+		</div><!-- end pagina dentro -->
+        
+		<div class="linha-azul" ></div>
+		
+		<div id="topo"><!-- begin toto img form -->
+			<a href="#">
+				<img src="imagens/portaldoagronegocio.jpg" alt="Portal do Agronegócio" title="Portal do Agronegócio" class="img-topo" />
+			</a>
+			
+			<div id="div-span-titulo-1">
+            	<span class="span-titulo-1">Nutribem Produtos Agropecu&aacute;rios</span>
+            </div>
+
+            <div id="topo-form">
+            	<form action="#" method="get">
+                	<input type="text" name="palavra" value="" class="imput-pesquisa" /> 
+					<input type="submit" value="BUSCAR" class="btn-pesquisa" /> 
+                 </form>
+                 <br />
+                 <a href="http://twitter.com/agronegociobr" target="_blank">
+                  <img src="imagens/twitter.jpg" alt="Twitter" title="Twitter" class="topo-twitter"/>
+                 </a>
+            </div>
+        </div><!-- end toto img form -->
+        		
+        	<div id="corpo"><!-- Begin corpo -->
+
+					<div id="menu"><!--Begin menu horizontal -->
+					    <ul>
+								<li class="menuitem" style="border-left:none">
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Agroneg&oacute;cio
+									</a>
+									<ul>
+										
+										<li><a href="#">&raquo; Sobre</a></li>	
+										<li><a href="#">&raquo; Nossa Hist&oacute;ria</a></li>
+										<li><a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'texto', 'rotulo' => 'agronegocio'), null , true); ?>">&raquo;
+											O que &eacute;?</a></li>	
+										<li><a href="#">&raquo; Porque investir?</a></li>
+										<li><a href="#">&raquo; O complexo</a></li>
+										<li><a href="#" target="_blank">&raquo; Dados do Governo</a></li>
+										<li><a href="#">&raquo; Indicadores</a></li>
+										<li><a href="#">&raquo; Estat&iacute;sticas</a></li>
+										<li><a href="#">&raquo; Oportunidades</a></li>
+										<li><a href="#">&raquo; Entrevistas</a></li>
+										<li><a href="#">&raquo; Eventos</a></li>
+										<li><a href="#">&raquo; Artigos</a></li>
+										<li><a href="#">&raquo; Not&iacute;cias</a></li>
+									</ul>
+								</li>
+								<li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Mercado financeiro
+									</a>
+									<ul>
+										<li><a href="#">&raquo; An&aacute;lise de Mercado</a></li>
+										<li><a href="#">&raquo; Economia</a></li>
+										<li><a href="#">&raquo; Cr&eacute;dito Rural</a></li>
+									</ul>
+								</li>            
+								<li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Agroenergia
+									</a>
+									<ul>
+										<li><a href="#">&raquo; Biodiesel</a></li>
+										<li><a href="#">&raquo; Etanol</a></li>
+										<li><a href="#">&raquo; Outros</a></li>
+							 		</ul>
+							 	</li>
+							
+
+								<li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Agricultura
+									</a>
+									<ul>
+										<li><a href="#">&raquo; Algod&aacute;o</a></li>
+										<li><a href="#">&raquo; Arroz</a></li>
+										<li><a href="#">&raquo; Caf&eacute;</a></li>
+										<li><a href="#">&raquo; Cana de a&ccedil;&uacute;car</a></li>
+										<li><a href="#">&raquo; Feij&aacute;o</a></li>
+										<li><a href="#">&raquo; Flores</a></li>
+										<li><a href="#">&raquo; Fruticultura</a></li>
+										<li><a href="#">&raquo; Milho e sorgo</a></li>
+										<li><a href="#">&raquo; Pragas e doen&ccedil;as</a></li>
+										<li><a href="#">&raquo; Soja</a></li>
+										<li><a href="#">&raquo; Trigo</a></li>
+										<li><a href="#">&raquo; Outros</a></li>
+									</ul>
+								</li>
+
+
+								<li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Pecu&aacute;ria
+									</a>
+									<ul>
+										<li><a href="#">&raquo; Apicultura</a></li>
+										<li><a href="#">&raquo; Aquicultura e Piscicultura</a></li>
+										<li><a href="#">&raquo; Avicultura</a></li>
+										<li><a href="#">&raquo; Bovinos (corte)</a></li>
+										<li><a href="#">&raquo; Bovinos (leite)</a></li>
+										<li><a href="#">&raquo; Caprinos e ovinos</a></li>
+										<li><a href="#">&raquo; Equ&iacute;deos</a></li>
+										<li><a href="#">&raquo; Nutri&ccedil;&acirc;o animal</a></li>
+										<li><a href="#">&raquo; Pastagem</a></li>
+										<li><a href="#">&raquo; Sa&uacute;de animal</a></li>
+										<li><a href="#">&raquo; Su&iacute;nos</a></li>
+										<li><a href="#">&raquo; Outros</a></li>
+									</ul>
+								</li>
+							
+								<li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Pol&iacute;tica rural
+									</a>
+									<ul>
+									   <li><a href="#">&raquo; Agricultura familiar</a></li>
+									   <li><a href="#">&raquo; Administra&ccedil;&acirc;o rural</a></li>
+									   <li><a href="#">&raquo; Capacita&ccedil;&acirc;o</a></li>
+									   <li><a href="#">&raquo; Certifica&ccedil;&acirc;o</a></li>
+									   <li><a href="#">&raquo; Direito agr&aacute;rio</a></li>
+									   <li><a href="#">&raquo; Governo</a></li>
+									   <li><a href="#">&raquo; Outros</a></li>
+									</ul>
+							    </li>
+						   
+							   	<li class="menuitem">
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Setor florestal
+									</a>
+									<ul>
+								   		<li><a href="#">&raquo; Agroflorestal</a></li>
+								   		<li><a href="#">&raquo; Outros</a></li>
+									</ul>
+							    </li>
+							    <li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Ecologia
+									</a>
+									<ul>
+										<li><a href="#">&raquo; Meio ambiente</a></li>
+										<li><a href="#">&raquo; Org&acirc;nico</a></li>
+										<li><a href="#">&raquo; Turismo rural</a></li>
+									</ul>
+								</li>
+							
+								<li class="menuitem" >
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Tecnologia
+									</a>
+									<ul>
+										<li><a href="#">&raquo; Divulga&ccedil;&acirc;o Cient&iacute;fica</a></li>
+										<li><a href="#">&raquo; Agric. de precis&acirc;o</a></li>
+										<li><a href="#">&raquo; Biotecnologia</a></li>
+										<li><a href="#">&raquo; Informa&ccedil;&acirc;o</a></li>
+										<li><a href="#">&raquo; Inform&aacute;tica</a></li>
+										<li><a href="#">&raquo; Transg&ecirc;nicos</a></li>
+										<li><a href="#">&raquo; Outros</a></li>
+									</ul>
+								</li>
+						
+								<li class="menuitem" style="border-right:none">
+									<a href="#" class="menuprincipal" onclick="return false;">
+										Setor agroindustrial
+									</a>
+									<ul>
+										<li><a href="#">&raquo; Frigor&iacute;ficos</a></li>
+										<li><a href="#">&raquo; Latic&iacute;nios</a></li>
+										<li><a href="#">&raquo; M&aacute;quinas e Implementos</a></li>
+										<li><a href="#">&raquo; Processamento</a></li>
+										<li><a href="#">&raquo; Outros</a></li>
+									</ul>
+							  </li>
+					 	
+					 	</ul>
+					</div> <!-- end menu -->
+			
+					<div id="centro"><!-- Begin centro -->
+						
+						<!-- corpo noticias--> 
+						 <?php echo $this->layout()->content?>
+
+					</div><!-- end centro -->
+					
+					
+					<div id="coluna_publicidade"><!-- Begin coluna_publicidade -->
+						<h2>Parceiros</h2><br />
+						<div style="height:520px; overflow:hidden;">
+								<a href="cliquepublicidade.php?id=100" target="_blank" style="padding:0; background:none;">      
+									<img src="imagens/pu_125_60_295596544.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+								</a>   
+								<br />
+								<br />
+									<a href="cliquepublicidade.php?id=145" target="_blank" style="padding:0; background:none;">      
+										<img src="imagens/pu_125_60_545757165.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+									</a>   
+								<br />
+								<br />
+									<a href="cliquepublicidade.php?id=155" target="_blank" style="padding:0; background:none;">      
+										<img src="imagens/pu_1702_1809437899.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+									</a>   
+								<br />
+								<br />
+									<a href="cliquepublicidade.php?id=98" target="_blank" style="padding:0; background:none;">      
+										<img src="imagens/pu_125_60_1938485379.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+									</a>   
+								<br /><br />
+									<a href="cliquepublicidade.php?id=99" target="_blank" style="padding:0; background:none;">      
+										<img src="imagens/pu_125_60_382467053.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+									</a>   
+								<br /><br />
+									<a href="cliquepublicidade.php?id=163" target="_blank" style="padding:0; background:none;">      
+										<img src="imagens/pu_2905_1414159813.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+									</a>   
+								<br /><br />
+						</div>
+
+
+
+
+						<style>
+							#expande_fox {
+							width:300px;
+							overflow:hidden;
+							position:absolute;
+							z-index:99;
+							margin-left:-175px
+							}
+						</style>
+						<div style='width:125px; height:600px'>
+							<!-- <div id="expande_fox">
+								<script type="text/javascript">
+								AC_FL_RunContent('codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','300','height','600','title','Banner','src','flash/publicidade','quality','high','wmode','transparent','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','scale','exactfit','wmode','transparent','movie','flash/publicidade' ); //end AC code
+								</script>
+							</div>-->
+						</div>
+						<hr />
+						   <a href="cliquepublicidade.php?id=153" target="_blank" style="padding:0; background:none;">      
+						   <img src="imagens/pu_0102_970790029.jpg" width="125" height="400" border="0" alt="Banner" style="margin:0;" />  
+						  </a>   
+						<hr />
+						<hr />
+						
+					</div><!-- end coluna_publicidade -->
+					
+
+					<div style="clear:both"></div>
+			</div> <!-- end corpo -->   
+			
+		<div style="clear:both"></div>
+    
+    </div><!-- end pagina --> 
+	
+	<div id="rodape">
+        <div style="width:980px; margin:auto;">    
+        <ul>
+        <li class="menuitem" style="border-left:none"><a href="#" class="menuprincipal" onclick="return false;">agroneg&oacute;cio</a>
+        	<ul>
+                <li><a href="<?php echo $this->url(array('controller'=>'Texto','action'=>'texto','rotulo' =>'agronegocio'), null , true); ?>">&raquo;O que &eacute;?</a></li>
+				<li><a href="#">&raquo; Indicadores</a></li>
+                <li><a href="#">&raquo; Estat&iacute;sticas</a></li>
+                <li><a href="#">&raquo; Oportunidades</a></li>
+                <li><a href="#">&raquo; Entrevistas</a></li>
+                <li><a href="#">&raquo; Eventos</a></li>
+                <li><a href="#">&raquo; Artigos</a></li>
+                <li><a href="#">&raquo; Not&iacute;cias</a></li>
+            </ul>
+        </li>
+		<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">mercado financeiro</a>
+			<ul>
+				<li><a href="#">&raquo; An&aacute;lise de Mercado</a></li>
+				<li><a href="#">&raquo; Economia</a></li>
+				<li><a href="#">&raquo; Cr&eacute;dito Rural</a></li>
+			</ul>
+		</li>
+			<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">agroenergia</a>
+			<ul>
+				<li><a href="#">&raquo; Biodiesel</a></li>
+				<li><a href="#">&raquo; Etanol</a></li>
+				<li><a href="#">&raquo; Outros</a></li>
+			</ul>
+			</li>
+			<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">agricultura</a>
+			<ul>
+				<li><a href="#">&raquo; Algod&otilde;o</a></li>
+				<li><a href="#">&raquo; Arroz</a></li>
+				<li><a href="#">&raquo; Caf&eacute;</a></li>
+				<li><a href="#">&raquo; Cana de a&ccedil;&uacute;car</a></li>
+				<li><a href="#">&raquo; Feij&atilde;o</a></li>
+				<li><a href="#">&raquo; Flores</a></li>
+				<li><a href="#">&raquo; Fruticultura</a></li>
+				<li><a href="#">&raquo; Milho e sorgo</a></li>
+				<li><a href="#">&raquo; Pragas e doen&ccedil;as</a></li>
+				<li><a href="#">&raquo; Soja</a></li>
+				<li><a href="#">&raquo; Trigo</a></li>
+				<li><a href="#">&raquo; Outros</a></li>
+			</ul>
+			</li>            
+			<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">pecu&aacute;ria</a>
+			<ul>
+				<li><a href="#">&raquo; Apicultura</a></li>
+				<li><a href="#">&raquo; Aquicultura e Piscicultura</a></li>
+				<li><a href="#">&raquo; Avicultura</a></li>
+				<li><a href="#">&raquo; Bovinos (corte)</a></li>
+				<li><a href="#">&raquo; Bovinos (leite)</a></li>
+				<li><a href="#">&raquo; Caprinos e ovinos</a></li>
+				<li><a href="#">&raquo; Equ&iacute;deos</a></li>
+				<li><a href="#">&raquo; Nutri&ccedil;&atilde;o animal</a></li>
+				<li><a href="#">&raquo; Pastagem</a></li>
+				<li><a href="#">&raquo; Sa&uacute;de animal</a></li>
+				<li><a href="#">&raquo; Su&iacute;nos</a></li>
+				<li><a href="#">&raquo; Outros</a></li>
+			</ul>
+			</li>            
+			<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">pol&iacute;tica rural</a>
+			<ul>
+				<li><a href="#">&raquo; Agricultura familiar</a></li>
+				<li><a href="#">&raquo; Administra&ccedil;&atilde;o rural</a></li>
+				<li><a href="#">&raquo; Capacita&ccedil;&atilde;o</a></li>
+				<li><a href="#">&raquo; Certifica&ccedil;&atilde;o</a></li>
+				<li><a href="#">&raquo; Direito agr&aacute;rio</a></li>
+				<li><a href="#">&raquo; Governo</a></li>
+				<li><a href="#">&raquo; Outros</a></li>
+			</ul>
+			</li>            
+				<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">setor florestal</a>
+			<ul>
+				<li><a href="#">&raquo; Agroflorestal</a></li>
+			</ul>
+			</li>            
+			<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">ecologia</a>
+			<ul>
+				<li><a href="#">&raquo; Meio ambiente</a></li>
+				<li><a href="#">&raquo; Org&atilde;nico</a></li>
+				<li><a href="#">&raquo; Turismo rural</a></li>
+			</ul>
+			</li>            
+			<li class="menuitem" ><a href="#" class="menuprincipal" onclick="return false;">tecnologia</a>
+			<ul>
+                <li><a href="#">&raquo; Divulga&ccedil;&acirc;o Cient&iacute;fica</a></li>
+				<li><a href="#">&raquo; Agric. de precis&atilde;o</a></li>
+				<li><a href="#">&raquo; Biotecnologia</a></li>
+				<li><a href="#">&raquo; Informa&ccedil;&atilde;o</a></li>
+				<li><a href="#">&raquo; Inform&aacute;tica</a></li>
+				<li><a href="#">&raquo; Transg&ecirc;nicos</a></li>
+				<li><a href="#">&raquo; Outros</a></li>
+			</ul>
+			</li>
+			<li class="menuitem" style="border-right:none"><a href="#" class="menuprincipal" onclick="return false;">setor agroindustrial</a>
+			<ul>
+				<li><a href="#">&raquo; Frigor&iacute;ficos</a></li>
+				<li><a href="#">&raquo; Latic&iacute;nios</a></li>
+				<li><a href="#">&raquo; M&aacute;quinas e Implementos</a></li>
+				<li><a href="#">&raquo; Processamento</a></li>
+				<li><a href="#">&raquo; Outros</a></li>
+			</ul>
+         </li>
+      </ul>
+            <br clear="all" /><br />
+            <h1><a href="index.php" class="link">Nutribem Produtos Agropecu&aacute;rios</a></h1>   
+            <a href="http://www.centev.ufv.br" target="_blank" class="link">Empresa Vinculada a Incubadora de Empresas de Base Tecnológica do CENTEV/UFV</a>
+            - Rua Manuel Clemente 126, Bom Jesus, Viçosa MG, 36570-000      
+            <br /><br />
+            <div style="color:#4A7">
+            2001 - 2011 - Todos os direitos reservados - Política de Privacidade - <a href="http://www.ronnandelrey.com.br" target="_blank" style="color:#4A7">Desenvolvido por Ronnan del Rey</a><br />
+            As informações e conteúdos deste site originam-se de fontes confiáveis, porém o Portal do Agronegócio não garante e nem se responsabiliza pela sua precisão, integridade e confiabilidade, e seu uso para qualquer propósito específico, assim como por lucros cessantes, reclamações de terceiros e danos diretos e indiretos causados por usos das mesmas.            
+            </div>
+        </div>
+        <br clear="all"/>
+    </div>   
+
+</div>
+</body>
+</html>

@@ -1,0 +1,491 @@
+	<div id="coluna-noticia-left"><!-- Begin coluna noticias-->
+
+		<h1 class="title-noz-red">
+			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">				Noticia Principal				
+			</a>
+		</h1>
+
+		<div class="linha-blue"></div>
+			<?php foreach ($this->dados AS $key => $item): ?>
+			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>">
+			    <div class="imagem-Home1">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+				</div>
+			</a>
+			
+			<h6><?php echo $item['titulo'] ?></h6>
+			<h2>
+				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 
+			    'id' => $item['id'] ), null , true); ?>" class="link2-vermelho" >
+			    	<?php echo $item['comentario'] ?>
+			    </a>		
+			</h2>
+			<div class="linha-blue-2"></div>
+			<?php endforeach; ?>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.pequaria-slider').easyTicker({
+						direction: 'up'
+					});
+				});
+			</script>
+
+			<h1 class="title-noz-red">
+				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+					Pecu&aacute;ria	
+				</a>
+			</h1>
+
+			<div class="pequaria-slider"> <!-- Begin new slide 1 -->	
+				<div style="position: absolute; margin: 0px; top: 0px;"> <!-- Begin new slide  -->
+			 	   <?php foreach ($this->pecuaria AS $key => $item): ?>
+					<div>	
+						<a href="">
+							<div class="imagem-Home1">
+								<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+							</div>
+						</a>
+						<h6><?php echo $item['titulo'] ?></h6>
+							<h2>
+								<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-vermelho" >
+				    				<?php echo $item['comentario'] ?>
+				    			</a>	
+							</h2>
+				    </div>
+				  <?php endforeach ?>		
+				</div>	<!-- end new slide  -->
+			</div><!-- end new slide 1  -->
+
+
+			<div class="linha-blue-2"></div>
+		
+			<!-- session box 2x2 Economia -->
+			
+			<h1 class="title-noz-red">
+				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+					Agricultura
+				</a>
+			</h1>
+			<?php foreach ($this->agricultura AS $key => $item): ?>
+			<div id="coluna-noticia-right-box">
+				  
+				<a href="">
+					<div class="imagem-Home1">
+						<img src="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+					</div>
+				</a>
+				<h6><?php echo $item['titulo'] ?></h6>
+					<h2 style="font-size:12px">
+					<p><a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-pecuaria" >
+			    				<?php echo $item['titulo'];?>
+			    	</a></p>	
+				</h2>
+
+			</div>
+			<?php endforeach ; ?>	
+			<!--<div id="coluna-noticia-right-box">
+				<a href="">
+				<div class="imagem-Home1">
+						<img src="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+				</div>
+				</a>
+				<h6>Economia</h6>
+				<h2 style="font-size:12px">
+					<a href="" class="link2" title="">
+						Dado é em comparação com o trimestre anterior. Em relação ao terceiro trimestre de 2011, o PIB apresentou alta de 0,9%					
+					</a>
+				</h2>
+			</div> -->
+		
+			<br>
+			<div class="linha-blue-2"></div>
+			<!-- session box 2x2 Agronegócio -->
+			<h1 class="title-noz-red">
+				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+					Agroneg&oacute;cio				
+				</a>
+			</h1>
+			
+			<?php foreach ($this->agronegocio AS $key => $item): ?>
+			<div id="coluna-noticia-right-box">
+				  
+				<a href="">
+					<div class="imagem-Home1">
+						<img src="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+					</div>
+				</a>
+				<h6><?php echo $item['titulo'] ?></h6>
+					<h2 style="font-size:12px">
+					<p><a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-pecuaria" >
+			    				<?php echo $item['titulo'];?>
+			    	</a></p>	
+				</h2>
+
+			</div>
+			<?php endforeach ; ?>	
+			<div class="linha-blue-2"></div>
+	</div><!-- end coluna noticias-->
+						
+	<div id="coluna-noticia-right"><!-- Begin coluna-noticia-right--> 
+			
+		<h1 class="title-noz-verde">
+				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+					Agroneg&oacute;cio				
+				</a>
+		</h1>
+
+		<div id="navslide"></div>            
+			<!-- Begin cyclenews -->
+			<div id="cyclenews">
+				<?php foreach ($this->slider AS $key => $item): ?>	
+				<div id="cyclenews-dentro">
+					<a href="">
+						<div class="imagem-slider">
+							<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/agro.jpg" width="291px" height="190px" >
+						</div>	
+					</a>
+					<h6><?php echo $item['titulo'] ?></h6>
+					<h2>
+						<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-verde" 
+							title="Noticias do agronegócio">
+							<?php echo $item['comentario'] ?>
+						</a>
+					</h2>
+				</div>
+				<?php endforeach; ?>
+				<!--
+				<div style="height:283px;">
+					<a href="">
+						<div class="imagemHome3" style="background-image:url(http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/semfoto.jpg)"></div>	
+					</a>
+					<h6>Agricultura familiar</h6>
+					<h2>
+						<a href="" class="link2" title="">
+							Slider da noticia 5
+						</a>
+					</h2>
+				</div>-->								
+			</div>
+			<!-- end cyclenews -->
+			<script>
+				$(document).ready(function() { 
+					$('#cyclenews').cycle({fx:'scrollDown',speed:500, delay:3000,pager:'#navslide'});
+				});  
+			</script>
+	
+			<div class="linha-blue-2"></div>
+
+			<div id ="coluna-noticia-right-box-economia">
+				<h1 class="title-noz-verde">
+					<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+						Economia			
+					</a>
+				</h1>
+					<?php foreach ($this->economia AS $key => $item): ?>	
+					<div class="imagem-economia">
+						<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/agro.jpg" width="291px" height="190px" >
+					</div>	
+						<h6><?php echo $item['titulo'] ?></h6>
+						<h2>
+							<a href="<?php echo $this->url(array('controller'=>'noticia','action'=>'read','id'=>$item['id']), null , true); ?>" class="link2-verde" title="Noticias do agronegócio">
+								<?php echo $item['titulo'] ?>
+							</a>
+						</h2>
+						<div class="linha-blue-2"></div>
+					<?php endforeach; ?>
+			</div>
+				<!--
+				<a href="">
+						<div class="imagemHome2" style="width:300px; background-image:url(http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/semfoto.jpg)"></div>
+				</a>
+				
+				<h6>Projeto Sugarcane Bioenergy</h6>
+				<h2>
+					<a href="" class="link2" title="">
+						Noticia button 1
+					</a>
+				</h2>
+									
+				<div class="linha-blue-2"></div>
+				
+				<h1 class="title-noz-verde">
+						<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+							Publicidade				
+						</a>
+				</h1>-->
+			<div id ="coluna-noticia-right-box-publicidade">
+				<h1 class="title-noz-verde">
+					<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+						Publicidade			
+					</a>
+				</h1>
+				<!-- begin google -->						
+				<div class="google">
+					<script type="text/javascript">
+						google_ad_client = "pub-8137284570178208";
+					    google_ad_slot = "4264054957";
+						google_ad_width  =295;
+						google_ad_height = 250;	
+						google_ad_type = "text";
+						google_color_border = "FFFFFF";
+						google_color_bg = "FFFFFF";
+						google_color_link = "0000FF";
+						google_color_text = "000000";
+						google_color_url = "008000"; -->	
+					</script>
+					<script type="text/javascript"src="http://2pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>           
+				</div> 
+			</div>
+		
+			<div class="linha-blue-2"></div>
+				
+			<h1 class="title-noz-verde">
+					<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+						Destaques			
+					</a>
+			</h1>
+			<div id="mais-lidas"><!-- Begin mais-lidas -->
+			
+				<div class="tituloespecial">mais lidas &raquo;</div>
+				<?php  $cont = 0 ; ?>
+				<?php foreach ($this->maislidas AS $key => $item):  ?>
+				<?php $cont++ ?>
+				<br />
+				<div class="tituloespecial mais-lidas-numero"><?php echo $cont ?></div>
+				<a href="<?php echo $this->url(array('controller'=>'noticia','action'=>'read','id'=>$item['noticia_id']), null , true); ?>" class="link2" title="Noticias do agronegócio"><?php echo $item['titulo'] ?></a>
+				<br clear="all" />
+				<div class="mais-lidas-separador"></div>
+				<?php endforeach; ?>
+				
+				
+			</div><!-- end mais-lidas -->
+
+		<div class="linha-blue-2"></div>
+	</div><!-- end coluna-noticia-right--> 
+											
+	<div id="coluna-noticia-sponsor"><!-- Begin coluna-noticia-sponsor--> 
+		
+		<h1 class="title-noz-azul">
+				<a href="" class="link-titulo-2" title="">
+					Produtos				
+				</a>
+		</h1>
+
+
+		<div class="tituloespecial shopping">
+			<a href="">
+				shopping &raquo;
+			</a>
+		</div>
+		
+		<br /> 
+
+		<div id="sponsor-cart">
+
+			<a href="">
+				<div class="sponsor-img">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+				</div>
+			</a>
+		
+			<div class="sponsor-titulo">
+				<h3>
+					<a href="" class="link2">
+						Gen&eacute;tica bobina e suina dsdsdsdsds sdsds - Volume 1
+					</a>
+				</h3>
+			
+				<br /><strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			</div>
+		
+		</div>
+		
+		<br clear="all" /><br />
+		
+		<div id="sponsor-cart">
+
+			<a href="">
+				<div class="sponsor-img">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+				</div>
+			</a>
+		
+			<div class="sponsor-titulo">
+				<h3>
+					<a href="" class="link2">
+						Como Produzir Milho e Sorgo para Silagem
+					</a>
+				</h3>
+			
+			<br /> <strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			</div>
+		
+		</div>
+
+		<br clear="all" /><br />
+		
+		<div id="sponsor-cart">
+
+			<a href="">
+				<div class="sponsor-img">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+				</div>
+			</a>
+		
+			<div class="sponsor-titulo">
+				<h3>
+					<a href="" class="link2">
+						Como Produzir Milho e Sorgo para Silagem
+					</a>
+				</h3>
+			
+				<br /><strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			</div>
+		
+		</div>
+		
+		<br clear="all" /><br />
+		
+		<div id="sponsor-cart">
+
+			<a href="">
+				<div class="sponsor-img">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+				</div>
+			</a>
+		
+			<div class="sponsor-titulo">
+				<h3>
+					<a href="" class="link2">
+						Como Produzir Milho e Sorgo para Silagem
+					</a>
+				</h3>
+			
+				<br /><strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			</div>
+		
+		</div>
+		
+		<br clear="all" /><br />
+		
+		<div id="sponsor-cart">
+
+			<a href="">
+				<div class="sponsor-img">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+				</div>
+			</a>
+		
+			<div class="sponsor-titulo">
+				<h3>
+					<a href="" class="link2">
+						Como Produzir Milho e Sorgo para Silagem
+					</a>
+				</h3>
+			
+			<br /><strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			</div>
+		
+		</div>
+		
+		<br clear="all" /><br />
+		
+		<div id="sponsor-cart">
+
+			<a href="">
+				<div class="sponsor-img">
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+				</div>
+			</a>
+			
+			<div class="sponsor-titulo">
+				<h3>
+					<a href="" class="link2">
+						Como Produzir Milho e Sorgo para Silagem
+					</a>
+				</h3>
+			
+				<br /><strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			</div>
+		
+		</div>
+
+		<br clear="all" /><br />
+								
+		<div class="linha2"></div>
+	
+		<div class="tituloespecial noticias">
+			<a href="">
+				Entrevistas &raquo;
+			</a>
+		</div>
+		
+		<br />
+		<h6>Data : 14/10 - </h6>
+			<h6 class="titulo-entrevista-1">Mauricio Antonio Lopes</h6>
+				<h3 class="noticias">
+					<a href="">
+						Entrevista 1
+					</a>
+				</h3>
+			<br clear="all" />
+			
+			<h6>Data : 14/10 - </h6>
+			<h6 class="titulo-entrevista-1">Mauricio Antonio Lopes</h6>
+				<h3 class="noticias">
+					<a href="">
+						Entrevista 2
+					</a>
+				</h3>
+			<br clear="all" />
+			<h6>Data : 14/10 - </h6>
+			<h6 class="titulo-entrevista-1">Mauricio Antonio Lopes</h6>
+				<h3 class="noticias">
+					<a href="">
+						Entrevista 3
+					</a>
+				</h3>
+			<br clear="all" />
+			
+			<div class="linha2"></div>
+									
+			
+			<div class="tituloespecial artigos">
+				<a href="">
+					Artigos &raquo;
+				</a>
+			</div>
+			<br />
+			<?php foreach ($this->artigos AS $key => $item): ?>	
+				<h6><?php echo $item['titulo'] ?></h6>
+				<h3 class="artigos">
+					<a href="">
+						<?php echo $item['comentario'] ?>
+					</a>
+				</h3>
+				<br clear="all" />
+			<?php  endforeach; ?>
+			<br clear="all" />
+	</div><!-- end coluna-noticia-sponsor--> 
+	
+
+	<div id="coluna-noticia-widget">
+		<h1 class="title-noz-red">
+				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+					Indicadores			
+				</a>
+			</h1>
+
+		<iframe frameborder="0" scrolling="no" height="425" width="590" allowtransparency="true" marginwidth="0" marginheight="0" 
+		src="http://comrates.forexpros.com.pt/index.php?pairs_ids=8832;8834;8848;8851;8860;8862;8869;8891;8894;8911;8912;8913;8914;8915;8916;8917;8918;8919;&header-text-color=%23FFFFFF&header-bg=%230c804e&curr-name-color=%230c804e&inner-text-color=%23000000&green-text-color=%232A8215&green-background=%23B7F4C2&red-text-color=%23DC0001&red-background=%23FFE2E2&inner-border-color=%230c804e&border-color=%230c804e&bg1=%23F6F6F6&bg2=%23ffffff&open=hide&last_update=hide">
+		</iframe>
+		<br />
+		<span class="span-titulo-2">
+			<a href="http://www.forexpros.com.pt/commodities/" target="_blank" class="underline_link link-titulo-1">
+			Commodities</a> em Tempo Real Oferecidas por Forex Pros – o Portal do Mercado Forex.
+		</span>
+		<div class="linha2"></div>
+	</div>
+
+   <br clear="all" />

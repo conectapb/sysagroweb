@@ -1,0 +1,32 @@
+ler um projeto existente 
+zf load project
+
+criando projeto
+zf create project c:/wamp/www/dev.zf.com
+
+criando controller 
+zf create controller empresa
+criando action
+zf create action add empresa
+zf create action edit empresa
+zf create action delete empresa
+
+criando A DbTable (named Bar, for table bar)
+zf create dbtable Bar bar
+
+
+
+
+criando view
+zf create view oferta index
+
+criando modulo
+zf create model produtos
+Para criar o model pela linha de comando eh bem facil.
+
+zf create model MODEL-NAME
+ou
+zf create model MODEL-NAME -m MODULE // cria o modelo dentro do modulo especificado.
+
+
+http://randomitstuff.com/2010/04/15/integrating-jqgrid-in-zend-framework/

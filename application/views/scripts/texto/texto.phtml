@@ -1,0 +1,12 @@
+	<div id="texto"><!-- Begin texto -->
+		
+		<?php foreach ($this->dados AS $key => $item): ?>
+
+		<h1 style="padding:10px 0; color:#000000"><?php echo $item['rotulo'] ?></h1>
+		 <p style="text-align: justify"><b><?php echo $item['titulo'] ?></b></p>
+		 
+		 <p style="text-align: justify"><?php echo $item['comentario'] ?></p>
+
+		 <?php endforeach; ?>
+
+	</div>	
