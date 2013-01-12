@@ -1,0 +1,92 @@
+        <!-- Dashboard icons -->
+            <div class="grid_7">
+
+                <a href="#" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/admin.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/admin.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Administrador</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Usuario','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/usuario.gif" tppabs="<?php echo $this->baseUrl()?>/images/painel/usuario.gif" width="64" height="64" alt="Sim Imagens" />
+                    <span>Usu&aacute;rio</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Contato','action'=>'Registro'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/adduser.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/adduser.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Registro</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Deejay','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/jockey.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/jockey.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Deejay</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Evento','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/evento.gif" tppabs="<?php echo $this->baseUrl()?>/images/painel/evento.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Eventos</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Sobre','action'=>'index'));?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/sobre.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/sobre.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Sobre</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Galeria','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/galeria.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/galeria.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Galeria</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Categoria','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/cat_galeria.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/cat_galeria.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Categoria</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Red','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/red.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/red.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Red Sociales</span>
+                </a>
+                <a href="#" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/mp3.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/mp3.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Player</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Servico','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/settings.gif" tppabs="<?php echo $this->baseUrl()?>/images/painel/settings.gif" width="64" height="64" alt="Sim Imagens" />
+                    <span>Servicios</span>
+                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Texto','action'=>'index'),null,true);?>" class="dashboard-module">
+                    <img src="<?php echo $this->baseUrl()?>/images/painel/edit.png" tppabs="<?php echo $this->baseUrl()?>/images/painel/edit.png" width="64" height="64" alt="Sim Imagens" />
+                    <span>Texto</span>
+                </a>
+
+
+
+                <div style="clear: both"></div>
+            </div> <!-- End .grid_7 -->
+
+            <!-- Account overview -->
+            <div class="grid_5">
+                <div class="module">
+                        <h2><span>Usuario Logado</span></h2>
+
+                        <div class="module-body">
+
+                        	<p>
+                                <strong>Nombre: </strong><?php echo $this->loggedInAs(); ?><br />
+                                <strong>Visita em : </strong><?php echo date("d/m/y")  ?><br />
+                                <strong>N&deg; IP: </strong><?php echo $_SERVER['REMOTE_ADDR'] ?>
+                                <br />
+                                <?php  /* incluindo dados na sessao do namespace Login */
+                                /* printando na tela os  dados da sessao do namespace Login */
+                                //if(isset($session_login->usuario)) {
+                                        echo "Logado como: " . $session_login->usuario . "";
+                                        //echo print_r($_SESSION['session_login']);
+                                        echo $_SESSION['session_login']['usuario'];
+                                //}
+
+                                ?>
+                            </p>
+                            <p>
+                                Mi cuenta?<br />
+                                <a href="">click aqui</a><br />
+                            </p>
+
+                        </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_5 -->
+
+            <div style="clear:both;"></div>
+            <div style="clear:both;"></div>
+            <div style="clear:both;"></div>
