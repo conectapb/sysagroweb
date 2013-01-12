@@ -1,0 +1,92 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=ISO-8859-1');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Administração DjDiDiMix :: Regsitrar ');
+echo $this->doctype();
+?>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/icon/lp_16.png" type="image/png" rel="shortcut icon" />
+<?php //$this->headMeta();?>
+<?php //$this->headTitle();?>
+<?php 
+$this->headLink()->headLink( array('rel' => 'favicon','href' => $this->baseUrl('images/icon/phppg.png'),'PREPEND') ); 
+	
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/theme-blue.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/thickbox.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/tablesorter.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/jquery.wysiwyg.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/styles.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/grid.css');
+$this->headLink()->prependStylesheet($this->baseUrl().'/css/reset.css');
+?>
+
+<?php echo  $this->headMeta()     . "\n"; ?>
+<?php echo  $this->headTitle()    . "\n"; ?>
+<?php echo  "<!-- CSS SITE -->"   . "\n"; ?>
+<?php echo  $this->headLink()     . "\n"; ?>
+<?php echo  "<!-- JAVASCRIPT -->" . "\n"; ?>
+<?php //echo  $this->headScript()   . "\n"; ?>
+<!-- Initiate password strength script -->
+</head>
+	<body>
+    	<!-- Header -->
+        <div id="header">
+            <!-- Header. Status part -->
+            <div id="header-status">
+                <div class="container_12">
+                    <div class="grid_8">
+			&nbsp;
+                    </div>
+                    <div class="grid_4">
+                        <a href="" id="logout">
+                        Logout
+                        </a>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div> <!-- End #header-status -->
+
+            <!-- Header. Main part -->
+            <div id="header-main">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <div id="logo">
+                        </div><!-- End. #Logo -->
+                    </div><!-- End. .grid_12-->
+                    <div style="clear: both;"></div>
+                </div><!-- End. .container_12 -->
+            </div> <!-- End #header-main -->
+            <div style="clear: both;"></div>
+            <!-- Sub navigation -->
+            <div id="subnav">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <ul>
+                            <li><a href="#">Inicio</a></li>
+                        </ul>
+
+                    </div><!-- End. .grid_12-->
+                </div><!-- End. .container_12 -->
+                <div style="clear: both;"></div>
+            </div> <!-- End #subnav -->
+        </div> <!-- End #header -->
+        <div class="container_12">
+             <?php echo $this->layout()->content?>
+        </div> <!-- End .container_12 -->
+        <!-- Footer -->
+        <div id="footer">
+        	<div class="container_12">
+            	<div class="grid_12">
+                	<!-- You can change the copyright line for your own -->
+                	<p>&copy; 2012 DJDiDiMix. todos los Derechos Reservados.
+                            Designed By: <a href="#" title="Visite mi pagina en la web">Axel Alexander</a></p>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div> <!-- End #footer -->
+	</body>
+</html>
