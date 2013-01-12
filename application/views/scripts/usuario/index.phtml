@@ -6,8 +6,8 @@
     <div class="bottom-spacing">
         <!-- Button -->
         <div class="float-right">
-            <a href="<?php echo $this->url(array('controller' => 'Red', 'action' => 'new'), null, true); ?>" class="button" >
-                <span>Nuevo
+            <a href="<?php echo $this->url(array('controller' => 'Usuario', 'action' => 'add'), null, true); ?>" class="button" >
+                <span>Adicionar
                     <img src="<?php echo $this->baseUrl() ?>/images/icon/plus-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/plus-small.gif" width="12" height="9" alt="Nuevo" />
                 </span>
             </a>
@@ -25,7 +25,7 @@
 
     <!-- Example table -->
     <div class="module">
-        <h2><span>Redes Sociales</span></h2>
+        <h2><span>Lista de Usuários</span></h2>
 
         <div class="module-table-body">
             <form action="">
@@ -40,24 +40,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->red as $item): ?>
+                        <?php foreach ($this->usuario as $item): ?>
                             <tr>
                                 <td class="align-center">
                                     <input type="checkbox" id="id[]" name="id[]" value="<?php echo $this->escape($item->id) ?>" />
                                 </td>
                                 <td><a href=""><?php echo $item->id ?></a></td>
-                                <td><?php echo $item->rotulo ?></td>
-                                <td><?php echo $item->link ?></td>
+                                <td><?php echo $item->username ?></td>
+                                <td><?php echo $item->role ?></td>
                                 <td>
-                                    <a href="<?php echo $this->url(array('controller' => 'Red', 'action' => 'show', 'id' => $item->id), null, true); ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'Usuario', 'action' => 'show', 'id' => $item->id), null, true); ?>">
                                         <img src="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" width="35" height="25" title="Show" alt="vizualizar" />
                                     </a>
                                     &ensp;
-                                    <a href="<?php echo $this->url(array('controller' => 'Red', 'action' => 'editar', 'id' => $item->id), null, true); ?>">
+                                    <a href="<?php echo $this->url(array('controller' => 'Usuario', 'action' => 'editar', 'id' => $item->id), null, true); ?>">
                                         <img src="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" width="35" height="25" title="Editar" alt="Editar" />
                                     </a>
                                     &ensp;
-                                    <a  onclick="confirmDelete('confirmDelete',base_url+'Red/excluir/id/','<?php echo $item->rotulo ;?>','<?php echo $item->id; ?>')" href="#">
+                                    <a  onclick="confirmDelete('confirmDelete',base_url+'Usuario/excluir/id/','<?php echo $item->username ;?>','<?php echo $item->id; ?>')" href="#">
                                         <img src="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" width="35" height="25" title="Excluir" alt="Excluir" />
                                     </a>
                                 </td>
@@ -66,7 +66,7 @@
                         </tbody>
                     </table>
                 </form>
-            <?php echo $this->paginationControl($this->red, 'Sliding', 'pagination.phtml'); ?>
+            <?php echo $this->paginationControl($this->usuario, 'Sliding', 'pagination.phtml'); ?>
         </div> <!-- End .grid_12 -->
         <div style="clear:both;"></div>
         <div style="clear:both;"></div>
