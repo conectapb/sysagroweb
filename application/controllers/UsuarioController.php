@@ -32,5 +32,33 @@ class UsuarioController extends Zend_Controller_Action{
             }
             else $this->view->message = 'registro não existe';
     }
+    
+    public function addAction(){
+        $this->_helper->layout->setLayout('administrator');
+        $form = new Application_Form_Usuario();
+        $this->view->form=$form;
+        if($this->getRequest()->isPost()){
+            $formData = $this->getRequest()->getPost();
+            if($form->isValid($formData)){
+                $this->usuario->add(
+                            $form->getValue('username'),
+                            $form->getValue('password'),
+                            $form->getValue('password'),
+                            $form->getValue('role'),
+                            $form->getValue('date_created')
+                );
+                if ($this->usuario) {
+                    $this->_helper->flashMessenger->addMessage(
+                                array('sucesso'=>'Registro Gravado com sucesso'));
+                    $this->_helper->redirector('sucesso');        
+                }
+            }
+            else{
+                $form->populate($formData);
+            }
+        }
+    }
+    
+    
 
 }?>
