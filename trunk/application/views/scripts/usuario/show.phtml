@@ -1,26 +1,26 @@
 <div class="grid_12">
     <div class="module">
-        <h2><span>Detalles</span></h2>
-        <h1 class="titulo_sohw" >Detalles</h1>
-        <?php if ($this->red): ?>
+        <h2><span>Detalhes</span></h2>
+        <h1 class="titulo_sohw" >Detalhes</h1>
+        <?php if ($this->usuario): ?>
             <dl class="detalhe">
                 <dt class="detalhe">ID</dt>
-                <dd class="detalhe"><?php echo $this->red->id; ?></dd>
+                <dd class="detalhe"><?php echo $this->usuario->id; ?></dd>
 
-                <dt class="detalhe">Rotulo</dt>
-                <dd class="detalhe"><?php echo $this->red->rotulo; ?></dd>
+                <dt class="detalhe">Usu&aacute;rio</dt>
+                <dd class="detalhe"><?php echo $this->usuario->username; ?></dd>
                 
-                <dt class="detalhe">Link</dt>
-                <dd class="detalhe"><?php echo $this->red->link; ?></dd>
+                <dt class="detalhe">Role</dt>
+                <dd class="detalhe"><?php echo $this->usuario->role; ?></dd>
                 
                 
                 <dt class="detalhe">Opciones</dt>
                 <dd class="detalhe">
                     <a href="<?php echo $this->url(array('controller' => ' Administrador ', 'action' => 'menu'), null, true); ?>">Inicio</a>
                     |
-                    <a href="<?php echo $this->url(array('controller' => 'Red', 'action' => 'index'), null, true); ?>">Listar Redes Sociales</a>
+                    <a href="<?php echo $this->url(array('controller' => 'usuario', 'action' => 'index'), null, true); ?>">Listar Usu&aacute;rios</a>
                     |
-                    <?php echo $this->linkvoltar('voltar', 'back', 'volver'); ?>
+                    <?php echo $this->linkvoltar('voltar', 'back', 'voltar'); ?>
                 </dd>
 
             </dl>
