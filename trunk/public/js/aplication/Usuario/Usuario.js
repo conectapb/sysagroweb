@@ -5,7 +5,7 @@
 jQuery(document).ready(function () {
 
     /* picker para novo registro */
-    jQuery( "#date_created" ).datepicker().mask("9999-99-99");
+    jQuery( "#date_created" ).datepicker().mask("99/99/9999");
     
 
     /*

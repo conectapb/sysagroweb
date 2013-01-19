@@ -9,6 +9,8 @@
 class UsuarioController extends Zend_Controller_Action{
 
      public function init(){
+         //instancia do modelo
+         //a camada de percistencia
          $this->usuario = new Application_Model_DbTable_Usuario(); // DbTable
      }
      public function indexAction() {
@@ -43,7 +45,6 @@ class UsuarioController extends Zend_Controller_Action{
                 $this->usuario->add(
                             $form->getValue('username'),
                             $form->getValue('password'),
-                            $form->getValue('password'),
                             $form->getValue('role'),
                             $form->getValue('date_created')
                 );
@@ -59,6 +60,55 @@ class UsuarioController extends Zend_Controller_Action{
         }
     }
     
+    public function editAction(){
+        $this->_helper->layout->setLayout('administrator');
+        $form = new Application_Form_Usuario();
+        $this->view->form=$form;
+        if($this->getRequest()->isPost()){
+            $formData = $this->getRequest()->getPost();
+            if($form->isValid($formData)){
+                $this->usuario->updates(
+                            (int)$form->getValue('id'),
+                            $form->getValue('username'),
+                            $form->getValue('password'),
+                            $form->getValue('role'),
+                            $form->getValue('date_created')
+                );
+                if ($this->usuario) {
+                    $this->_helper->flashMessenger->addMessage(
+                                array('sucesso'=>'Registro Gravado com sucesso'));
+                    $this->_helper->redirector('sucesso');        
+                }
+            }
+            else{
+                $form->populate($formData);
+            }
+        }
+        else{
+            $id = $this->_getParam('id',0);
+            if($id>0){
+                $form->populate($this->usuario->getId($id));
+            }
+        }
+    }
+    
+    public function excluirAction(){
+        $this->_helper->layout->setLayout('administrator');
+        $id = $this->_request->getParam("id",0);
+        if($id > 0){
+            $this->usuario->delete(array("id = ?" => $id));
+        }
+        $this->_helper->flashMessenger->addMessage(array('sucesso'=>'Registro excluido com sucesso'));
+        $this->_helper->redirector('sucesso');
+    }
+
+
+    
+    public function sucessoAction(){
+        $this->_helper->layout->setLayout('administrator');
+        $dados = "sucesso";
+        $this->view->assign("dados",$dados);
+    }
     
 
 }?>

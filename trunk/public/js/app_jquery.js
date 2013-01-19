@@ -19,8 +19,8 @@
 * **********************************************************/
 
 
-jQuery(document).ready(function () {
-  
+jQuery(document).ready(function () {  
+    DatapickerBR();
     //jQuery.noConflict();
   /* DESTROY DIALOG
    ----------------------------------------------------*/ 
@@ -183,12 +183,12 @@ function DatapickerUS(){
 *************************************************/
 function DatapickerBR(){
   jQuery.datepicker.setDefaults({
-      showOn       : 'button'
+      //showOn       : 'button'
       //showOn: 'both'
       //,buttonText: "Selecionar"
-     ,buttonImage  : base_url + 'images/icon/icon_calendar.jpg'
-     ,buttonImageOnly: true
-     ,showButtonPanel: true
+     //,buttonImage  : base_url + 'images/icon/icon_calendar.jpg'
+     //,buttonImageOnly: true
+     showButtonPanel: true
      ,dateFormat    : 'dd/mm/yy'
      ,numberOfMonths: 2
      ,dayNames     : dayNames
