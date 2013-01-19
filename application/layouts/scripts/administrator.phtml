@@ -22,8 +22,9 @@ $this->headLink()->prependStylesheet($this->baseUrl('/css/ui.jqgrid.css'));
 
 // jquery - jqgrid - jquery ui javascript
 $this->headScript()->appendFile($this->baseUrl().'/js/app_site.js');
-$this->headScript()->appendFile($this->baseUrl().'/js/Funcoes.js');
-$this->headScript()->appendFile($this->baseUrl().'/js/jqUI.FuncoesMensagens.js');
+
+$this->headScript()->appendFile($this->baseUrl().'/js/funcoes/Funcoes.js');
+$this->headScript()->appendFile($this->baseUrl().'/js/funcoes/jqUI.FuncoesMensagens.js');
 $this->headScript()->appendFile($this->baseUrl().'/jquery/jquery-1.7.2.js');
 $this->headScript()->appendFile($this->baseUrl().'/jquery-ui/jquery-ui-1.8.11.custom.js');
 $this->headScript()->appendFile($this->baseUrl().'/jquery/jquery.jplayer.min.js');
@@ -38,6 +39,9 @@ $this->headScript()->appendFile($this->baseUrl().'/js/app_jquery.js');
 $this->headScript()->appendFile($this->baseUrl('/jqGrid/src/i18n/grid.locale-es.js')) ; 
 $this->headScript()->appendFile($this->baseUrl('/jqGrid/jquery.jqGrid.src.js'));
 $this->headScript()->appendFile($this->baseUrl('/jqGrid/json2.js'));
+
+
+$this->headScript()->appendFile($this->baseUrl().'/js/app_jquery.js');
 ?>
 <?php echo  $this->headMeta()     . "\n"; ?>
 <?php echo  $this->headTitle()    . "\n"; ?>
