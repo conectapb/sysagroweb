@@ -481,7 +481,12 @@ div#texto-noticia {
   text-align:justify;
   font-size:14px;
   border: 0px solid #c00 ;
+   
 } 
+
+div#texto-noticia-destaque {
+}
+
 #texto-noticia-img{
   border: 0px solid #c00 ;
   padding: 2px;

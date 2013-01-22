@@ -4,6 +4,8 @@ include(APPLICATION_PATH.'/views/helpers/Linkvoltar.php');
 include(APPLICATION_PATH.'/views/helpers/Img.php');
 include(APPLICATION_PATH.'/views/helpers/OutputLink.php');
 include(APPLICATION_PATH.'/views/helpers/Photo.php');
+include(APPLICATION_PATH.'/views/helpers/FormateDate.php');
+include(APPLICATION_PATH.'/views/helpers/ParseDate.php');
 
 
 define('BASE_URL', "http://localhost/sysagroweb/public/") ;

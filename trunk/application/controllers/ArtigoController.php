@@ -80,8 +80,7 @@ class ArtigoController extends Zend_Controller_Action{
             }
         }
     }
-    
-   
+     
     public function editAction(){
         $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
@@ -126,8 +125,6 @@ class ArtigoController extends Zend_Controller_Action{
                             $e->getMessage();
                     }    
                 }
-                
-
                 $this->artigo->updates(
                                     $id, 
                                     $form->getValue('titulo'), 
@@ -216,4 +213,29 @@ class ArtigoController extends Zend_Controller_Action{
             unlink("../public/upload/".$imageName['foto']);
         }   
     }
+
+    public function readAction(){
+      $id = $this->_getParam('id', 0);
+       try{
+              $dados = new Application_Model_DbTable_Artigo();
+              //$where = 'id = '.$id;
+              //$dados = $dados->getCategoria('id = '.$id, 'id DESC' , 0, 1 );
+              $dados = $dados->_selectById($id);
+              $this->view->assign("dados", $dados);
+              
+              // insere noticias mais lidas
+              //$mais = new Application_Model_DbTable_Maislidas();
+              //$mais = $mais->add($id, $dados[0]['titulo']);
+              
+              //lista noticias saiba mais  - Agricultura
+              $agricultura = new Application_Model_DbTable_Noticia();
+              //$colunas    = array('id' ,'titulo', 'comentario' ,'categoria_noticia_id' );  
+              $agricultura = $agricultura->joinCategoria('categoria_noticia_id =  4', 'id DESC' , 4 ,  null);
+              $this->view->assign("agricultura", $agricultura); 
+          }
+          catch (Zend_Db_Exception $exc) {
+            echo $exc->getTraceAsString();
+          }
+    }
+
 }?>

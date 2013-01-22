@@ -460,9 +460,16 @@
 			<?php foreach ($this->artigos AS $key => $item): ?>	
 				<h6><?php echo $item['titulo'] ?></h6>
 				<h3 class="artigos">
-					<a href="">
-						<?php echo $item['comentario'] ?>
-					</a>
+					<a href="<?php echo $this->url(
+						array(
+						  'controller' => 'Artigo'
+						, 'action' => 'read'
+						, 'id' => $item['id'] ), null , true); ?>">
+			    	<?php echo $item['comentario'] ?>
+			    </a>
+
+
+
 				</h3>
 				<br clear="all" />
 			<?php  endforeach; ?>
