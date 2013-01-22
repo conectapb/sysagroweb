@@ -1,4 +1,61 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Artigo</b> and script/action name <b>read</b></p>
-</div>
+	
+		
+		<?php foreach ($this->dados AS $key => $item): ?>
+		<h6 class="titilo-noticia-data"> Data:
+	    <?php echo $item['data'] ?>
+		 
+
+		 <?php 
+		 //$locale = new Zend_Locale('pt_BR');
+		 //$date = new Zend_Date($item['data'], 'yyy-MM-dd', $locale);
+         //echo  $date->get("dd 'de' MM 'de' yyyy"); 
+
+			
+         ?>
+		</h6>	
+		
+		<h1 class="titulo-noticia-titulo"><?php echo $item['titulo'] ?></h1>
+		<strong><em><?php echo $item['comentario'] ?></em></strong>
+		
+		<div id="spacer"></div>	
+		
+		<h6 class="titulo-noticia-fonte">fonte: <?php echo $item['fonte'] ?></h6>
+		
+		<div id="spacer"></div>	
+		
+		 
+			<div id="texto-noticia"><!-- Begin texto-noticia -->
+			 	<div id="texto-noticia-img"> 
+					 <a href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/agro.jpg" title="" class="imgmodal">
+					 	<?php echo $this->img($this->baseUrl().'/upload/'.$item['foto'], 300, 200, 'Foto'); ?>
+					 </a>
+				</div>	
+				
+				<div id="texto-noticia-mais"><!-- Begin texto-noticia-mais -->
+					<div class="texto-noticia-saibamais">
+						<strong>Saiba mais</strong>
+						<ul>
+							<?php foreach ($this->agricultura AS $key => $iten): ?>
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read','id' => $item['id'] ), null , true); ?>" ><?php echo $iten['titulo'] ?>
+			    				</a>	
+							</li>
+							<?php endforeach ; ?>	
+						</ul>
+					</div>
+				</div><!-- end texto-noticia-mais -->
+
+				
+				
+				<p style="text-align: justify">
+					<?php echo $item['noticia'] ?>
+				</p>
+
+				
+				
+
+			</div><!-- end texto-noticia -->	
+
+		<?php endforeach; ?>
+
+	

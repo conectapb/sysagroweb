@@ -75,11 +75,21 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
 
     public function _selectById($id){
         $select = $this->select()
-                       //->from($this->_name)
+                       ->from($this->_name)
                        ->where('id = ?', $id)
-                       ->order('id')
-                       ->limit("0 , 1");
-         return $this->fetchRow($select)->toArray();        
+                       ->order('id');
+                       //->limit("0 , 1");
+         return $this->fetchAll($select)->toArray();        
+    }
+
+    public function getCategoria($where =null, $order='id ASC', $offset=null, $limit=null){
+        $Result = $this->fetchAll($where,$order,$limit,$offset);
+            if (!$Result)
+            {
+                return array();
+            }
+
+            return $Result->toArray();
     }
 
 }
