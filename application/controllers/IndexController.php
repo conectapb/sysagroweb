@@ -1,18 +1,20 @@
 <?php
-require_once APPLICATION_PATH.'/models/Noticia.php';
-require_once APPLICATION_PATH.'/models/Artigo.php';
+//require_once APPLICATION_PATH.'/models/Noticia.php';
+//require_once APPLICATION_PATH.'/models/Artigo.php';
 class IndexController extends Zend_Controller_Action
 {
 
     
     public function indexAction(){
 		
-		  //$this->_helper->layout->setLayout('layout');
+		  
           $colunas    = array('id' ,'titulo', 'comentario' ,'categoria_noticia_id' );  
+          
+
           //Noticia Principal
-          $model 		   = new Application_Model_Noticia();
-          $dados     = $model->select(null, "id" , 4 );
-          //$dados       = $model->select();
+          //$model     = new Application_Model_Noticia();
+          $model     = new Application_Model_DbTable_Noticia();
+          $dados     = $model->_select(null, "id" , 4 );
           $this->view->assign("dados", $dados);
           
           //$pecuaria = $pecuaria->fetchAll( array('categoria_noticia_id = 2') )->toArray();
@@ -22,8 +24,7 @@ class IndexController extends Zend_Controller_Action
 
 
           //Pecuaria
-          $pecuaria   = new Application_Model_DbTable_Noticia();
-          
+          $pecuaria   = new Application_Model_DbTable_Noticia();         
           $pecuaria   = $pecuaria->joinCategoria('categoria_noticia_id = 2', 'id ASC' , 2 ,  $colunas);
           $this->view->assign("pecuaria", $pecuaria);
 
@@ -48,19 +49,16 @@ class IndexController extends Zend_Controller_Action
           //$economia = $economia->joinCategoria('categoria_noticia_id = 5', 'id DESC' , 2 ,  $colunas);
           $this->view->assign("economia", $economia);
 
+          
           // Mais lidas
-
-          //Economia
           $maislidas = new Application_Model_DbTable_Maislidas();
           $maislidas = $maislidas->getRand('5');
           //$economia = $economia->joinCategoria('categoria_noticia_id = 5', 'id DESC' , 2 ,  $colunas);
-          
-
           $this->view->assign("maislidas", $maislidas);
 
-          //Artigos
-          $modelArtigos    = new Application_Model_Artigo();
-          $artigos   = $modelArtigos->select(null, "id" , 3);  
+          //Artigos   
+          $modelArtigos    = new Application_Model_DbTable_Artigo();
+          $artigos   = $modelArtigos->_select(null, "id" , 3);  
           $this->view->assign("artigos", $artigos);
 
         // entevistas  

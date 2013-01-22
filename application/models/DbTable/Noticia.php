@@ -65,6 +65,19 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
         }
     }
 
+    public function _select($where = null, $order = null, $limit = null){
+        $select = $this->select()
+                     ->from($this->_name)
+                     ->order($order)
+                     ->limit($limit);
+        if(!is_null($where)){
+          $select->where($where);
+        }
+      return $this->fetchAll($select)->toArray();
+      //return $this->fetchRow($select)->toArray();
+    }
+
+
     public function _selectCategoria($catid){
         $select = $this->select()
                        ->where('categoria_noticia_id = ?', $catid)

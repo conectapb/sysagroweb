@@ -4,15 +4,22 @@
  */
 jQuery(document).ready(function () {
 
-   DatapickerUS();
+    
+    DatapickerUS();
+
+    jQuery("#foto1").change(function(){
+        jQuery("#foto").val(jQuery(this).val() )
+    });
+
+
 
     /* picker para data
      ----------------------------------------------------*/
-    jQuery( "#date_created" ).datepicker().mask("9999-99-99");
-
-   /* prepara dialog confirm
-   ----------------------------------------------------*/
-   dialogConfirma("confirmDelete", "Excluir", "Stop");
+    jQuery( "#data" ).datepicker().mask("9999-99-99");
+    
+    /* prepara dialog confirm
+    ----------------------------------------------------*/
+    dialogConfirma("confirmDelete", "Excluir", "Stop");
 
 
 }); // fim  document ready

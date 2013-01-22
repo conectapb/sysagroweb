@@ -1,0 +1,74 @@
+<?php echo $this->inlineScript()->appendFile($this->baseUrl('/js/aplication/artigo/Artigo.js')) ; ?>
+
+<div id="confirmDelete"></div>
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+        <!-- Button -->
+        <div class="float-right">
+            <a href="<?php echo $this->url(array('controller' => 'Artigo', 'action' => 'add'), null, true); ?>" class="button" >
+                <span>Adicionar
+                    <img src="<?php echo $this->baseUrl() ?>/images/icon/plus-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/plus-small.gif" width="12" height="9" alt="Adicionar" />
+                </span>
+            </a>
+        </div>
+
+        <!-- Table records filtering -->
+        Filtro:
+        <select class="input-short">
+            <option value="1" selected="selected">Selecione</option>
+            <option value="2">Titulo</option>
+            <option value="3">Comentário</option>
+        </select>
+    </div>
+    <!-- Example table -->
+    <div class="module">
+        <h2><span>Deejay</span></h2>
+        <div class="module-table-body">
+            <form action="">
+                <table id="myTable" class="tablesorter">
+                    <thead>
+                        <tr>
+                           <th style="width:5%">#</th>
+                            <th style="width:20%">Titulo</th>
+                            <th style="width:21%">Coment&aacute;rio</th>
+                            <th style="width:13%">Artigo</th>
+                            <th style="width:13%">Foto</th>
+                            <th style="width:15%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->artigo as $item): ?>
+
+                            <tr>
+                                <td class="align-center">
+                                    <input type="checkbox" id="id[]" name="id[]" value="<?php echo $this->escape($item->id) ?>" />
+                                </td>
+                                <td><a href=""><?php echo $item->titulo ?></a></td>
+                                <td><?php echo $item->comentario ?></td>
+                                <td><?php echo $item->noticia ?></td>
+                                <td align"center">
+                                   <?php echo $this->img($this->baseUrl().'/upload/'.$item->foto, 100, 100, 'sds'); ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo $this->url(array('controller' => 'Artigo', 'action' => 'show', 'id' => $item->id), null, true); ?>">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" width="35" height="25" title="Show" alt="vizualizar" />
+                                    </a>
+                                    &ensp;
+                                    <a href="<?php echo $this->url(array('controller' => 'Artigo', 'action' => 'edit', 'id' => $item->id), null, true); ?>">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" width="35" height="25" title="Editar" alt="Editar" />
+                                    </a>
+                                    &ensp;
+                                    <a  onclick="confirmDelete('confirmDelete',base_url+'Artigo/delete/id/','<?php echo $item->titulo ;?>','<?php echo $item->id; ?>')" href="#">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" width="35" height="25" title="Excluir" alt="Excluir" />
+                                    </a>
+                                </td>
+                            </tr>
+                         <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </form>
+            <?php echo $this->paginationControl($this->artigo, 'Sliding', 'pagination.phtml'); ?>
+        </div> <!-- End .grid_12 -->
+        <div style="clear:both;"></div>
+        <div style="clear:both;"></div>

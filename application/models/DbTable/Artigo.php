@@ -11,7 +11,8 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
         }
         return $row->toArray();
     }   
-    public function add($nome, $titulo, $comentario, $noticia, $foto, $data, $fonte, $ativo, $categoria_artigos_id){
+    
+    public function add($titulo, $comentario, $noticia, $foto, $data, $fonte, $ativo){
         try{
             $data = array(
                         'titulo'                => $titulo,
@@ -20,8 +21,7 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
                         'foto'                  => $foto,
                         'data'                  => $data,
                         'fonte'                 => $fonte,
-                        'ativo'                 => $ativo,
-                        'categoria_artigos_id'  => $categoria_artigos_id);
+                        'ativo'                 => $ativo);
             $this->insert($data);
 
         }
@@ -30,7 +30,8 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
              echo 'Opa... algum problema aconteceu.';
         }        
     }  
-    public function updates($id, $titulo, $comentario, $noticia, $foto, $data, $fonte, $ativo, $categoria_artigos_id){
+    
+    public function updates($id, $titulo, $comentario, $noticia, $foto, $data, $fonte, $ativo){
         try
         {
             $data = array(
@@ -40,8 +41,7 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
                         'foto'                  => $foto,
                         'data'                  => $data,
                         'fonte'                 => $fonte,
-                        'ativo'                 => $ativo,
-                        'categoria_artigos_id'  => $categoria_artigos_id);
+                        'ativo'                 => $ativo);
            $this->update($data, 'id = ' . (int) $id);
         }
         catch (Exception $e)
@@ -49,10 +49,11 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
              echo 'Opa... algum problema aconteceu.';
         }   
     }
+    
     public function delete($id){
         try
          {
-                parent::delete($id);
+            parent::delete($id);
          }
          catch (Exception $e)
          {
@@ -60,7 +61,26 @@ class Application_Model_DbTable_Artigo extends Zend_Db_Table_Abstract{
          }
     }
    
+    public function _select($where = null, $order = null, $limit = null){
+        $select = $this->select()
+                     ->from($this->_name)
+                     ->order($order)
+                     ->limit($limit);
+        if(!is_null($where)){
+          $select->where($where);
+        }
+      return $this->fetchAll($select)->toArray();
+      //return $this->fetchRow($select)->toArray();
+    }
 
-   
+    public function _selectById($id){
+        $select = $this->select()
+                       //->from($this->_name)
+                       ->where('id = ?', $id)
+                       ->order('id')
+                       ->limit("0 , 1");
+         return $this->fetchRow($select)->toArray();        
+    }
+
 }
 ?>
