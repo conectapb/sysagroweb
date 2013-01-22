@@ -15,37 +15,20 @@
           <actionMethod actionName="delete"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
-        <controllerFile controllerName="CategoriaAlbum">
+        <controllerFile controllerName="Artigo">
           <actionMethod actionName="index"/>
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
-          <actionMethod actionName="view"/>
           <actionMethod actionName="delete"/>
-        </controllerFile>
-        <controllerFile controllerName="Maquina">
-          <actionMethod actionName="index"/>
-        </controllerFile>
-        <controllerFile controllerName="Categoria">
-          <actionMethod actionName="index"/>
-          <actionMethod actionName="list"/>
-          <actionMethod actionName="novo"/>
-          <actionMethod actionName="edit"/>
-          <actionMethod actionName="show"/>
-        </controllerFile>
-        <controllerFile controllerName="Noticias">
-          <actionMethod actionName="index"/>
+          <actionMethod actionName="read"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
-        <formFile formName="Album"/>
-        <formFile formName="CategoriaAlbum"/>
+        <formFile formName="Artigo"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
-        <dbTableDirectory>
-          <dbTableFile dbTableName="Albums"/>
-          <dbTableFile dbTableName="CategoriaAlbum"/>
-        </dbTableDirectory>
+        <dbTableDirectory/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -65,41 +48,20 @@
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="CategoriaAlbum">
+          <viewControllerScriptsDirectory forControllerName="Artigo">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="CategoriaAlbum">
+          <viewControllerScriptsDirectory forControllerName="Artigo">
             <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="CategoriaAlbum">
+          <viewControllerScriptsDirectory forControllerName="Artigo">
             <viewScriptFile forActionName="edit"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="CategoriaAlbum">
-            <viewScriptFile forActionName="view"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="CategoriaAlbum">
+          <viewControllerScriptsDirectory forControllerName="Artigo">
             <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Maquina">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Categoria">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Categoria">
-            <viewScriptFile forActionName="list"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Categoria">
-            <viewScriptFile forActionName="novo"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Categoria">
-            <viewScriptFile forActionName="edit"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Categoria">
-            <viewScriptFile forActionName="show"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Noticias">
-            <viewScriptFile forActionName="index"/>
+          <viewControllerScriptsDirectory forControllerName="Artigo">
+            <viewScriptFile forActionName="read"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

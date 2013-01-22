@@ -20,15 +20,18 @@
 
 
 jQuery(document).ready(function () {  
-    DatapickerBR();
-    //jQuery.noConflict();
+    //DatapickerBR();
+  //jQuery.noConflict();
+  
   /* DESTROY DIALOG
-   ----------------------------------------------------*/ 
+  ----------------------------------------------------*/ 
+  
   //jQuery("#dialog:ui-dialog").dialog("destroy");
 
   /* CONFIGURAÇÃO DO DATEPICKER DO JQUERYUI PARA PT-BR
   ----------------------------------------------------*/
     //( ".selector" ).datepicker({ dateFormat: 'yy-mm-dd' });
+
 }); // fim  document ready
 
 /*************************************************
@@ -161,19 +164,29 @@ function popUpWindowButton(title, containerId, _height, _width) {
 *************************************************/
 function DatapickerUS(){
   jQuery.datepicker.setDefaults({
-      showOn       : "button"
-      //,buttonText: "Selecionar"
-     ,buttonImage  : base_url + 'images/icon/icon_calendar.jpg'
-     ,buttonImageOnly: true
-     //,showButtonPanel: true
-     //,dateFormat    : 'dd/mm/yy'
-     ,dateFormat    : 'yy-mm-dd'
-     ,dayNames     : dayNames
-     ,dayNamesMin  : dayNamesMin
-     ,dayNamesShort: monthNamesShort
-     ,monthNames   : monthNames
-     ,nextText     : 'Próximo'
-     ,prevText     : 'Anterior'
+      // showOn       : "button"
+      // ,buttonText: "Selecionar"
+      // ,buttonImage  : base_url + 'images/icon/icon_calendar.jpg'
+      // ,buttonImageOnly: true
+      showButtonPanel: true
+      ,dayNames     : dayNames
+      ,dayNamesMin  : dayNamesMin
+      ,dayNamesShort: monthNamesShort
+      ,monthNames   : monthNames
+      ,nextText     : 'Próximo'
+      ,prevText     : 'Anterior'
+      ,currentText  : 'Hoje'
+      ,closeText    : 'Fechar'
+      //,weekHeader   : 'Sm'
+      ,dateFormat   : 'yy-mm-dd'
+      //,showOn: "clip"
+      //,hide: "clip"
+      ,firstDay: 1
+      ,numberOfMonths: 1
+      ,isRTL: false
+      ,showButtonPanel: true
+      ,showMonthAfterYear: false
+      ,yearSuffix: ''
     });  
     
 }
