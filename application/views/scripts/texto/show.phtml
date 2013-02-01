@@ -1,0 +1,39 @@
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Detalles</span></h2>
+        <h1 class="titulo_sohw" >Detalles</h1>
+        <?php if ($this->texto): ?>
+            <dl class="detalhe">
+                <dt class="detalhe">ID</dt>
+                <dd class="detalhe"><?php echo $this->texto->id; ?></dd>
+
+                <dt class="detalhe">Titulo</dt>
+                <dd class="detalhe"><?php echo $this->texto->titulo; ?></dd>
+
+                <dt class="detalhe">Destaque</dt>
+                <dd class="detalhe"><?php echo $this->texto->comentario; ?></dd>
+
+                <dt class="detalhe">Ativo</dt>
+                <dd class="detalhe"><?php echo $this->texto->ativo ?></dd>
+
+                <dt class="detalhe">Foto</dt>
+                <dd class="detalhe"><?php echo $this->img($this->baseUrl(). '/upload/texto/'. $this->texto->foto, 100, 100, 'sds'); ?></dd>
+
+                <dt class="detalhe">Opciones</dt>
+                <dd class="detalhe">
+                    <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
+                    |
+                    <a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'index'), null, true); ?>">Listar Texto</a>
+                    |
+                    <?php echo $this->linkvoltar('volver', 'back', 'volver!'); ?>
+                </dd>
+
+            </dl>
+        <?php else: ?>
+        <p><?php echo $this->message ?></p>
+        <?php endif ?>
+    
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>
