@@ -45,10 +45,13 @@ function dialogConfirma(div, titulo, icono){
                height   : 200,
                width    : 450,
                autoOpen: false,
+          
+               position: 'center',
                open: function (event, ui)
                 {
                   jQuery(this).css({
                     "width": "100%",
+                    //"top":"0px",
                     "background": "url(" + base_url + "images/jQuery_dialog/Img_dialog_" + icono + ".png)",
                     "backgroundRepeat": "no-repeat",
                     "backgroundPosition": "90% 98%",
@@ -66,11 +69,11 @@ function confirmDelete(div, url, username, id) {
    jQuery("#"+div).html(texto_deletar+" ... : '" + username + "'");
    jQuery("#"+div).dialog('option', 'buttons',
    {
-    "No": function() {
+    "N\u00e2o": function() {
             jQuery(this).dialog("close");
             //jQuery(this).dialog('destroy');
     },
-    "Si": function() {
+    "Sim": function() {
             window.location.href = delUrl;
      }
    });

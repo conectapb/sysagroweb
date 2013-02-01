@@ -1,18 +1,78 @@
-	<div id="texto"><!-- Begin texto -->
-		
-		<?php //foreach ($this->agricultura AS $key => $item): ?>
+<?php echo $this->inlineScript()->appendFile($this->baseUrl('/js/aplication/texto/Texto.js')) ; ?>
+<div id="confirmDelete"></div>
+<div class="grid_12">
 
-		<h1 style="padding:10px 0; color:#000000">O que é?</h1>
-		 <p style="text-align: justify"><b>O Conceito</b></p>
-		 <p style="text-align: justify"><b>O Conceito</b></p>
-		 <p style="text-align: justify">O conceito de "agribusiness" foi proposto pela primeira vez em 1957, por Davis e Goldberg, como a soma das operações de produção e distribuição de suprimentos agrícolas, processamentos e distribuição dos produtos agrícolas&nbsp; e itens produzidos a partir deles.<br>
-		<br>
-		Assim, de acordo com o conceito de agronegócio, a agricultura passa a&nbsp;ser abordada de maneira associada aos outros agentes responsáveis&nbsp; por todas as atividades, que garantem a produção, transformação, distribuição e consumo de alimentos, considerando assim, a agricultura como parte&nbsp; de uma extensa rede de agentes ecômicos.<br>
-		<br>
-		Com este conceito formalizado por tais autores, a visão sistêmica passa a ganhar&nbsp; importância, abrangendo todos os envolvidos, desde a pesquisa até o cosumidor final, desde o que comumente se chama&nbsp;"antes da porteira" até "pós-porteira".<br>
-		<br>
-		As exportações do agronegócio em 2007, segundo dados do&nbsp;Ministério da Agricultura, Pecuária e Abastecimento,&nbsp;totalizaram US$ 58,415 bilhões, um recorde histórico para o setor. Em relação a 2006, as exportações apresentaram um aumento de US$ 8,992 bilhões, o que significou uma taxa de crescimento de 18,2%. <br>
-		<br>
-		Com isso, as exportações do agronegócio corresponderam a 36,4% das exportações totais brasileiras no período, que foram de US$ 160 bilhões. As importações apresentaram variação anual de 30,2%, totalizando US$ 8,719 bilhões.</p>
+    <div class="bottom-spacing">
+        <!-- Button -->
+        <div class="float-right">
+            <a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'add'), null, true); ?>" class="button" >
+                <span>Nuevo
+                    <img src="<?php echo $this->baseUrl() ?>/images/icon/plus-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/plus-small.gif" width="12" height="9" alt="Nuevo" />
+                </span>
+            </a>
+        </div>
 
-	</div>	
+        <!-- Table records filtering -->
+        Filtro:
+        <select class="input-short">
+            <option value="1" selected="selected">Selecione</option>
+            <option value="2">Evento</option>
+        </select>
+
+    </div>
+
+    <!-- Example table -->
+    <div class="module">
+        <h2><span>Textos para flayer</span></h2>
+        <div class="module-table-body">
+            <form action="">
+                <table id="myTable" class="tablesorter">
+                    <thead>
+                        <tr>
+                             <th style="width:5%">#</th>
+                             <th style="width:20%">ID</th>
+                             <th style="width:20%">Rotulo</th>
+                             <th style="width:21%">Titulo</th>
+			                 <th style="width:15%">Foto</th>
+			                 <th style="width:8%">Ativo</th>
+                             <th style="width:25%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->texto as $item): ?>
+
+                            <tr>
+                                <td class="align-center">
+                                    <input type="checkbox" id="id[]" name="id[]" value="<?php echo $this->escape($item->id) ?>" />
+                                </td>
+                                <td><a href=""><?php echo $item->id ?></a></td>
+                                <td><?php echo $item->rotulo ?></td>
+                                <td><?php echo $item->titulo ?></td>
+				                <td align="center">
+                                	<?php echo $this->img($this->baseUrl().'/upload/texto/'.$item->foto, 100, 100,'Imagem'); ?>
+                                </td>
+				                <td><?php echo $item->ativo ?></td>
+                                <td>
+
+                                    <a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'show', 'id' => $item->id), null, true); ?>">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" width="35" height="25" title="Show" alt="vizualizar" />
+                                    </a>
+                                    &ensp;
+                                    <a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'edit', 'id' => $item->id), null, true); ?>">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" width="35" height="25" title="Editar" alt="Editar" />
+                                    </a>
+                                    &ensp;
+                                    <a onclick="confirmDelete('confirmDelete',base_url+'Texto/delete/id/','<?php echo $item->titulo ;?>','<?php echo $item->id; ?>')" href="#">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" width="35" height="25" title="Excluir" alt="Excluir" />
+                                    </a>
+
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </form>
+            <?php echo $this->paginationControl($this->texto, 'Sliding', 'pagination.phtml'); ?>
+        </div> <!-- End .grid_12 -->
+        <div style="clear:both;"></div>
+        <div style="clear:both;"></div>
