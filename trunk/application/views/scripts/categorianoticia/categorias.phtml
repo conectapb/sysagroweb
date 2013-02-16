@@ -1,0 +1,228 @@
+
+
+<style type="text/css">
+
+#geral{
+	margin:0px auto;
+	width: 800px;
+	}
+#top{
+	/*background-color:#8B2500;
+	border-bottom:#CCCCCC 1px solid;*/
+	margin-bottom: 5px;
+	color:#3399FF;
+	font-weight: bold;
+	padding: 10px;
+	font-size:14px;
+	width: 780px;
+	}
+#top:hover{
+	/*background-color:#FE4902;
+	background-color:#8B2500;*/
+	color:#FFF;
+}
+	
+#dentro{
+	/*background-color:#EEE;
+	border:#CCCCCC 0px solid;*/
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	float:left;
+	width: 800px;
+	
+	/* -moz-box-shadow: 0 0 5px #666;
+	-webkit-box-shadow: 0 0 5px #666; */
+	
+	}
+img{
+	border: 0px;
+	}
+
+#aplicativos{
+	margin-left: 50px;
+}
+#aplicativos ul {
+	float: left;
+	width: 700px;
+	list-style:none;
+	text-align:center;
+}
+
+#aplicativos ul li {
+	display: inline;
+}
+
+#aplicativos ul li a {
+	color: #333;
+	color: #FFF;
+	text-decoration: none;
+	padding: 2px 10px;
+	margin: 3px;
+	float:left;
+	border: 0px solid #efefef;
+	width: 110px;
+	font-size:14px;
+}
+
+#aplicativos ul li a:hover {
+	color:#0099FF;
+	color:#FFF;
+	border: 0px solid #0099ff;
+	width: 110px;
+	background-color:#FE4902;
+}
+
+.link-barra{
+	margin: 5px;
+	border: 0px solid #0099ff;
+	height: 70px;
+}
+
+.link-barra a{
+	float:left;
+	font-size:14px;
+	border: 0px solid #c00;
+	margin: 10px;
+	padding: 10px; 
+	width: 110px;
+	height: 20px;
+	text-align: center;
+	}
+.link-barra a:hover{
+	background-color:#8B2500;
+	color: #FFF;
+	}
+
+</style>
+
+
+<?php echo $this->partial('comun/msg_construcao.phtml'); ?> 
+<?php echo $this->render('comun/menu_principal.phtml') ?>
+<div id='wrapper'>
+    <?php echo $this->partial('comun/menu_banner.phtml'); ?>	
+    <div id="Janela_dialog" title="Servicios para Eventos">
+	<div id="tab_info"></div>
+    </div>
+    <!--
+    <div id="Dialog_msg">
+	<?php //echo $this->partial('comun/msg_licenca.phtml'); ?>	
+    </div>-->
+    
+	
+	<div id='red-bg'><!--Begin red-bg box -->   
+		<!--black content box -->
+       <div id='top-box'></div>
+         <div id='middle-box'><!--Begin middle-box box -->  
+            <div id="spacer"></div>
+            <div id="spacer"></div>
+            <div id="content_form"><!--Begin content_form --> 
+                 <div class='title'>Fotos por eventos</div>
+
+					<div id="geral">
+							<div id="dentro">
+								<div id="top">CATEGORIA DE FOTOS</div>
+								<div id="aplicativos">
+									<ul>
+										 <?php foreach ($this->dados AS $key => $item): ?>
+											<li>
+												<a href="<?php echo $this->url(array('controller'=>'Galeria','action'=>'fotos','id' => $item['id']));?>">
+													<img src='<?php echo $this->baseUrl() ?>/images/painel/cat_galeria.png' width="40" height="40" />
+													<br />
+													<?php echo $item['descricao'] ?>
+												</a>
+											</li>
+									   <?php endforeach; ?>
+									</ul>
+								</div>
+							</div>
+							<div id="dentro">
+								<div id="top">VER MAS</div>
+								
+									<div id="aplicativos">
+										<ul>
+											<li>
+												<a  href="<?php echo $this->url(array('controller'=>'Agenda','action'=>'agendar'), null , true);?>">
+													<img src='<?php echo $this->baseUrl() ?>/images/painel/cat_galeria.png' width="40" height="40" />
+													<br />
+													Agendar
+												</a>
+											</li>
+											<li>
+												<a href="<?php echo $this->url(array('controller'=>'Evento','action'=>'listar'), null , true);?>">
+													<img src='<?php echo $this->baseUrl() ?>/images/painel/cat_galeria.png' width="40" height="40" />
+													<br />
+													Eventos
+												</a>
+											</li>
+											<li>
+												<a href="<?php echo $this->url(array('controller'=>'Contato','action'=>'registro'), null , true);?>">
+													<img src='<?php echo $this->baseUrl() ?>/images/painel/cat_galeria.png' width="40" height="40" />
+													<br />
+													Registro
+												</a>
+											</li>
+											<li>
+												<a href="<?php echo $this->url(array('controller'=>'Musica','action'=>'Player'), null , true);?>">
+													<img src='<?php echo $this->baseUrl() ?>/images/painel/cat_galeria.png' width="40" height="40" />
+													<br />
+													Musica
+												</a>
+											</li>
+											<li>
+												<a href="<?php echo $this->url(array('controller'=>'Musica','action'=>'Player'), null , true);?>">
+													<img src='<?php echo $this->baseUrl() ?>/images/painel/cat_galeria.png' width="40" height="40" />
+													<br />
+													DJ
+												</a>
+											</li>
+										</ul>
+									</div>
+							</div>
+					</div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					<div id="spacer"></div>
+					
+			</div><!--End content_form -->  
+			
+            <div id="copy">
+              <span>Registrate - para participar de premios y eventos</span> by
+              <div id="spacer"></div>
+              <a href="<?php echo $this->url(array('controller'=>'Contato','action'=>'registro'));?>">click aqu&iacute;...</a>
+            </div>
+            <div style="clear:both;"></div>
+            <div style="clear:both;"></div>
+     </div><!--End middle-box box -->  
+    </div><!--Begin red-bg box -->   
+
+
+
+	
