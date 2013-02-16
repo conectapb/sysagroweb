@@ -49,7 +49,7 @@ class Application_Model_DbTable_Texto extends Zend_Db_Table_Abstract{
     public function delete($id){
         try
          {
-                parent::delete($id);
+             parent::delete($id);
          }
          catch (Exception $e)
          {

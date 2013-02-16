@@ -6,9 +6,6 @@
 class AdministradorController extends Zend_Controller_Action{
     
     public function init(){
-       //$layout = $this->_helper->layout();
-       //$layout->setLayout('administrator');
-         //$this->_helper->layout->setLayout('administrator');
     }
     public function indexAction(){
 		$this->_helper->layout->setLayout('administrator');
@@ -16,11 +13,18 @@ class AdministradorController extends Zend_Controller_Action{
         $this->view->assign("dados", $dados);     
     }
     public function menuAction(){
-
-        //$this->_helper->layout->setLayout('login');
+        $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
         $dados = "Registra-te!";
         $this->view->assign("dados", $dados);
     }
- }
+    public function assecoAction(){
+        // valida sessão
+         if (!Zend_Auth::getInstance()->hasIdentity() )
+         {
+            return $this->_helper->redirector->goToRoute(
+                    array('controller' => 'Autenticacao'), null, true);
+         }
+    }
+}
 ?>

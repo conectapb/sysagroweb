@@ -36,7 +36,7 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
       }
     }
 
-    public function updates($id, $comentario,$noticia,$foto,$data,$fonte,$ativo,$categoria_noticia_id){
+    public function updates($id, $titulo, $comentario, $noticia, $foto, $data,$fonte,$ativo, $categoria_noticia_id){
        try 
         {
           $data = array(
