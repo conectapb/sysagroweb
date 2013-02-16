@@ -6,9 +6,9 @@
  */
 class ArtigoController extends Zend_Controller_Action{
 
-
+    private $_file_artigo = '../public/upload/artigo/';
+    
     public function init(){
-        
         $this->artigo = new Application_Model_DbTable_Artigo(); // DbTable
     }
     
@@ -29,7 +29,6 @@ class ArtigoController extends Zend_Controller_Action{
         // Passa o paginator para a view
         $this->view->artigo = $paginator;
     }
-    
     public function addAction(){
         
         $this->assecoAction();
@@ -41,19 +40,21 @@ class ArtigoController extends Zend_Controller_Action{
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData))
             {
-                $foto          = $form->getValue('foto');
-                $foto1         = $form->getValue('foto1');
-                $locationFile  = $form->foto1->getFileName();
+               $foto          = $form->getValue('foto');
+               $foto1         = $form->getValue('foto1');
+               $locationFile  = $form->foto1->getFileName();
                try 
                 {
                     $currentMicroTime = sha1(uniqid(rand(), true));
                     $nameFile = $currentMicroTime.'.jpg';
-                    $fullPathNameFile =  '../public/upload/'.$nameFile;
-                    $filterRename = new Zend_Filter_File_Rename(array('target' => $fullPathNameFile, 'overwrite' => true));
+                    $fullPathNameFile =  $this->_file_artigo.$nameFile;
+                    
+                    $filterRename = new Zend_Filter_File_Rename(
+                            array('target' => $fullPathNameFile, 'overwrite' => true));
                     $filterRename->filter($locationFile);
                     $imageAdapter = new Zend_File_Transfer_Adapter_Http();
-                    $imageAdapter->setDestination('../public/upload/');
-                        if( $imageAdapter->receive() )
+                    $imageAdapter->setDestination( $this->_file_artigo );
+                      if( $imageAdapter->receive() )
                             echo 'Upload efetuado com sucesso';
                         else
                         echo 'Ops! Ocorreu um erro ao enviar o arquivo';
@@ -72,7 +73,8 @@ class ArtigoController extends Zend_Controller_Action{
                    
                    if($this->artigo)
                     {
-                       $this->_helper->flashMessenger->addMessage(array('successo'=>'Registro Gravado com sucesso'));
+                       $this->_helper->flashMessenger->addMessage(
+                               array('successo'=>'Registro Gravado com sucesso'));
                        $this->_helper->redirector('sucesso');
                     }
             } else {
@@ -80,7 +82,6 @@ class ArtigoController extends Zend_Controller_Action{
             }
         }
     }
-     
     public function editAction(){
         $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
@@ -97,7 +98,8 @@ class ArtigoController extends Zend_Controller_Action{
                 $locationFile  = $form->foto1->getFileName();
                 $fotoantigo    = $form->getElement('foto')->getValue(); //the hidden field
                 
-                if (file_exists('../public/upload/'.$fotoantigo)) 
+                //if (file_exists('../public/upload/artigo/'.$fotoantigo))
+                if (file_exists($this->_file_artigo.$fotoantigo)) 
                 {
                     $form->getElement('foto')->setIgnore(true); 
                     $nomeFoto =  $fotoantigo;
@@ -110,14 +112,15 @@ class ArtigoController extends Zend_Controller_Action{
                     
                     $novonomeFoto = sha1(uniqid(rand(), true));
                     $nomeFoto = $novonomeFoto.'.jpg';
-                    $caminhoFoto =  '../public/upload/'.$nomeFoto;
+                    //$caminhoFoto =  '../public/upload/'.$nomeFoto;
+                    $caminhoFoto =  $this->_file_artigo.$nomeFoto;
                     // Rename uploaded file using Zend Framework
                     $filterRename = new Zend_Filter_File_Rename(
                                     array('target' => $caminhoFoto, 'overwrite' => true));
                     $filterRename->filter($locationFile);
                     // detination file
                     $imageAdapter = new Zend_File_Transfer_Adapter_Http();
-                    $imageAdapter->setDestination('../public/upload/');
+                    $imageAdapter->setDestination( $this->_file_artigo );
                     try {
                          $imageAdapter->receive();
                     } 
@@ -154,29 +157,23 @@ class ArtigoController extends Zend_Controller_Action{
             }
         }
     }
-    
     public function showAction() {
         $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
         $id = $this->getRequest()->getParam('id');
             if ($id > 0) 
             {
-                //// or $this->Posts->fetchRow("id = $id");
                 $evento = $this->artigo->find($id)->current();
-                $this->view->artigo = $evento;
+             	$this->view->artigo = $evento;
             }
             else $this->view->message = 'registro não existe';
     }
-    
     public function deleteAction() {
        $this->assecoAction();
        $this->_helper->layout->setLayout('administrator');
        $id = $this->_request->getParam("id", 0);
-       
-        if($id > 0) 
+       if($id > 0) 
         {
-            
-           
             // Delete images
             $imageName = $this->artigo->getId($id);
             $this->removeImages($imageName['foto'],$id);
@@ -187,22 +184,19 @@ class ArtigoController extends Zend_Controller_Action{
         $this->_helper->flashMessenger->addMessage(array('successo'=>'Registro excluido com sucesso'));
         $this->_helper->redirector('sucesso');
     }
-    
     public function sucessoAction(){
         $this->_helper->layout->setLayout('administrator');
         $dados = "sucesso";
         $this->view->assign("dados", $dados);
     }
-    
     public function assecoAction(){
         // valida sessão
          if (!Zend_Auth::getInstance()->hasIdentity() )
          {
             return $this->_helper->redirector->goToRoute(
-                    array('controller' => 'auth'), null, true);
+                    array('controller' => 'Autenticacao'), null, true);
          }
     }
-    
     // region administador
 
     public function removeImages($img, $id){
@@ -210,10 +204,12 @@ class ArtigoController extends Zend_Controller_Action{
         if (isset($img)) 
         {
             $imageName = $this->artigo->getId($id);
-            unlink("../public/upload/".$imageName['foto']);
+            //unlink("../public/upload/".$imageName['foto']);
+            unlink($this->_file_artigo .$imageName['foto']);
+            
+            
         }   
     }
-
     public function readAction(){
       $id = $this->_getParam('id', 0);
        try{

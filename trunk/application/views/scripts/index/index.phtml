@@ -4,8 +4,9 @@
 			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">				Noticia Principal				
 			</a>
 		</h1>
-
+		
 		<div class="linha-blue"></div>
+			
 			<?php foreach ($this->dados AS $key => $item): ?>
 			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>">
 			    <div class="imagem-Home1">
@@ -222,7 +223,7 @@
 				<!-- begin google -->						
 				<div class="google">
 					<script type="text/javascript">
-						google_ad_client = "pub-8137284570178208";
+					<!-- google_ad_client = "pub-8137284570178208";
 					    google_ad_slot = "4264054957";
 						google_ad_width  =295;
 						google_ad_height = 250;	

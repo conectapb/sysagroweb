@@ -26,11 +26,11 @@
                 <dd class="detalhe"><?php echo $this->artigo->ativo ?></dd>
                 
                 <dt class="detalhe">Foto</dt>
-                <dd class="detalhe"><?php echo $this->img($this->baseUrl() . '/upload/' . $this->artigo->foto, 100, 100, 'sds'); ?></dd>
+                <dd class="detalhe"><?php echo $this->img($this->baseUrl() . '/upload/artigo/' . $this->artigo->foto, 100, 100, 'sds'); ?></dd>
 
                 <dt class="detalhe">Opciones</dt>
                 <dd class="detalhe">
-                    <a href="<?php echo $this->url(array('controller' => ' Administrador ', 'action' => 'menu'), null, true); ?>">Inicio</a>
+                    <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
                     |
                     <a href="<?php echo $this->url(array('controller' => 'Artigo', 'action' => 'index'), null, true); ?>">Listar Artigos</a>
                     |

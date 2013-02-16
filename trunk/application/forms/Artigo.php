@@ -39,7 +39,7 @@ class Application_Form_Artigo extends Zend_Form
                             ),
                             'breakChainOnFailure'=>true
                     ),
-                    array('StringLength', false, array(0, 350)),
+                    //array('StringLength', false, array(0, 350)),
                     ),
                'required'   => true,
                'label'      => 'Comentario:',
@@ -56,7 +56,7 @@ class Application_Form_Artigo extends Zend_Form
                             ),
                             'breakChainOnFailure'=>true
                     ),
-                    array('StringLength', false, array(0, 350)),
+                    //array('StringLength', false, array(0, 1350)),
                     ),
                'required'   => true,
                'label'      => 'Artigo:',
@@ -117,7 +117,7 @@ class Application_Form_Artigo extends Zend_Form
                'class'      => 'input-short',
                'MultiOptions' =>array('' => '-- Selesionar --',
                                       'Sim' => 'Sim',
-				      'Não' => 'Não')
+				      				  'Não' => 'Não')
       ));
 
 
@@ -127,7 +127,7 @@ class Application_Form_Artigo extends Zend_Form
                  ->addValidator('Extension', false, array('jpg', 'png', 'gif'))
                  ->addValidator('Size', false, 1002400)
                  ->setDescription("Images")
-                 ->setDestination('../public/upload/');
+                 ->setDestination('../public/upload/artigo/');
         $this->addElement($fotodeejay);   
         
         $this->addElement('submit', 'enviar', array(

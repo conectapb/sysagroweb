@@ -47,8 +47,8 @@
                                 <td><a href=""><?php echo $item->titulo ?></a></td>
                                 <td><?php echo $item->comentario ?></td>
                                 <td><?php echo $item->noticia ?></td>
-                                <td align"center">
-                                   <?php echo $this->img($this->baseUrl().'/upload/'.$item->foto, 100, 100, 'Foto'); ?>
+                               <td align="center">
+                                   <?php echo $this->img($this->baseUrl().'/upload/artigo/'.$item->foto, 100, 100, 'Foto'); ?>
                                 </td>
                                 <td>
                                     <a href="<?php echo $this->url(array('controller' => 'Artigo', 'action' => 'show', 'id' => $item->id), null, true); ?>">
