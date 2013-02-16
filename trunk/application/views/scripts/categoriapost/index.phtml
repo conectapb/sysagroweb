@@ -1,0 +1,69 @@
+<?php echo $this->inlineScript()->appendFile($this->baseUrl('/js/aplication/categoriapost/Categoria.js')) ; ?>
+<div id="confirmDelete"></div>
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+        <!-- Button -->
+        <div class="float-right">
+            <a href="<?php echo $this->url(array('controller' => 'Categoriapost', 'action' => 'add'), null, true); ?>" class="button" >
+                <span>Adicionar
+                    <img src="<?php echo $this->baseUrl() ?>/images/icon/plus-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/plus-small.gif" width="12" height="9" alt="Adicionar" />
+                </span>
+            </a>
+        </div>
+
+        <!-- Table records filtering -->
+        Filtro:
+        <select class="input-short">
+            <option value="" selected="selected">Selecione</option>
+            <option value="descricao">Descri&ccedil;&acirc;o</option>
+        </select>
+
+    </div>
+
+    <!-- Example table -->
+    <div class="module">
+        <h2><span>Categoria - Noticias</span></h2>
+	     <div class="module-table-body">  <!-- module-table-body -->
+            <form action="">
+                <table id="myTable" class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th style="width:5%">#</th>
+                            <th style="width:20%">ID</th>
+                            <th style="width:21%">Descri&ccedil;&acirc;o </th>
+                            <th style="width:15%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->categoria as $item): ?>
+                            <tr>
+                                <td class="align-center">
+                                    <input type="checkbox" id="id[]" name="id[]" value="<?php echo $this->escape($item->id) ?>" />
+                                </td>
+                                <td><a href=""><?php echo $item->id ?></a></td>
+                                <td><?php echo $item->descricao ?></td>
+                                <td>
+                                    <a href="<?php echo $this->url(array('controller' => 'Categoriapost', 'action' => 'show', 'id' => $item->id), null, true); ?>">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/novo.gif" width="35" height="25" title="Show" alt="vizualizar" />
+                                    </a>
+                                    &ensp;
+                                    <a href="<?php echo $this->url(array('controller' => 'Categoriapost', 'action' => 'edit', 'id' => $item->id), null, true); ?>">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/editar.gif" width="35" height="25" title="Editar" alt="Editar" />
+                                    </a>
+                                    &ensp;
+                                    <a onclick="confirmDelete('confirmDelete',base_url+'Categoriapost/delete/id/','<?php echo $item->descricao ;?>','<?php echo $item->id; ?>')" href="#">
+                                        <img src="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" tppabs="<?php echo $this->baseUrl() ?>/images/icon/deletar.gif" width="35" height="25" title="Excluir" alt="Excluir" />
+                                    </a>
+                                </td>
+                            </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                    </table>
+             </form>
+            <?php echo $this->paginationControl($this->categoria, 'Sliding', 'pagination.phtml'); ?>
+        
+        </div> <!-- End .grid_12 -->
+      
+        <div style="clear:both;"></div>
+        <div style="clear:both;"></div>
