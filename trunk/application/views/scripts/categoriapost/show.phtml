@@ -1,0 +1,33 @@
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Detalhes</span></h2>
+        <h1 class="titulo_sohw" >Detalhes</h1>
+        <?php if ($this->categoriapost): ?>
+            <dl class="detalhe">
+                <dt class="detalhe">ID</dt>
+                <dd class="detalhe"><?php echo $this->categoriapost->id; ?></dd>
+
+                <dt class="detalhe">Nome</dt>
+                <dd class="detalhe"><?php echo $this->categoriapost->descricao; ?></dd>
+                
+                <dt class="detalhe">Opciones</dt>
+                <dd class="detalhe">
+                    <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
+                    |
+                    <a href="<?php echo $this->url(array('controller' => 'Categorianoticia', 'action' => 'index'), null, true); ?>">Listar Categorias</a>
+                    |
+                    <?php echo $this->linkvoltar('voltar', 'back', 'volver'); ?>
+                </dd>
+
+            </dl>
+        <?php else: ?>
+        <p><?php echo $this->message ?></p>
+        <?php endif ?>
+
+
+
+
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>
