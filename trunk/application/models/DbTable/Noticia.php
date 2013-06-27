@@ -4,6 +4,7 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
 {
 
     protected $_name 	= 'site_noticias';
+    
     protected $_primary = 'id';
 
 	
@@ -12,23 +13,25 @@ class Application_Model_DbTable_Noticia extends Zend_Db_Table_Abstract
         $id = (int) $id;
         $row = $this->fetchRow('id = ' . $id);
         if (! $row) {
-            throw new Exception("Could not find row $id");
+            throw new Exception("Não foi localizado o Registro com o id = $id");
         }
         return $row->toArray();
     }
 
-    public function add($titulo,$comentario,$noticia,$foto,$data,$fonte,$ativo,$categoria_noticia_id){
+    
+    public function add($titulo, $comentario, $noticia, $foto, $data, $fonte, $ativo, $categoria_noticia_id){
   	  try 
       {
-          $data = array(
+          $dados = array(
           'titulo'      => $titulo,
           'comentario'  => $comentario,
           'noticia'     => $noticia,
           'foto'        => $foto,
+          'data'        => $data,
           'fonte'  	    => $fonte,
-  		   'ativo'  	    => $ativo, 
-  		   'categoria_noticia_id' => $categoria_noticia_id);
-  	    parent::insert($data);
+  		    'ativo'  	    => $ativo, 
+  		    'categoria_noticia_id' => $categoria_noticia_id);
+  	    parent::insert($dados);
       }
       catch (Exception $e)
       {

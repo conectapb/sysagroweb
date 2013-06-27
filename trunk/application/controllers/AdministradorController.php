@@ -15,8 +15,12 @@ class AdministradorController extends Zend_Controller_Action{
     public function menuAction(){
         $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
-        $dados = "Registra-te!";
-        $this->view->assign("dados", $dados);
+        //$ip = $this->getRequest()->getServer('REMOTE_ADDR');
+        $ip = Zend_Controller_Front::getInstance()->getRequest()->getServer('REMOTE_ADDR');
+        //$ip = $_SERVER['REMOTE_ADDR'];
+        //$dados = "Registra-te!";
+        $this->view->assign("IP",   $ip);
+        //$this->view->assign("dados", $dados);
     }
     public function assecoAction(){
         // valida sessão

@@ -1,0 +1,96 @@
+<?php echo $this->inlineScript()->appendFile($this->baseUrl('/js/aplication/produto/Produto.js')) ; ?>
+<div class="grid_12">
+    <div class="module">
+      <h2><span>Formulario</span></h2>
+      <div style="clear:both;"></div>
+      <?php echo $this->partial('comun/menu_toolbar_produto.phtml'); ?> 
+      <div style="clear:both;"></div>    	
+     	<form enctype="<?php echo $this->form->getEnctype(); ?>" 
+		   method="<?php echo $this->form->getMethod(); ?>" 
+	       action="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl().$this->form->getAction();?>" id="<?php echo $this->form->getId(); ?>">
+			<div id="tabs">
+				  <ul>
+				    <li>
+				    	<a class="ep-messages" href="#pro-1">
+						<img src="<?php echo $this->baseUrl() ?>/images/icon/tabs.png" 
+				    	tppabs="<?php echo $this->baseUrl() ?>/images/tabs.png" 
+				    	width="16" height="16" alt="images" />
+						Produto/Categoria</a>
+				    </li>
+				    <li>
+				    	<a class="ep-messages" href="#pro-2">
+				    	<img src="<?php echo $this->baseUrl() ?>/images/icon/tabs.png" 
+				    	tppabs="<?php echo $this->baseUrl() ?>/images/tabs.png" 
+				    	width="16" height="16" alt="images" />
+				    	Produto/Informações</a>
+				    </li>
+				    <li>
+				    	<a class="ep-messages" href="#pro-3">
+				    	<img src="<?php echo $this->baseUrl() ?>/images/icon/tabs.png" 
+				    	tppabs="<?php echo $this->baseUrl() ?>/images/tabs.png" 
+				    	width="16" height="16" alt="images" />
+				    	Produto/Valor/Impostos</a>
+				    </li>
+				    <li>
+				    	<a class="ep-messages" href="#pro-4">
+				    	<img src="<?php echo $this->baseUrl() ?>/images/icon/tabs.png" 
+				    	tppabs="<?php echo $this->baseUrl() ?>/images/tabs.png" 
+				    	width="16" height="16" alt="images" />
+				    	Produto/Imagens</a>
+				    </li>
+				  </ul>
+		  
+			  	<div id="pro-1">
+			   		<!--<label>icmsc</label>
+				    <input type="text" 
+				           id="<?php echo $this->form->getElement('icmsc')->getId(); ?>" 
+					       name="<?php echo $this->form->getElement('icmsc')->getName(); ?>" 
+						   class="input-short"/>-->
+					<?php echo $this->form->grupo_id; ?>	
+					<?php echo $this->form->marca_id; ?>
+				    <?php echo $this->form->modelo_id; ?>
+				    <?php echo $this->form->unidade_id; ?>
+				    <?php echo $this->form->tipi; ?>
+				    <?php echo $this->form->genero_id; ?>
+					<?php echo $this->form->ncm; ?>
+					<?php echo $this->form->cor_id; ?>
+				</div>
+			  
+				<div id="pro-2">
+				<!--<img src="<?php echo $this->url(array('controller' => 'Produto', 'action'=> 'barcode')); ?>" alt="barcode" /> --> 
+
+
+				  	<?php echo $this->form->codBarras; ?>
+					<?php echo $this->form->nome; ?>
+					<?php echo $this->form->refFabricante; ?>
+					<?php echo $this->form->refAuxiliar; ?>
+				</div>
+			  
+				<div id="pro-3">
+				    <?php echo $this->form->icmsc; ?>
+					<?php echo $this->form->icmsv; ?>
+					<?php echo $this->form->ipiVenda; ?>
+					<?php echo $this->form->cst; ?>
+					<?php echo $this->form->margenLucro; ?>
+					<?php echo $this->form->precoCusto; ?>
+					<?php echo $this->form->precoVenda; ?>
+					<?php echo $this->form->margenDesconto; ?>
+				</div>
+
+				<div id="pro-4">
+				    <?php echo $this->form->foto; ?>
+				    <?php echo $this->form->foto_images; ?>
+				</div>
+
+				<?php //echo $this->form->Gravar; ?>
+
+				<div class="editor-field">
+
+					<input type="submit" name="Gravar" id="Gravar" value="Gravar" class="submit-green">
+				</div>
+			</div>
+    	</form>
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>

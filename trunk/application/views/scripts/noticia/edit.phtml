@@ -1,0 +1,14 @@
+<?php echo $this->inlineScript()->appendFile($this->baseUrl('/js/aplication/noticia/Noticia.js')) ; ?>
+<div class="grid_12">
+     <div class="module">
+      <h2><span>Formulario</span></h2>
+      <?php echo $this->form->setAction($this->url());?>
+      <div class="module-body">
+         <p>
+           <?php echo $this->img( $this->baseUrl().'/upload/noticia/'.$this->form->foto->getValue() ,100,100,'Artigo'); ?>
+        </p>
+      </div>
+      </div> <!-- End .module -->
+     <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>

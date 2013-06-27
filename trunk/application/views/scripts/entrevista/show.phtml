@@ -1,0 +1,57 @@
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Detalles</span></h2>
+        <h1 class="titulo_sohw" >Detalles</h1>
+        <?php if ($this->entrevista): ?>
+            <dl class="detalhe">
+                <dt class="detalhe">ID</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->id; ?></dd>
+
+                <dt class="detalhe">Titulo</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->titulo; ?></dd>
+
+                <dt class="detalhe">Comentario</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->comentario; ?></dd>
+
+                <dt class="detalhe">Entrevista</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->entrevista; ?></dd>
+
+                <dt class="detalhe">Entrevistado</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->entrevistado ?></dd>
+                
+                <dt class="detalhe">Reporter</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->reporter; ?></dd>
+                
+                <dt class="detalhe">Data</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->data ?></dd>
+
+               
+
+                <dt class="detalhe">Status</dt>
+                <dd class="detalhe"><?php echo $this->entrevista->ativo ?></dd>
+                
+                <dt class="detalhe">Foto</dt>
+                <dd class="detalhe"><?php echo $this->img($this->baseUrl() . '/upload/entrevista/' . $this->entrevista->foto, 100, 100, 'sds'); ?></dd>
+
+
+                <dt class="detalhe">Opciones</dt>
+                <dd class="detalhe">
+                    <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
+                    |
+                    <a href="<?php echo $this->url(array('controller' => 'Entrevista', 'action' => 'index'), null, true); ?>">Listar Entrevista</a>
+                    |
+                    <?php echo $this->linkvoltar('voltar', 'back', 'voltar'); ?>
+                </dd>
+
+            </dl>
+        <?php else: ?>
+        <p><?php echo $this->message ?></p>
+        <?php endif ?>
+
+
+
+
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>

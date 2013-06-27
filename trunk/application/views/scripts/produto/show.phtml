@@ -1,0 +1,81 @@
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Detalhes</span></h2>
+        <h1 class="titulo_sohw" >Detalhes</h1>
+        
+           <?php //print_r( $this->ncm->toArray() ); ?>
+          
+           <?php if ($this->produto): ?>
+            <dl class="detalhe">
+                <dt class="detalhe">ID</dt>
+                <dd class="detalhe"><?php echo $this->produto->id; ?></dd>
+
+                <dt class="detalhe">C.Barra</dt>
+                <dd class="detalhe"><?php echo $this->produto->codBarras; ?></dd>
+
+                <dt class="detalhe">Produto</dt>
+                <dd class="detalhe"><?php echo $this->produto->nome ?></dd>
+
+                <dt class="detalhe">R.Fabricante</dt>
+                <dd class="detalhe"><?php echo $this->produto->refFabricante ?></dd>
+
+                <dt class="detalhe">Ref-Auxiliar</dt>
+                <dd class="detalhe"><?php echo $this->produto->refAuxiliar ?></dd>
+
+                <dt class="detalhe">Icmsc</dt>
+                <dd class="detalhe"><?php echo $this->produto->icmsc ?></dd>
+
+                <dt class="detalhe">Icmsv</dt>
+                <dd class="detalhe"><?php echo $this->produto->icmsv ?></dd>
+                
+                <dt class="detalhe">IPI-Venda</dt>
+                <dd class="detalhe"><?php echo $this->produto->ipiVenda ?></dd>
+
+                <dt class="detalhe">N.C. Mercosul</dt>
+                <dd class="detalhe">
+                    <?php echo $this->produto->ncm.' - '.utf8_encode($this->ncm[0]['descricao']) ?>
+                </dd>
+                
+                <dt class="detalhe">Margen-Lucro</dt>
+                <dd class="detalhe"><?php echo $this->produto->margenLucro ?></dd>
+
+                <dt class="detalhe">Preço-Custo</dt>
+                <dd class="detalhe"><?php echo $this->produto->precoCusto ?></dd>
+
+                <dt class="detalhe">Preço-Venda</dt>
+                <dd class="detalhe"><?php echo $this->produto->precoVenda ?></dd>
+
+                <dt class="detalhe">Desconto</dt>
+                <dd class="detalhe"><?php echo $this->produto->margenDesconto ?></dd>
+
+                <dt class="detalhe">IPI</dt>
+                <dd class="detalhe">
+                    <?php echo $this->produto->tipi.' - '.utf8_encode($this->tipi[0]['descricao']) ?>
+                </dd>
+
+
+                <dt class="detalhe">Cor</dt>
+                <dd class="detalhe">
+                    <?php echo $this->produto->cor_id.' - '.$this->cor[0]['cor'] ?>
+                </dd>
+                     
+               <dt class="detalhe">Foto</dt>
+                <dd class="detalhe"><?php echo $this->img($this->baseUrl() . '/upload/produto/' . $this->produto->foto, 100, 100, 'sds'); ?></dd>
+
+                <dt class="detalhe">Opciones</dt>
+                <dd class="detalhe">
+                    <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
+                    |
+                    <a href="<?php echo $this->url(array('controller' => 'Produto', 'action' => 'index'), null, true); ?>">Listar Produto</a>
+                    |
+                    <?php echo $this->linkvoltar('voltar', 'back', 'volver'); ?>
+                </dd>
+
+            </dl>
+        <?php else: ?>
+            <p><?php echo $this->message ?></p>
+        <?php endif ?>
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>

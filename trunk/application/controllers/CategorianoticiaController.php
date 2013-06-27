@@ -37,6 +37,7 @@ class CategorianoticiaController extends Zend_Controller_Action{
         // Passa o paginator para a view
         $this->view->categoria = $paginator;
     }
+    
     public function addAction(){
         $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
@@ -145,6 +146,7 @@ class CategorianoticiaController extends Zend_Controller_Action{
             echo $exc->getTraceAsString();
         }
     }
+    
     public function post4Action() {
         try 
             {
@@ -164,6 +166,7 @@ class CategorianoticiaController extends Zend_Controller_Action{
                 echo $exc->getTraceAsString();
         }
     }
+    
     public function updateAction() {
         $this->_helper->layout->setLayout('administrator');
        try
@@ -184,6 +187,7 @@ class CategorianoticiaController extends Zend_Controller_Action{
             $this->_helper->json( $msg ); 
         }
     }
+    
     public function excluirAction() {  
         $this->_helper->layout->setLayout('administrator');
         try
@@ -206,5 +210,24 @@ class CategorianoticiaController extends Zend_Controller_Action{
         }
     }
     // end adiministrador - json
+
+
+    public function getjsncategoriaAction() {
+       $user = $this->categoria->fetchAll();
+       $i=0;
+       $responce = NULL;
+       foreach($user as $row) {
+            $responce[$i]['id']=$row->id;
+            $responce[$i]['nome']= $row->descricao;
+            //$responce[$i]['observacao']= utf8_encode($row->observacao);       
+           $i++;
+        }
+
+        $msg = array('Mensagem' => "OK", "retorno" => $responce );
+        $this->_helper->json(  $msg  );
+        //$this->_helper->json( "mensagem" => "ok" , "retorno" =>  $responce  );
+    }
+
+
 }
 ?>

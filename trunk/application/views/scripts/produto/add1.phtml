@@ -1,0 +1,174 @@
+<?php echo $this->inlineScript()->appendFile($this->baseUrl('/js/aplication/artigo/Artigo.js')) ; ?>
+
+<style type="text/css">
+
+#table-module {
+	/*border: 1px solid #e3e3e3;
+	background-color: #f2f2f2;*/
+	border: 0px solid #ccc !important;
+    width: 98%;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	margin:  5px;
+	padding: 2px;
+}
+#table-module td, #table-module th {
+	color: #333;
+	background-color: #ffffff;
+	padding: 5px;
+
+}
+
+#table-module thead {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding: .2em 0 .2em .5em;
+	text-align: left;
+	color: #4B4B4B;
+	background-color: #C8C8C8;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#e3e3e3), color-stop(.6,#B3B3B3));
+	background-image: -moz-linear-gradient(top, #D6D6D6, #B0B0B0, #B3B3B3 90%);
+	/* border-bottom: solid 1px #999; */
+}
+#table-module th {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	line-height: 20px;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+	text-shadow: white 1px 1px 1px;
+}
+
+#table-module td {
+	/*line-height: 20px; */
+	/* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-size: 14px; */
+	border-bottom: 1px solid #ccc;
+
+	/* 
+	border-top: 1px solid #fff; 
+	border: 0px solid #ccc !important;
+	 */
+
+	
+	border-right: 0px solid #ccc !important;
+	border-left : 0px solid #ccc !important;
+}
+
+#table-module td#bor_1px {
+	
+	/*
+	border-bottom: 1px solid #c00;
+	border-top: 1px solid #fff;*/
+}
+
+#table-module td:hover {
+	/*background-color: #B0B0B0;*/
+	/* background:lightgray; */
+}
+
+#table-module  td:nth-child(2n+1) {
+/* background:lightgray; */
+}
+
+
+#table-module  tr td:nth-child(odd) {
+/* background: lightgray; */
+}
+
+
+#table-module td#bor_1px {
+	
+	/*
+	border-bottom: 1px solid #c00;
+	border-top: 1px solid #fff;*/
+}
+
+
+#table-module1 input[type=text] {
+	height:24px;
+	padding-left:6px;
+	width:408px;
+	margin-right:10px;
+	margin-bottom:11px;
+}
+
+#table-module  input[type=text], input[type=password], select {
+    margin:                 5px;   
+    background-color:       #FFFFFF;
+    border:                 1px solid #c6c6c6;
+    padding:                5px;  
+    color:  #000000;
+    padding-left:6px;
+	margin-right:10px;
+	margin-bottom:11px;
+    -webkit-transition: all 0.25s ease-out;
+}
+
+.button-gray {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}.button-gray:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.button-gray:active {
+	position:relative;
+	top:1px;
+}
+
+
+</style>
+
+<div class="grid_12">
+     <div class="module">
+      <h2><span>Formulario</span></h2>
+      <?php //echo $this->form->setAction($this->url()); ?>
+
+
+      	<?php
+$userid = $this->form->getElement('icmsc');
+$pass = $this->form->getElement('icmsv');
+$remember = $this->form->getElement('ipiVenda');
+$submit = $this->form->getElement('submit');
+?>
+<form enctype="<?php echo $this->form->getEnctype(); ?>" 
+	method="<?php echo $this->form->getMethod(); ?>" 
+	action="<?php echo $this->form->getAction(); ?>" 
+	id="<?php echo $this->form->getId(); ?>">
+name: 
+
+<input type="text" id="<?php echo $userid->getId(); ?>" name="<?php echo $userid->getName(); ?>" />
+<br />
+pass: 
+<input type="password" id="<?php echo $pass->getId(); ?>" name="<?php echo $pass->getName(); ?>" /><br />
+remember: 
+<input type="checkbox" id="<?php echo $remember->getId(); ?>" name="<?php echo $remember->getName(); ?>" />
+
+</form>
+
+
+
+     </div> <!-- End .module -->
+     <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>

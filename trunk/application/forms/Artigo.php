@@ -118,7 +118,7 @@ class Application_Form_Artigo extends Zend_Form
                'MultiOptions' =>array('' => '-- Selesionar --',
                                       'Sim' => 'Sim',
 				      				  'Não' => 'Não')
-      ));
+        ));
 
 
 		$this->addElement('hidden', 'foto', '1');

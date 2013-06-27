@@ -1,7 +1,7 @@
 <div class="grid_12">
     <div class="module">
-        <h2><span>Detalhes</span></h2>
-        <h1 class="titulo_sohw" >Detalhes</h1>
+        <h2><span>Detalles</span></h2>
+        <h1 class="titulo_sohw" >Detalles</h1>
         <?php if ($this->categoriapost): ?>
             <dl class="detalhe">
                 <dt class="detalhe">ID</dt>
@@ -14,7 +14,7 @@
                 <dd class="detalhe">
                     <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
                     |
-                    <a href="<?php echo $this->url(array('controller' => 'Categorianoticia', 'action' => 'index'), null, true); ?>">Listar Categorias</a>
+                    <a href="<?php echo $this->url(array('controller' => 'Categoriapost', 'action' => 'index'), null, true); ?>">Listar Categorias</a>
                     |
                     <?php echo $this->linkvoltar('voltar', 'back', 'volver'); ?>
                 </dd>

@@ -18,8 +18,7 @@ class Application_Model_DbTable_Sobre extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function comandInsert($nome, $quemsou, $quemfaco, $filosofia, $nossamissao)
-    {
+    public function comandInsert($nome, $quemsou, $quemfaco, $filosofia, $nossamissao){
         $data = array(
         'nome'         => $nome,
         'quemsou'      => $quemsou,

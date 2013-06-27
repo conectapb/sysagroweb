@@ -1,23 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"-->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<meta name="title" content="Portal do Agroneg�cio" />
-	<meta name="description" content="Portal do Agroneg�cio - Not�cias, Eventos, Artigos e tudo sobre o Agroneg�cio brasileiro e mundial" />
-	<meta name="language" content="Portugues" />
-	<meta http-equiv="content-language" content="pt-br" />
-	<meta name="copyright" content="Portal do Agroneg�cio" /> 
-	<meta name="keywords" content="agronegocio, agrobusiness, agropecu�ria, agropecuaria, agroindustriais, flores, leite, produ��o, biodiesel, apicultura, apicultura, copo de leite, minhocario, minhocario, minhocas, minhocas, transg�nicos, biotecnologia" />
-	<meta name="author" content="Desenvolvimento: Axel Alexander" />
-	<meta name="reply-to" content="axelpatton@gmail.com.br" />
-	<meta name="Resource-type" content="document" />
-	<meta name="Distribution" content="local" />
-	<meta name="DateCreated" content="20/01/2004" />
-	<meta name="Revisit-after" content="1" />
-	<title>Portal do Agroneg&oacute;cio - Not&iacute;cias, Eventos, Artigos e tudo sobre o agroneg&oacute;cio brasileiro e mundial</title>
-	<base href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/" />	
-	<link href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/icon/agro.png" type="image/png" rel="shortcut icon" />
-	<link rev="made" href="mailto:axelpatton@gmail.com" /> 
+<!--meta charset="utf-8"-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="title" content="Portal do Agronegócio" />
+<meta name="description" content="Portal do Agronegócio - Notícias, Eventos, Artigos e tudo sobre o Agronegócio brasileiro e mundial" />
+<meta name="language" content="Portugues" />
+<meta http-equiv="content-language" content="pt-br" />
+<meta name="copyright" content="Portal do Agronegócio" /> 
+<meta name="keywords" content="agronegocio, agrobusiness, agropecuária, agropecuaria, agroindustriais, flores, leite, produção, biodiesel, apicultura, apicultura, copo de leite, minhocario, minhocario, minhocas, minhocas, transgénicos, biotecnologia" />
+<meta name="author" content="Desenvolvimento: Axel Alexander" />
+<meta name="reply-to" content="axelpatton@gmail.com.br" />
+<meta name="Resource-type" content="document" />
+<meta name="Distribution" content="local" />
+<meta name="DateCreated" content="20/01/2004" />
+<meta name="Revisit-after" content="1" />
+<title>Portal do Agroneg&oacute;cio - Not&iacute;cias, Eventos, Artigos e tudo sobre o agroneg&oacute;cio brasileiro e mundial</title>
+<base href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/" />	
+<link href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/icon/agro.png" type="image/png" rel="shortcut icon" />
+<link rev="made" href="mailto:axelpatton@gmail.com" /> 
+
 <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/reset.css" type="text/css"/>
 <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/layout.css" type="text/css"/>
 <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/css/estilo.css" type="text/css"/>
@@ -26,12 +32,22 @@
 <!--  FANCYBOX-->
 <link rel="stylesheet" media="screen" href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/css/jquery.fancybox-1.3.1.css" type="text/css"/>
 
+<link rel="stylesheet" media="screen" href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/ui-themes/prata/jquery.ui.all.css" type="text/css"/>
 
 <!--
-<link rel="alternate" type="application/rss+xml" title="Portal do Agronegócio" href="http://www.portaldoagronegocio1.com.br/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="Portal do AgronegÃ³cio" href="http://www.portaldoagronegocio1.com.br/rss.xml" />
 -->
 <script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/js/AC_RunActiveContent.js"  type="text/javascript"></script>
-<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery-1.8.1.min.js" type="text/javascript"></script>
+
+
+<!--script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery-1.8.1.min.js" type="text/javascript"></script-->
+
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery-ui/jquery-ui-1.8.11.custom.js" type="text/javascript"></script>
+
+
+
 <script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/chili-1.7.pack.js"   type="text/javascript"></script>
 <script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.cycle.all.js" type="text/javascript"></script>
 <script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.validate.js"  type="text/javascript"></script>
@@ -39,6 +55,10 @@
 <script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.easy-ticker.js" type="text/javascript"></script>
 <script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.webticker.js" type="text/javascript"></script>
 
+
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/js/app_site.js" type="text/javascript"></script>
+
+<script src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/js/funcoes/app_modal_mvc.js" type="text/javascript"></script>
 <script>
 $(document).ready(function() {
 	
@@ -84,51 +104,28 @@ $(document).ready(function() {
 </head>
 <body>
 <div align="center">
-
-<!-- 
-<div id="barra-menu-dentro">
-                <div id="barra-menu-item">
-                	<a href="#">Inicio</a>
-                </div>
-                <div class="noticias">
-                	<a href="#">not&iacute;cias</a>
-                </div>
-                <div class="eventos">
-                	<a href="#">eventos</a>
-                </div>
-                <div class="artigos" style="border-right:none">
-                	<a href="#">artigos</a>
-                </div>
-            </div>
-            <div style="float:right; width:30%; font-weight:bold; color:#666">
-            	<div>
-            		<a href="#" class="barra-gray">contato</a>
-            	</div>
-            	<div>
-            		<a href="#" class="barra-gray">anuncie conosco</a>
-            	</div>
-            	<div>
-            		<a href="#" class="barra-gray">consultoria</a>
-            	</div>
-            </div>
--->
 	<div id="barra"><!-- Begin barra --> 
         <div id="barra-menu">    
             <ul>
                 <li>
-                	<a href="#">Inicio</a>
+                	<a href="#">&raquo; Inicio</a>
                 </li>
                  <li>
-                	<a href="#">Not&iacute;cias</a>
+                 	<a href="<?php echo $this->url(array('controller' => 'Noticia', 'action' => 'list'), null , true); ?>">&raquo; Not&iacute;cias
+					</a>
                 </li>
                   <li>
-                	<a href="#">Eventos</a>
+                	<a href="#"> &raquo; Eventos</a>
                 </li>
                  <li>
-                	<a href="#">Artigos</a>
+                	<a href="#"> &raquo; Artigos</a>
                 </li>
                 <li>
-                	<a href="#">Contato</a>
+                	<a href="#"> &raquo; Contato</a>
+                </li>
+                <li>
+                	<a href="<?php echo $this->url(array('controller' => 'Autenticacao', 'action' => 'index'), null , true); ?>">&raquo; Administrador
+					</a>
                 </li>
             </ul>
             <div id="barra-menu-right">
@@ -150,11 +147,11 @@ $(document).ready(function() {
             
 			<ul id="leaders">
                     <li style="font-size: 1.067em;">
-                    	<h2 class="home-head">Nutribem Produtos Agropecu&aacute;rios</h2>
+                    	<h2 class="home-head">Agro Web o Potal do Agroneg&oacute;cio</h2>
                     </li>
                     <li style="font-size: 1.14em; display: none;">
                     	<h2 class="home-head">
-                    		Na tomada de decis&acirc;o comte a gente sempre
+                    		Na tomada de decis&acirc;o conte com a gente sempre
                     	</h2>
                     </li>
  					<li style="font-size: 1.14em; display: none;">
@@ -163,7 +160,7 @@ $(document).ready(function() {
  						</h2>
  					</li>
                     <li style="font-size: 1.25em; display: none;">
-                    	<h2 class="home-head">Share Your Audio Online</h2>
+                    	<h2 class="home-head">Seu Pr&oacute;prio Site Aqui conosco</h2>
                     </li>
             </ul>
             <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/jquery/jquery.newsticker.js"></script>
@@ -202,11 +199,11 @@ $(document).ready(function() {
 		
 		<div id="topo"><!-- begin toto img form -->
 			<a href="#">
-				<img src="imagens/portaldoagronegocio.jpg" alt="Portal do Agroneg�cio" title="Portal do Agroneg�cio" class="img-topo" />
+				<img src="images/imgres1.jpg" width="118" height="80" alt="Potal do Agroneg&oacute;cio" title="Potal do Agroneg&oacute;cio" class="img-topo" />
 			</a>
 			
 			<div id="div-span-titulo-1">
-            	<span class="span-titulo-1">Nutribem Produtos Agropecu&aacute;rios</span>
+            	<span class="span-titulo-1">Agro Web o Portal do Agroneg&oacute;cio</span>
             </div>
 
             <div id="topo-form">
@@ -216,7 +213,10 @@ $(document).ready(function() {
                  </form>
                  <br />
                  <a href="http://twitter.com/agronegociobr" target="_blank">
-                  <img src="imagens/twitter.jpg" alt="Twitter" title="Twitter" class="topo-twitter"/>
+                  <img src="images/twitter.jpg" alt="Twitter" title="Twitter" class="topo-twitter"/>
+                 </a>
+                 <a href="https://www.facebook.com/agronegociobr" target="_blank">
+                  <img src="images/facebook.png" alt="facebook" title="facebook" class="topo-twitter"/>
                  </a>
             </div>
         </div><!-- end toto img form -->
@@ -235,10 +235,12 @@ $(document).ready(function() {
 											&raquo; Sobre
 											</a>
 										</li>	
-										<li><a href="#">&raquo; Nossa Hist&oacute;ria</a></li>
 										<li>
-											<a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'texto', 'rotulo' => 'agroneg�cio'), null , true); ?>">&raquo;
-											O que &eacute;?
+											<a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'texto', 'rotulo' => 'historia'), null , true); ?>">&raquo; Nossa Hist&oacute;ria
+											</a>
+										</li>
+										<li>
+											<a href="<?php echo $this->url(array('controller' => 'Texto', 'action' => 'texto', 'rotulo' => 'agronegocio'), null , true); ?>">&raquo; O que &eacute;?
 											</a>
 										</li>	
 										<li><a href="#">&raquo; Porque investir?</a></li>
@@ -390,36 +392,69 @@ $(document).ready(function() {
 					</div><!-- end centro -->
 					
 					
-					<div id="coluna_publicidade"><!-- Begin coluna_publicidade -->
-						<h2>Parceiros</h2><br />
-						<div style="height:520px; overflow:hidden;">
-								<a href="cliquepublicidade.php?id=100" target="_blank" style="padding:0; background:none;">      
-									<img src="imagens/pu_125_60_295596544.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+					<div id="coluna-parceria"><!-- Begin coluna_publicidade -->
+						
+						<h1 class="c_titulo_estatico">
+						<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
+							Parceiros				
+						</a>
+						</h1>
+
+
+						<br />
+						<div style="height:480px; overflow:hidden;">
+								
+								<a href="http://api.hostinger.com.br/redir/1030289" target="_blank"><img src="http://hostinger.com.br/banners/br/hostinger-125x125-powered-2.gif" alt="Hospedagem Gratuita" border="0" width="125" height="125" /></a>
+
+								<br />
+								<br />
+
+								<a href="http://api.hostinger.com.br/redir/1030289" target="_blank"><img src="http://hostinger.com.br/banners/br/hostinger-125x125-powered-2.gif" alt="Hospedagem Gratuita" border="0" width="125" height="125" /></a>
+
+								<br />
+								<br />
+
+								<a href="http://api.hostinger.com.br/redir/1030289" target="_blank"><img src="http://hostinger.com.br/banners/br/hostinger-125x125-powered-2.gif" alt="Hospedagem Gratuita" border="0" width="125" height="125" /></a>
+
+								<!--
+								<a href="#" target="_blank" style="padding:0; background:none;">      
+									<img src="images/pu_125_60_295596544.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
 								</a>   
+								
 								<br />
 								<br />
-									<a href="cliquepublicidade.php?id=145" target="_blank" style="padding:0; background:none;">      
-										<img src="imagens/pu_125_60_545757165.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+								
+								<a href="#" target="_blank" style="padding:0; background:none;">      
+										<img src="images/pu_125_60_545757165.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+									</a>   
+								
+								<br />
+								<br />
+								
+								<a href="#" target="_blank" style="padding:0; background:none;">      
+										<img src="images/pu_1702_1809437899.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
 									</a>   
 								<br />
 								<br />
-									<a href="cliquepublicidade.php?id=155" target="_blank" style="padding:0; background:none;">      
-										<img src="imagens/pu_1702_1809437899.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+								
+								<a href="cliquepublicidade.php?id=98" target="_blank" style="padding:0; background:none;">      
+										<img src="images/pu_125_60_1938485379.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
 									</a>   
 								<br />
 								<br />
-									<a href="cliquepublicidade.php?id=98" target="_blank" style="padding:0; background:none;">      
-										<img src="imagens/pu_125_60_1938485379.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+								
+								<a href="cliquepublicidade.php?id=99" target="_blank" style="padding:0; background:none;">      
+										<img src="images/pu_125_60_382467053.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
 									</a>   
-								<br /><br />
-									<a href="cliquepublicidade.php?id=99" target="_blank" style="padding:0; background:none;">      
-										<img src="imagens/pu_125_60_382467053.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
-									</a>   
-								<br /><br />
-									<a href="cliquepublicidade.php?id=163" target="_blank" style="padding:0; background:none;">      
-										<img src="imagens/pu_2905_1414159813.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
-									</a>   
-								<br /><br />
+								<br />
+								<br />
+								
+								<a href="cliquepublicidade.php?id=163" target="_blank" style="padding:0; background:none;">      
+										<img src="images/pu_2905_1414159813.jpg" width="125" height="60" border="0" alt="Banner" style="margin:0;" />  
+								</a>-->   
+								
+								<br />
+								<br />
 						</div>
 
 
@@ -441,10 +476,16 @@ $(document).ready(function() {
 								AC_FL_RunContent('codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','300','height','600','title','Banner','src','flash/publicidade','quality','high','wmode','transparent','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','scale','exactfit','wmode','transparent','movie','flash/publicidade' ); //end AC code
 								</script>
 							</div>-->
+
+
+							<a href="http://api.hostinger.com.br/redir/1030289" target="_blank">
+								<img src="http://hostinger.com.br/banners/br/hostinger-160x600-1.gif" alt="Hospedagem Gratuita" border="0" width="120" height="600" />
+							</a>
+
 						</div>
 						<hr />
 						   <a href="cliquepublicidade.php?id=153" target="_blank" style="padding:0; background:none;">      
-						   <img src="imagens/pu_0102_970790029.jpg" width="125" height="400" border="0" alt="Banner" style="margin:0;" />  
+						   <img src="images/pu_0102_970790029.jpg" width="125" height="400" border="0" alt="Banner" style="margin:0;" />  
 						  </a>   
 						<hr />
 						<hr />
@@ -566,13 +607,15 @@ $(document).ready(function() {
          </li>
       </ul>
             <br clear="all" /><br />
-            <h1><a href="index.php" class="link">Nutribem Produtos Agropecu&aacute;rios</a></h1>   
-            <a href="#" target="_blank" class="link">Empresa Vinculada a Incubadora de Empresas de Base Tecnológica do CENTEV/UFV</a>
-            - Rua Manuel Clemente 126, Bom Jesus, Viçosa MG, 36570-000      
-            <br /><br />
+            <h1><a href="index.php" class="link">Agro Web o Potal do Agroneg&oacute;cio</a></h1>   
+            <a href="http://www.axelalexander.webcindario.com/" target="_blank" class="link">
+            	Copyright © 2011 | Axel Alexander | Todos os direitos reservados | 
+            </a>- AXELDEVELOPER <br /><br />
             <div style="color:#4A7">
-            2001 - 2011 - Todos os direitos reservados - Política de Privacidade - <a href="#" target="_blank" style="color:#4A7">Desenvolvido por Ronnan del Rey</a><br />
-            As informações e conteúdos deste site originam-se de fontes confiáveis, porém o Portal do Agronegócio não garante e nem se responsabiliza pela sua precisão, integridade e confiabilidade, e seu uso para qualquer propósito específico, assim como por lucros cessantes, reclamações de terceiros e danos diretos e indiretos causados por usos das mesmas.            
+            2001 - 2011 - Todos os direitos reservados - Pol&iacute;tica de Privacidade - 
+            <a href="http://www.axelalexander.webcindario.com/" target="_blank" style="color:#CCC">Desenvolvido por Axel Alexander</a>
+            <br />
+            As informa&ccedil;&ocirc;es e conte&uacute;dos deste site originam-se de fontes confi&aacute;veis, por&eacute;m Agro Web n&acirc;o garante e nem se responsabiliza pela sua precis&ccedil;&acirc;,integridade e confiabilidade, e seu uso para qualquer prope&oacute;sito espece&iacute;fico, assim como por lucros cessantes, reclama&ccedil;&ocirc;es de terceiros e danos diretos e indiretos causados por usos das mesmas.            
             </div>
         </div>
         <br clear="all"/>

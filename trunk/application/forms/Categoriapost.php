@@ -48,7 +48,7 @@ class Application_Form_Categoriapost extends Zend_Form{
         'ignore'   => true,
         'order'    => '1',
         'class'    => 'submit-gray',
-        'attribs'  => array('onclick'=>'List("Categoria/Index")')
+        'attribs'  => array('onclick'=>'List("Categoriapost/Index")')
         )); 
        
        

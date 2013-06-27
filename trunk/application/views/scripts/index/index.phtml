@@ -1,20 +1,19 @@
 	<div id="coluna-noticia-left"><!-- Begin coluna noticias-->
 
+		<!-- Begin Noticia Principal -->	
 		<h1 class="title-noz-red">
-			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">				Noticia Principal				
+			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">Noticia Principal				
 			</a>
 		</h1>
 		
-		<div class="linha-blue"></div>
-			
+		<div class="linha-blue"></div>			
 			<?php foreach ($this->dados AS $key => $item): ?>
 			<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>">
 			    <div class="imagem-Home1">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+					<?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item['foto'], 140, 90, 'Foto'); ?>
 				</div>
-			</a>
-			
-			<h6><?php echo $item['titulo'] ?></h6>
+			</a>			
+			<h6><?php echo utf8_decode($item['titulo'] )  ?></h6>
 			<h2>
 				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 
 			    'id' => $item['id'] ), null , true); ?>" class="link2-vermelho" >
@@ -23,6 +22,7 @@
 			</h2>
 			<div class="linha-blue-2"></div>
 			<?php endforeach; ?>
+			
 			<script type="text/javascript">
 				$(document).ready(function(){
 					$('.pequaria-slider').easyTicker({
@@ -31,76 +31,65 @@
 				});
 			</script>
 
+			<!--  Pecuaria -->	
 			<h1 class="title-noz-red">
 				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
-					Pecu&aacute;ria	
+					Pecu&aacute;ria
 				</a>
 			</h1>
 
-			<div class="pequaria-slider"> <!-- Begin new slide 1 -->	
+			<!-- Begin new slide 1 Pecuaria -->	
+			<div class="pequaria-slider"> 
 				<div style="position: absolute; margin: 0px; top: 0px;"> <!-- Begin new slide  -->
 			 	   <?php foreach ($this->pecuaria AS $key => $item): ?>
 					<div>	
 						<a href="">
 							<div class="imagem-Home1">
-								<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+								<?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item['foto'], 140, 90, 'Foto'); ?>			
 							</div>
 						</a>
-						<h6><?php echo $item['titulo'] ?></h6>
+						<h6><?php echo utf8_decode($item['titulo']) ?></h6>
 							<h2>
 								<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-vermelho" >
-				    				<?php echo $item['comentario'] ?>
+				    			<?php echo $item['comentario'] ?>
 				    			</a>	
 							</h2>
 				    </div>
 				  <?php endforeach ?>		
-				</div>	<!-- end new slide  -->
+				</div>	<!-- end new slide 1 Pecuaria   -->
+			
 			</div><!-- end new slide 1  -->
-
 
 			<div class="linha-blue-2"></div>
 		
-			<!-- session box 2x2 Economia -->
-			
+			<!-- Begin session box 2x2 Agricultura -->
 			<h1 class="title-noz-red">
 				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
 					Agricultura
 				</a>
 			</h1>
 			<?php foreach ($this->agricultura AS $key => $item): ?>
-			<div id="coluna-noticia-right-box">
-				  
+			<div id="coluna-noticia-right-box">			  
 				<a href="">
 					<div class="imagem-Home1">
-						<img src="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+						<?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item['foto'], 140, 90, 'Foto'); ?>
 					</div>
 				</a>
-				<h6><?php echo $item['titulo'] ?></h6>
+				<h6><?php echo utf8_decode($item['titulo']) ?></h6>
 					<h2 style="font-size:12px">
 					<p><a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-pecuaria" >
-			    				<?php echo $item['titulo'];?>
+			    				<?php echo utf8_decode($item['titulo']) ?>
 			    	</a></p>	
 				</h2>
 
 			</div>
 			<?php endforeach ; ?>	
-			<!--<div id="coluna-noticia-right-box">
-				<a href="">
-				<div class="imagem-Home1">
-						<img src="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
-				</div>
-				</a>
-				<h6>Economia</h6>
-				<h2 style="font-size:12px">
-					<a href="" class="link2" title="">
-						Dado é em comparação com o trimestre anterior. Em relação ao terceiro trimestre de 2011, o PIB apresentou alta de 0,9%					
-					</a>
-				</h2>
-			</div> -->
-		
 			<br>
+			<!-- end session box 2x2 Agricultura -->
+
 			<div class="linha-blue-2"></div>
-			<!-- session box 2x2 Agronegócio -->
+			
+			<!-- begin session box 2x2 Agronegócio -->
 			<h1 class="title-noz-red">
 				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
 					Agroneg&oacute;cio				
@@ -108,30 +97,32 @@
 			</h1>
 			
 			<?php foreach ($this->agronegocio AS $key => $item): ?>
-			<div id="coluna-noticia-right-box">
-				  
+			<div id="coluna-noticia-right-box">				  
 				<a href="">
 					<div class="imagem-Home1">
-						<img src="http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>/imagens/feed.png" width="140px" height="90px" >
+						<?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item['foto'], 140, 90, 'Foto'); ?>
 					</div>
 				</a>
-				<h6><?php echo $item['titulo'] ?></h6>
+				<h6><?php echo utf8_decode($item['titulo']) ?></h6>
 					<h2 style="font-size:12px">
 					<p><a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-pecuaria" >
-			    				<?php echo $item['titulo'];?>
+			    				<?php echo utf8_decode($item['titulo']) ?>
 			    	</a></p>	
 				</h2>
 
 			</div>
 			<?php endforeach ; ?>	
+			<!-- end session box 2x2 Agronegócio -->
+
 			<div class="linha-blue-2"></div>
+	
 	</div><!-- end coluna noticias-->
 						
 	<div id="coluna-noticia-right"><!-- Begin coluna-noticia-right--> 
-			
+		<!-- Begin box Tecnologia -->	
 		<h1 class="title-noz-verde">
 				<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
-					Agroneg&oacute;cio				
+					Tecnologia				
 				</a>
 		</h1>
 
@@ -142,10 +133,10 @@
 				<div id="cyclenews-dentro">
 					<a href="">
 						<div class="imagem-slider">
-							<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/agro.jpg" width="291px" height="190px" >
+						  <?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item['foto'], 291, 190, 'Foto'); ?>
 						</div>	
 					</a>
-					<h6><?php echo $item['titulo'] ?></h6>
+					<h6><?php echo utf8_decode($item['titulo']) ?></h6>
 					<h2>
 						<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'read', 'id' => $item['id'] ), null , true); ?>" class="link2-verde" 
 							title="Noticias do agronegócio">
@@ -153,21 +144,9 @@
 						</a>
 					</h2>
 				</div>
-				<?php endforeach; ?>
-				<!--
-				<div style="height:283px;">
-					<a href="">
-						<div class="imagemHome3" style="background-image:url(http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/semfoto.jpg)"></div>	
-					</a>
-					<h6>Agricultura familiar</h6>
-					<h2>
-						<a href="" class="link2" title="">
-							Slider da noticia 5
-						</a>
-					</h2>
-				</div>-->								
+				<?php endforeach; ?>										
 			</div>
-			<!-- end cyclenews -->
+			<!-- end box Tecnologia --> 
 			<script>
 				$(document).ready(function() { 
 					$('#cyclenews').cycle({fx:'scrollDown',speed:500, delay:3000,pager:'#navslide'});
@@ -176,44 +155,28 @@
 	
 			<div class="linha-blue-2"></div>
 
+			<!-- Begin box Economia --> 
 			<div id ="coluna-noticia-right-box-economia">
 				<h1 class="title-noz-verde">
 					<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
-						Economia			
+						Economia5			
 					</a>
 				</h1>
 					<?php foreach ($this->economia AS $key => $item): ?>	
 					<div class="imagem-economia">
-						<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/agro.jpg" width="291px" height="190px" >
+						<?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item['foto'], 291, 190, 'Foto'); ?>
 					</div>	
-						<h6><?php echo $item['titulo'] ?></h6>
+						<h6><?php echo utf8_decode($item['titulo']) ?></h6>
 						<h2>
-							<a href="<?php echo $this->url(array('controller'=>'noticia','action'=>'read','id'=>$item['id']), null , true); ?>" class="link2-verde" title="Noticias do agronegócio">
-								<?php echo $item['titulo'] ?>
+							<a href="<?php echo $this->url(array('controller'=>'noticia','action'=>'read','id'=>$item['id']), null , true); ?>" class="link2-verde" 
+								title="Noticias do agronegócio">
+								<?php echo utf8_decode($item['titulo']) ?>
 							</a>
 						</h2>
 						<div class="linha-blue-2"></div>
 					<?php endforeach; ?>
 			</div>
-				<!--
-				<a href="">
-						<div class="imagemHome2" style="width:300px; background-image:url(http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/semfoto.jpg)"></div>
-				</a>
 				
-				<h6>Projeto Sugarcane Bioenergy</h6>
-				<h2>
-					<a href="" class="link2" title="">
-						Noticia button 1
-					</a>
-				</h2>
-									
-				<div class="linha-blue-2"></div>
-				
-				<h1 class="title-noz-verde">
-						<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
-							Publicidade				
-						</a>
-				</h1>-->
 			<div id ="coluna-noticia-right-box-publicidade">
 				<h1 class="title-noz-verde">
 					<a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'list'), null , true); ?>" class="link-titulo-2" title="Listar Noticias">
@@ -254,7 +217,9 @@
 				<?php $cont++ ?>
 				<br />
 				<div class="tituloespecial mais-lidas-numero"><?php echo $cont ?></div>
-				<a href="<?php echo $this->url(array('controller'=>'noticia','action'=>'read','id'=>$item['noticia_id']), null , true); ?>" class="link2" title="Noticias do agronegócio"><?php echo $item['titulo'] ?></a>
+				<a href="<?php echo $this->url(array('controller'=>'noticia','action'=>'read','id'=>$item['noticia_id']), null , true); ?>" class="link2" title="Noticias do agronegócio">
+					<?php echo utf8_decode( $item['titulo']) ?>
+				</a>
 				<br clear="all" />
 				<div class="mais-lidas-separador"></div>
 				<?php endforeach; ?>
@@ -286,7 +251,7 @@
 
 			<a href="">
 				<div class="sponsor-img">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/pu_0102_970790029.jpg" width="50px" height="80px" >
 				</div>
 			</a>
 		
@@ -297,9 +262,18 @@
 					</a>
 				</h3>
 			
-				<br /><strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+				<br />
+				<strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
+			
 			</div>
-		
+
+
+			<div class="sponsor-comprar">
+
+
+		<?php echo $this->img($this->baseUrl() . '/images/botao_comprar.png' , 90, 30, 'sds'); ?>
+		</div>
+
 		</div>
 		
 		<br clear="all" /><br />
@@ -308,7 +282,7 @@
 
 			<a href="">
 				<div class="sponsor-img">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/pu_0102_970790029.jpg" width="50px" height="80px" >
 				</div>
 			</a>
 		
@@ -321,7 +295,7 @@
 			
 			<br /> <strong class="shopping">R$<span class="span-titulo-preco">55</span>,00</strong>
 			</div>
-		
+			<?php echo $this->img($this->baseUrl() . '/images/botao-comprar.png' , 155, 34, 'sds'); ?>
 		</div>
 
 		<br clear="all" /><br />
@@ -330,7 +304,7 @@
 
 			<a href="">
 				<div class="sponsor-img">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/pu_0102_970790029.jpg" width="50px" height="80px" >
 				</div>
 			</a>
 		
@@ -352,7 +326,7 @@
 
 			<a href="">
 				<div class="sponsor-img">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/pu_0102_970790029.jpg" width="50px" height="80px" >
 				</div>
 			</a>
 		
@@ -374,7 +348,7 @@
 
 			<a href="">
 				<div class="sponsor-img">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/pu_0102_970790029.jpg" width="50px" height="80px" >
 				</div>
 			</a>
 		
@@ -396,7 +370,7 @@
 
 			<a href="">
 				<div class="sponsor-img">
-					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/imagens/pu_0102_970790029.jpg" width="50px" height="80px" >
+					<img src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/images/pu_0102_970790029.jpg" width="50px" height="80px" >
 				</div>
 			</a>
 			
@@ -417,21 +391,23 @@
 		<div class="linha2"></div>
 	
 		<div class="tituloespecial noticias">
-			<a href="">
-				Entrevistas &raquo;
-			</a>
+			<a href="">Entrevistas &raquo;</a>
 		</div>
 		
 		<br />
-		<h6>Data : 14/10 - </h6>
-			<h6 class="titulo-entrevista-1">Mauricio Antonio Lopes</h6>
+		<?php foreach ($this->entrevista AS $key => $item): ?>
+		<h6>Data :<?php echo date("d/m/Y", strtotime($item['data']))?></h6>
+			<h6 class="titulo-entrevista-1"><?php echo utf8_decode($item['entrevistado']) ?></h6>
 				<h3 class="noticias">
 					<a href="">
-						Entrevista 1
+						<?php echo utf8_decode($item['titulo']) ?>
 					</a>
 				</h3>
-			<br clear="all" />
 			
+			<br clear="all" />
+			<?php  endforeach; ?>
+
+			<!--
 			<h6>Data : 14/10 - </h6>
 			<h6 class="titulo-entrevista-1">Mauricio Antonio Lopes</h6>
 				<h3 class="noticias">
@@ -440,6 +416,7 @@
 					</a>
 				</h3>
 			<br clear="all" />
+			
 			<h6>Data : 14/10 - </h6>
 			<h6 class="titulo-entrevista-1">Mauricio Antonio Lopes</h6>
 				<h3 class="noticias">
@@ -448,7 +425,8 @@
 					</a>
 				</h3>
 			<br clear="all" />
-			
+			-->
+
 			<div class="linha2"></div>
 									
 			
@@ -466,7 +444,7 @@
 						  'controller' => 'Artigo'
 						, 'action' => 'read'
 						, 'id' => $item['id'] ), null , true); ?>">
-			    	<?php echo $item['comentario'] ?>
+			    	<?php echo utf8_decode($item['comentario']) ?>
 			    </a>
 
 

@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->categoria as $item): ?>
+                        <?php foreach ($this->categoriapost as $item): ?>
                             <tr>
                                 <td class="align-center">
                                     <input type="checkbox" id="id[]" name="id[]" value="<?php echo $this->escape($item->id) ?>" />
@@ -61,7 +61,7 @@
                         </tbody>
                     </table>
              </form>
-            <?php echo $this->paginationControl($this->categoria, 'Sliding', 'pagination.phtml'); ?>
+            <?php echo $this->paginationControl($this->categoriapost, 'Sliding', 'pagination.phtml'); ?>
         
         </div> <!-- End .grid_12 -->
       
