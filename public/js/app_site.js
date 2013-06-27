@@ -5,10 +5,12 @@
  * 
  --------------------------------------------------------------------------*/
 
-var base_url       = 'http://localhost/sysagroweb/public/';
-var texto_deletar  = "Deseja relamente excluir o registro";
-var $divPagina     = "";
-var $divWindow     = "";
+var base_url        = 'http://localhost/sysagroweb/public/';
+//var base_url       = 'http://www.agroweb.p.ht/public/';
+var texto_deletar   = "Deseja relamente excluir o registro";
+var $divPagina      = "";
+var $divWindow      = "";
+var ERRO_REQUISICAO = "Requicis\u00e2o Falhou:";
 
 /*************************************************
 * Js alert confirm
@@ -66,4 +68,8 @@ function recarregaPagina() {
 */
 function RedirecionaPagina(url){
 	window.location = url;
+}
+
+function linkRedirect(url){
+    RedirecionaPagina(base_url+url);
 }

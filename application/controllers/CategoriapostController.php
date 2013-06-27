@@ -11,107 +11,117 @@
  * @author Kadisley
  */
 class CategoriapostController extends Zend_Controller_Action{
-
     
-     public function init(){
-        $this->categoria = new Application_Model_DbTable_Categoriapost(); // DbTable
-     }
-     
+    public function init() {
+        
+        $this->categoriapost = new Application_Model_DbTable_Categoriapost();
+                                   
+    }
+    
+    
     public function indexAction(){
         $this->assecoAction();
+        
         $this->_helper->layout->setLayout('administrator');
-        $pagina = intval($this->_getParam('pagina', 1));
-        $categoria = $this->categoria;
-        $dados = $categoria->fetchAll();
+        
+        $pagina = intval($this->_getParam('pagina',1));
+        $dados = $this->categoriapost->fetchAll();
         $paginator = Zend_Paginator::factory($dados);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(10);
         $paginator->setCurrentPageNumber($pagina);
-        $this->view->categoria = $paginator;
+        $this->view->categoriapost = $paginator;
     }
-    public function addAction(){
+    
+    public function showAction(){
         $this->assecoAction();
         $this->_helper->layout->setLayout('administrator');
-        $form = new Application_Form_Categorianoticia();
-        $this->view->form = $form;
-        if ($this->getRequest()->isPost()) {
+        $id = $this->getRequest()->getParam('id');
+            if($id > 0){
+                $this->view->categoriapost = $this->categoriapost->find($id)->current();
+            }
+            else $this->view->message = 'registro não existe';
+    }
+    
+    public function addAction(){
+        
+        $this->assecoAction();
+
+        $this->_helper->layout->setLayout('administrator');
+        $form = new Application_Form_Categoriapost();
+        $this->view->form=$form;
+        if($this->getRequest()->isPost()){
             $formData = $this->getRequest()->getPost();
-            if ($form->isValid($formData))
-            {   $this->categoria->add( $form->getValue('descricao') );
-                if($this->categoria)
-                    {
-                       $this->_helper->flashMessenger->addMessage(array('successo'=>'Registro Gravado com sucesso'));
-                       $this->_helper->redirector('sucesso');
-                    }
-            } else {
+            if($form->isValid($formData)){
+                
+                $this->categoriapost->add($form->getValue('descricao'));
+                
+                if ($this->categoriapost) 
+                {
+                    $this->_helper->flashMessenger->addMessage(
+                                array('sucesso'=>'Registro Gravado com sucesso'));
+                    $this->_helper->redirector('sucesso');        
+                }
+            }
+            else{
                 $form->populate($formData);
             }
         }
     }
     
-    public function showAction() {
-        $this->assecoAction();
-	    $this->_helper->layout->setLayout('administrator');
-        $id = $this->getRequest()->getParam('id');
-            if ($id > 0) 
-			{
-                $categorias = $this->categoria->find($id)->current(); // or $this->Posts->fetchRow("id = $id");
-                $this->view->categoria = $categorias;
-            }
-        else $this->view->message = 'registro não existe';
-    }
-    
     public function editAction(){
-            $this->assecoAction();
-            $this->_helper->layout->setLayout('administrator');
-            $form = new Application_Form_Categorianoticia();
-            $this->view->form = $form;
-    	    if ($this->getRequest()->isPost()) 
-            {
-                $formData = $this->getRequest()->getPost();
-                if ($form->isValid($formData))
-                {
-                    $this->categoria->updates((int)$form->getValue('id'), $form->getValue('descricao') );
-                    
-                    if($this->categoria)
-                        {
-                           $this->_helper->flashMessenger->addMessage(array('successo'=>'Registro alterado com sucesso'));
-                           $this->_helper->redirector('sucesso');
-                        }
-                } else {
-                    $form->populate($formData);
-                }
-            } else 
-            {
-                $id = $this->_getParam('id', 0);
-                if ($id > 0) 
-                {
-                    //$deejay = new Application_Model_DbTable_Deejay();
-                    $form->populate($this->categoria->getId($id));
+        
+        $this->assecoAction();
+
+        $this->_helper->layout->setLayout('administrator');
+        $form = new Application_Form_Categoriapost();
+        $this->view->form=$form;
+        if($this->getRequest()->isPost()){
+            $formData = $this->getRequest()->getPost();
+            if($form->isValid($formData)){
+                
+                $this->categoriapost->updates(
+                            (int)$form->getValue('id'),
+                            $form->getValue('descricao')
+                );
+                
+                if ($this->categoriapost) {
+                    $this->_helper->flashMessenger->addMessage(
+                                array('sucesso'=>'Registro Gravado com sucesso'));
+                    $this->_helper->redirector('sucesso');        
                 }
             }
+            else{
+                $form->populate($formData);
+            }
+        }
+        else{
+            $id = $this->_getParam('id',0);
+            if($id>0){
+                $form->populate($this->categoriapost->getId($id));
+            }
+        }
     }
     
-    public function deleteAction() {
-        $this->assecoAction();
-        $this->_helper->layout->setLayout('administrator');
-        $id = $this->_request->getParam("id", 0);
+    public function deleteAction(){
         
-        if($id > 0)
-        {
-            $this->categoria->delete(array("id = ?" => $id));
-        }      
-        $this->_helper->flashMessenger->addMessage(
-                array('successo'=>'Registro excluido com sucesso'));
+        $this->assecoAction();
+        
+        $this->_helper->layout->setLayout('administrator');
+        $id = $this->_request->getParam("id",0);
+        if($id > 0){
+            $this->categoriapost->delete(array("id = ?" => $id));
+        }
+        $this->_helper->flashMessenger->addMessage(array('sucesso'=>'Registro excluido com sucesso'));
         $this->_helper->redirector('sucesso');
     }
     
     public function sucessoAction(){
         $this->_helper->layout->setLayout('administrator');
         $dados = "sucesso";
-        $this->view->assign("dados", $dados);
+        $this->view->assign("dados",$dados);
     }
-    
+
     public function assecoAction(){
         // valida sessão
          if (!Zend_Auth::getInstance()->hasIdentity() )
@@ -120,83 +130,6 @@ class CategoriapostController extends Zend_Controller_Action{
                     array('controller' => 'Autenticacao'), null, true);
          }
     }
-     
-    // end region administador - form
-
-    // region administador - json
-    public function postAction() {
-       try
-         {
-            $request  = $this->getRequest ();         
-            $dados = $this->categoria->add( utf8_decode($request->getParam ( 'descricao' ))  ); 
-            $msg = array('mensagem' => "ok", 'refres' => "yes");
-            $this->_helper->json( $msg );         
-        } 
-        catch (Zend_Db_Exception $exc){
-            echo $exc->getTraceAsString();
-        }
-    }
-    public function post4Action() {
-        try 
-            {
-                $base = Zend_Registry::get('db');  
-                $request     = $this->getRequest ();
-                $sql = "INSERT INTO site_categoria_noticias (`descricao` ) VALUES ('". $request->getParam ( 'descricao' )."')";
-                $base->query ( $sql );
-                
-                //$msg[0] = "ok" ;
-
-                $msg = array('mensagem' => "ok", 'refres' => "yes");
-                $this->_helper->json( $msg );
-                //$this->_helper->json($sql);
-            } 
-        catch (Zend_Db_Exception $exc)
-        {
-                echo $exc->getTraceAsString();
-        }
-    }
-    public function updateAction() {
-        $this->_helper->layout->setLayout('administrator');
-       try
-         {
-            $request  = $this->getRequest(); 
-            $id       = (int) $request->getParam ('id');        
-            $this->categoria->updates( $id,utf8_decode($request->getParam ('descricao')));     
-            
-            if($this->categoria){
-
-                 $msg = array('mensagem' => "ok", 'refres' => "yes");
-                 $this->_helper->json( $msg );         
-            }
-        } 
-        catch (Zend_Db_Exception $exc){
-            //echo $exc->getTraceAsString();
-            $msg = array('mensagem' => "erro", 'refres' => "no" ,"errorMsg" => $exc->getTraceAsString() );
-            $this->_helper->json( $msg ); 
-        }
-    }
-    public function excluirAction() {  
-        $this->_helper->layout->setLayout('administrator');
-        try
-         {
-            //$id = (int) $this->getRequest->getParam ('id'); 
-            $request  = $this->getRequest(); 
-            //$id       = (int) $request->getParam ('id'); 
-            $id       = $this->_request->getParam("id", 0);
-            if($id > 0)
-            {
-               $this->categoria->delete(array("id = ?" => $id));
-               $msg = array('mensagem' => "ok", 'refres' => "yes");
-                     $this->_helper->json( $msg );  
-            }
-        }
-        catch (Zend_Db_Exception $exc){
-            //echo $exc->getTraceAsString();
-            $msg = array('mensagem' => "erro", 'refres' => "no" ,"errorMsg" => $exc->getTraceAsString() );
-            $this->_helper->json( $msg ); 
-        }
-    }
-    // end adiministrador - json
 }
 
 ?>

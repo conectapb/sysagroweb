@@ -8,7 +8,7 @@ class Application_Model_DbTable_Categorianoticia extends Zend_Db_Table_Abstract
         $id = (int) $id;
         $row = $this->fetchRow('id = ' . $id);
         if (! $row) {
-            throw new Exception("Nçao foi localizado o Registro com o id = $id");
+            throw new Exception("Não foi localizado o Registro com o id = $id");
         }
         return $row->toArray();
     }
@@ -17,7 +17,8 @@ class Application_Model_DbTable_Categorianoticia extends Zend_Db_Table_Abstract
 		$select->order('id');
 		return $this->fetchAll($select);
     }
-    public function _select($where = null, $order = null, $limit = null){
+
+   public function _select($where = null, $order = null, $limit = null){
     	$select = $this->select()
     	->from($this->_name)
     	->order($order)

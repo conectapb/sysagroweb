@@ -1,103 +1,155 @@
-<h2>Basic CRUD Application</h2>  
-    <div class="demo-info" style="margin-bottom:10px">  
-        <div class="demo-tip icon-tip">&nbsp;</div>  
-        <div>Click the buttons on datagrid toolbar to do crud actions.</div>  
-    </div>  
-      
-    <table id="dg" class="easyui-datagrid" title="Lista de Categorias de Noticias" 
-    style="width:700px;height:450px"  
-            url="http://localhost/agronegocio/public/Categoria/getlist"  
-            toolbar="#toolbar" pagination="true"  
-            rownumbers="true" fitColumns="true" singleSelect="true">  
-        <thead>  
-            <tr>  
-                <th field="id" width="20">ID</th>  
-                <th field="descricao" width="90">Descrição</th>  
-             </tr>  
-        </thead>  
-    </table>  
-    <div id="toolbar">  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Adicionar</a>  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar</a>  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remover</a>  
-    </div>  
-      
-    <div id="dlg" class="easyui-dialog" style="width:400px;height:240px;padding:10px 20px"  
-            closed="true" buttons="#dlg-buttons">  
-        <div class="ftitle">Manutenção</div>  
-        <form id="fm" method="post" novalidate>  
-            <div class="fitem">  
-                <label>Descrição:</label>  
-                <input name="descricao" class="easyui-validatebox" required="true">  
+
+    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/easyui/themes/default/easyui.css">  
+    
+
+    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/easyui/themes/icon.css">  
+    
+
+    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/easyui/demo/demo.css">  
+    
+   
+    
+
+    <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/easyui/jquery.easyui.min.js"></script>  
+    
+    <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/easyui/datagrid-detailview.js"></script>
+
+    <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] . $this->baseUrl()?>/easyui/locale/easyui-lang-pt_BR.js"></script>
+
+    
+
+<div id="confirmDelete"></div>
+<div class="grid_12">
+
+    <div class="bottom-spacing">
+        <!-- Button -->
+        <div class="float-right">
+            <a href="<?php echo $this->url(array('controller' => 'Categoriapost', 'action' => 'add'), null, true); ?>" class="button" >
+                <span>Adicionar
+                    <img src="<?php echo $this->baseUrl() ?>/images/icon/plus-small.gif" tppabs="<?php echo $this->baseUrl() ?>/images/plus-small.gif" width="12" height="9" alt="Adicionar" />
+                </span>
+            </a>
+        </div>
+
+        <!-- Table records filtering -->
+        Filtro:
+        <select class="input-short">
+            <option value="" selected="selected">Selecione</option>
+            <option value="descricao">Descri&ccedil;&acirc;o</option>
+        </select>
+
+    </div>
+
+    <!-- Example table -->
+    <div class="module">
+        <h2><span>Basic CRUD Application</span></h2>
+         <div class="module-table-body">  <!-- module-table-body -->
+            
+            <form action="">
+                
+
+            <div class="demo-info" style="margin-bottom:10px">  
+                <div class="demo-tip icon-tip">&nbsp;</div>  
+                <div>Click the buttons on datagrid toolbar to do crud actions.</div>  
             </div>  
-        </form>  
-    </div>  
-    <div id="dlg-buttons">  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Gravar</a>  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancelar</a>  
-    </div>  
-    <script type="text/javascript">  
-        var url;  
-        function newUser(){  
-            $('#dlg').dialog('open').dialog('setTitle','Adicionar');  
-            $('#fm').form('clear');  
-            url = 'http://localhost/agronegocio/public/Categoria/post/';  
-        }  
-        function editUser(){  
-            var row = $('#dg').datagrid('getSelected');  
-            if (row){  
-                $('#dlg').dialog('open').dialog('setTitle','Edit User');  
-                $('#fm').form('load',row);  
-                url = 'http://localhost/agronegocio/public/Categoria/update/id/'+row.id;  
-            }  
-        }  
-        function saveUser(){  
-            $('#fm').form('submit',{  
-                url: url,  
-                onSubmit: function(){  
-                    return $(this).form('validate');  
-                },  
-                success: function(result){  
-                    var result = eval('('+result+')');  
-                    if (result.errorMsg){  
-                        
-                        $.messager.show({  
-                            title: 'Error',  
-                            msg: result.errorMsg  
-                        });  
-                    } 
-
-                    else {  
-                       
-                        $.messager.alert('Sucesso','Registro Gravado com sucesso!','info');
-
-                        $('#dlg').dialog('close');      // close the dialog  
-                        $('#dg').datagrid('reload');    // reload the user data  
+      
+                <table id="dg" class="easyui-datagrid" title="Lista de Categorias de Noticias" 
+                style="width:900px;height:450px"  
+                        url="http://localhost/agronegocio/public/Categoria/getlist"  
+                        toolbar="#toolbar" pagination="true"  
+                        rownumbers="true" fitColumns="true" singleSelect="true">  
+                    <thead>  
+                        <tr>  
+                            <th field="id" width="20">ID</th>  
+                            <th field="descricao" width="90">Descrição</th>  
+                         </tr>  
+                    </thead>  
+                </table>  
+                
+                <div id="toolbar">  
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Adicionar</a>  
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar</a>  
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remover</a>  
+                </div>  
+      
+                <div id="dlg" class="easyui-dialog" style="width:400px;height:240px;padding:10px 20px"  
+                        closed="true" buttons="#dlg-buttons">  
+                    <div class="ftitle">Manutenção</div>  
+                    <form id="fm" method="post" novalidate>  
+                        <div class="fitem">  
+                            <label>Descrição:</label>  
+                            <input name="descricao" class="easyui-validatebox" required="true">  
+                        </div>  
+                    </form>  
+                </div>  
+    
+                <div id="dlg-buttons">  
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Gravar</a>  
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancelar</a>  
+                </div>  
+                
+                <script type="text/javascript">  
+                var url;  
+                function newUser(){  
+                    $('#dlg').dialog('open').dialog('setTitle','Adicionar');  
+                    $('#fm').form('clear');  
+                    url = 'http://localhost/agronegocio/public/Categoria/post/';  
+                }  
+                function editUser(){  
+                    var row = $('#dg').datagrid('getSelected');  
+                    if (row){  
+                        $('#dlg').dialog('open').dialog('setTitle','Edit User');  
+                        $('#fm').form('load',row);  
+                        url = 'http://localhost/agronegocio/public/Categoria/update/id/'+row.id;  
                     }  
                 }  
-            });  
-        }  
-        function destroyUser(){  
-            var row = $('#dg').datagrid('getSelected');  
-            if (row){  
-                $.messager.confirm('Confirmar','Tem certeza que deseja excluir?',function(r){  
-                    if (r){  
-                        $.post('http://localhost/agronegocio/public/Categoria/delete',{id:row.id},function(result){  
-                            if (result.mensagem == "ok"){  
-                                $.messager.alert('Sucesso','Registro excluido com sucesso!','info');
-                                $('#dg').datagrid('reload');    // reload the user data  
-                            } else {  
-                                $.messager.show({   // show error message  
+                function saveUser(){  
+                    $('#fm').form('submit',{  
+                        url: url,  
+                        onSubmit: function(){  
+                            return $(this).form('validate');  
+                        },  
+                        success: function(result){  
+                            var result = eval('('+result+')');  
+                            if (result.errorMsg){  
+                                
+                                $.messager.show({  
                                     title: 'Error',  
                                     msg: result.errorMsg  
                                 });  
+                            } 
+
+                            else {  
+                               
+                                $.messager.alert('Sucesso','Registro Gravado com sucesso!','info');
+
+                                $('#dlg').dialog('close');      // close the dialog  
+                                $('#dg').datagrid('reload');    // reload the user data  
                             }  
-                        },'json');  
+                        }  
+                    });  
+                }  
+                function destroyUser(){  
+                    var row = $('#dg').datagrid('getSelected');  
+                    if (row){  
+                        $.messager.confirm('Confirmar','Tem certeza que deseja excluir?',function(r){  
+                            if (r){  
+                                $.post('http://localhost/agronegocio/public/Categoria/delete',{id:row.id},function(result){  
+                                    if (result.mensagem == "ok"){  
+                                        $.messager.alert('Sucesso','Registro excluido com sucesso!','info');
+                                        $('#dg').datagrid('reload');    // reload the user data  
+                                    } else {  
+                                        $.messager.show({   // show error message  
+                                            title: 'Error',  
+                                            msg: result.errorMsg  
+                                        });  
+                                    }  
+                                },'json');  
+                            }  
+                        });  
                     }  
-                });  
-            }  
-        }  
-    </script>  
+                }  
+            </script>  
     <style type="text/css">  
         #fm{  
             margin:0;  
@@ -119,3 +171,21 @@
             width:80px;  
         }  
     </style>  
+             
+
+             </form>
+           
+
+        
+        </div> <!-- End .grid_12 -->
+      
+        <div style="clear:both;"></div>
+        <div style="clear:both;"></div>
+
+
+
+
+
+
+
+

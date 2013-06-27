@@ -56,6 +56,7 @@ class Application_Model_DbTable_Texto extends Zend_Db_Table_Abstract{
              echo 'Opa... algum problema aconteceu.';
          }
     }   
+    
     public function getTipoTexto($where =null, $order='id ASC', $offset=null, $limit=null){
         $Result = $this->fetchAll($where,$order,$limit,$offset);
             if (!$Result)
@@ -65,6 +66,19 @@ class Application_Model_DbTable_Texto extends Zend_Db_Table_Abstract{
 
             return $Result->toArray();
     }
+   
+    public function _select($where = null, $order = null, $limit = null){
+        $select = $this->select()
+                     ->from($this->_name)
+                     ->order($order)
+                     ->limit($limit);
+        if(!is_null($where)){
+          $select->where($where);
+        }
+      return $this->fetchAll($select)->toArray();
+      //return $this->fetchRow($select)->toArray();
+    }
+
    
 }
 ?>

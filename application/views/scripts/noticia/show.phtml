@@ -1,0 +1,44 @@
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Detalles</span></h2>
+        <h1 class="titulo_sohw" >Detalles</h1>
+        <?php if ($this->noticia): ?>
+            <dl class="detalhe">
+                <dt class="detalhe">ID</dt>
+                <dd class="detalhe"><?php echo $this->noticia->id; ?></dd>
+
+                <dt class="detalhe">Titulo</dt>
+                <dd class="detalhe"><?php echo $this->noticia->titulo; ?></dd>
+
+                <dt class="detalhe">Comentario</dt>
+                <dd class="detalhe"><?php echo $this->noticia->comentario; ?></dd>
+
+                <dt class="detalhe">Noticias</dt>
+                <dd class="detalhe"><?php echo $this->noticia->noticia; ?></dd>
+
+                <dt class="detalhe">Data</dt>
+                <dd class="detalhe"><?php echo $this->noticia->data ?></dd>
+
+                <dt class="detalhe">Status</dt>
+                <dd class="detalhe"><?php echo $this->noticia->ativo ?></dd>
+                
+                <dt class="detalhe">Foto</dt>
+                <dd class="detalhe"><?php echo $this->img($this->baseUrl() . '/upload/noticia/' . $this->noticia->foto, 100, 100, 'sds'); ?></dd>
+                
+                <dt class="detalhe">Opciones</dt>
+                <dd class="detalhe">
+                    <a href="<?php echo $this->url(array('controller' => 'Administrador', 'action' => 'menu'), null, true); ?>">Inicio</a>
+                    |
+                    <a href="<?php echo $this->url(array('controller' => 'Noticia', 'action' => 'index'), null, true); ?>">Listar Noticias</a>
+                    |
+                    <?php echo $this->linkvoltar('voltar', 'back', 'voltar'); ?>
+                </dd>
+
+            </dl>
+        <?php else: ?>
+        <p><?php echo $this->message ?></p>
+        <?php endif ?>
+    </div> <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->
+<div style="clear:both;"></div>

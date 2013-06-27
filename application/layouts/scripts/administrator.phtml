@@ -14,7 +14,7 @@ echo $this->doctype();
 $this->headLink()->headLink( array('rel' => 'favicon','href' => $this->baseUrl('images/icon/phppg.png'),'PREPEND') ); 
 $this->headLink()->prependStylesheet($this->baseUrl().'/ui-themes/prata/jquery.ui.all.css');
 $this->headLink()->prependStylesheet($this->baseUrl().'/css/theme-blue.css');
-$this->headLink()->prependStylesheet($this->baseUrl().'/css/thickbox.css');
+//$this->headLink()->prependStylesheet($this->baseUrl().'/css/thickbox.css');
 $this->headLink()->prependStylesheet($this->baseUrl().'/css/tablesorter.css');
 $this->headLink()->prependStylesheet($this->baseUrl().'/css/styles.css');
 $this->headLink()->prependStylesheet($this->baseUrl().'/css/grid.css');
@@ -82,14 +82,29 @@ $this->headScript()->appendFile($this->baseUrl().'/js/app_jquery.js');
                     <div class="grid_12">
                         <div id="logo">
                             <ul id="nav">
-                                <li id="current"><a href="<?php echo $this->url(array('controller'=>'administrador','action'=>'menu'),null,true);?>">Home</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Evento','action'=>'index'),null,true);?>">Eventos</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Deejay','action'=>'index'),null,true);?>">Deejay</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Usuario','action'=>'index'),null,true);?>">Usu&aacute;rio</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Galeria','action'=>'index'),null,true);?>">Galeria</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Categorianoticia','action'=>'index'),null,true);?>">Categoria</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Musica','action'=>'index'),null,true);?>">Musica</a></li>
-                                <li><a href="<?php echo $this->url(array('controller'=>'Servico','action'=>'index'));?>">Servicios</a></li>
+                                
+                                <li id="current"><a href="<?php echo $this->url(array('controller'=>'administrador','action'=>'menu'),null,true);?>">Inicio</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller'=>'Artigo','action'=>'index'),null,true);?>">Artigo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller'=>'Entrevista','action'=>'index'),null,true);?>">Entevista
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller'=>'Usuario','action'=>'index'),null,true);?>">Usu&aacute;rio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller'=>'Categorianoticia','action'=>'index'),null,true);?>">Categoria</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->baseUrl() ?>/auth/logout">
+                                        Sair
+                                    </a>
+                                 </li>
                             </ul>
                         </div><!-- End. #Logo -->
                     </div><!-- End. .grid_12-->
@@ -98,27 +113,43 @@ $this->headScript()->appendFile($this->baseUrl().'/js/app_jquery.js');
             </div> <!-- End #header-main -->
             <div style="clear: both;"></div>
             <!-- Sub navigation -->
-            <div id="subnav">
-                <div class="container_12">
+           <div id="subnav">
+               <div class="container_12">
                     <div class="grid_12">
                         <ul>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Administrador','action'=>'menu'));?>">Inicio</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Artigo','action'=>'index'));?>">Artigo</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Categorianoticia','action'=>'index'));?>">Categoria - Noticias</a></li>
-
-                            
-                            
-                            <li><a href="<?php echo $this->url(array('controller'=>'Evento','action'=>'index'));?>">Eventos</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Deejay','action'=>'index'));?>">Deejay</a></li>
-                           
-                            <li><a href="<?php echo $this->url(array('controller'=>'Galeria','action'=>'index'));?>">Galeria</a></li>
-                            
-                            <li><a href="<?php echo $this->url(array('controller'=>'Musica','action'=>'index'));?>">M&uacute;sica</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Red','action'=>'index'));?>">Redes Sociales</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Servico','action'=>'index'));?>">Servicios</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Texto','action'=>'index'));?>">Texto</a></li>
-                            <li><a href="<?php echo $this->url(array('controller'=>'Usuario','action'=>'index'));?>">Usu&aacute;rio</a></li>
-                            <li><a href="<?php echo $this->baseUrl() ?>/auth/logout">Salir</a></li>
+                            <li>
+                                <a href="<?php echo $this->url(array('controller'=>'Administrador','action'=>'menu'));?>">Inicio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url(array('controller'=>'Artigo','action'=>'index'),null,true);?>">Artigo
+                                </a>
+                            </li>
+                            <li class="menuitem">
+                                <a href="<?php echo $this->url(array('controller'=>'Categorianoticia','action'=>'index'),null,true);?>">Categoria - Noticias
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url(array('controller'=>'Categoriapost','action'=>'index'),null,true);?>">Categoria - Post
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url(array('controller'=>'Entrevista','action'=>'index'),null,true);?>">Entrevista
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url(array('controller'=>'Texto','action'=>'index'),null,true);?>">Texto
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url(array('controller'=>'Usuario','action'=>'index'),null,true);?>">Usu&aacute;rio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->baseUrl() ?>/auth/logout">
+                                    Sair
+                                </a>
+                            </li>
                         </ul>
 
                     </div><!-- End. .grid_12-->

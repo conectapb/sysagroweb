@@ -34,7 +34,7 @@ class ArtigoController extends Zend_Controller_Action{
         $this->assecoAction();
         
         $this->_helper->layout->setLayout('administrator');
-        $form = new Application_Form_artigo();
+        $form = new Application_Form_Artigo();
         $this->view->form = $form;
         if ($this->getRequest()->isPost() and $form->isValid($_POST)  ) {
             $formData = $this->getRequest()->getPost();

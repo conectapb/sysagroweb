@@ -24,8 +24,7 @@ class TextoController extends Zend_Controller_Action{
     		$id = $this->getRequest()->getParam('rotulo');
     		if (!empty($id))
     		{
-    			$tex = new Application_Model_Texto();
-    			$dados = $tex->select("rotulo = '$id' ", "id", 1);
+    			$dados = $this->texto->_select("rotulo = '$id' ", "id", 1);
     			//$dados = $tex->select("rotulo LIKE '%$id'", "id", 1);
     			$this->view->assign("dados", $dados);
     		}
@@ -95,7 +94,7 @@ class TextoController extends Zend_Controller_Action{
                             $e->getMessage();
                 }  
 
-                $this->texto-> add($rotulo, $titulo, $comentario, $nameFile, $ativo);
+                $this->texto->add($rotulo, $titulo, $comentario, $nameFile, $ativo);
 
                    if($this->texto)
                     {

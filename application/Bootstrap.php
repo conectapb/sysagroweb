@@ -21,7 +21,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap{
         $this->bootstrap('view');
         $view = $this->getResource('view');
         $view->doctype('XHTML1_STRICT'); 
-        $view->headTitle( 'Painel de Control DjDiDiMix :: Regsitrar' );
+        $view->headTitle( 'Painel de Control Agro Web :: Regsitrar' );
         $view->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
      
     }
@@ -61,7 +61,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap{
     public function _initDb(){
          $db = new Zend_Db_Adapter_Pdo_Mysql(
            array( 'host' => 'localhost', 'username' => 'root','password'  => '','dbname' => 'mestre')
-           //array( 'host'=>'instance32148.db.xeround.com;port=20693', 'username'=>'mestre','password' => '766312','dbname' => 'mestre')     
+           //array( 'host'=>'mysql.hostinger.com.br;port=20693', 'username'=>'mestre','password' => '766312','dbname' => 'mestre')     
+           //array( 'host'=>'mysql.hostinger.com.br', 'username'=>'u877420549_mestr','password' => '766312','dbname' => 'u877420549_mestre')     
         );
         Zend_Db_Table_Abstract::setDefaultAdapter($db);
         Zend_Registry::set('db', $db);

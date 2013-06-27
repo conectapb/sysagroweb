@@ -248,7 +248,8 @@ class CategoriaController extends Zend_Controller_Action{
     // end adiministrador - json
      
     public function listAction(){
-        $this->_helper->layout->setLayout('administrator1');
+        //$this->_helper->layout->setLayout('administrator1');
+        $this->_helper->layout->setLayout('administrator');
 
     }
     

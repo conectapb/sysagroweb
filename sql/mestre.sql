@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Jan 12, 2013 as 02:13 PM
+-- Tempo de Geração: Fev 16, 2013 as 03:16 
 -- Versão do Servidor: 5.1.41
 -- Versão do PHP: 5.3.1
 
@@ -588,16 +588,17 @@ CREATE TABLE IF NOT EXISTS `site_artigos` (
   `foto` text NOT NULL,
   `data` date NOT NULL,
   `fonte` varchar(255) NOT NULL,
-  `ativo` char(2) NOT NULL DEFAULT 'N',
+  `ativo` varchar(4) NOT NULL DEFAULT 'N',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Extraindo dados da tabela `site_artigos`
 --
 
 INSERT INTO `site_artigos` (`id`, `titulo`, `comentario`, `noticia`, `foto`, `data`, `fonte`, `ativo`) VALUES
-(1, 'dfdfd', 'fdfd', 'fdf', 'dfdfdf', '0000-00-00', '', 'N');
+(3, 'Desemprego no mundo cresce mais entre jovens, aponta OIT', 'NÃºmero de desempregados no mundo deve crescer atÃ© 2017, diz OIT. Nos paÃ­ses europeus, cerca de 12,7% dos jovens nÃ£o trabalha nem estuda.', 'Em todo o mundo, hÃ¡ 197 milhÃµes de pessoas desocupadas, uma alta de 4 milhÃµes em relaÃ§Ã£o a 2011, levando a taxa de desemprego a 5,9%. A estimativa Ã© que esse percentual chegue a 6% em 2014, e se mantenha no mesmo nÃ­vel pelos prÃ³ximos cinco anos. A OIT aponta que situaÃ§Ã£o Ã© mais preocupante entre os jovens. Na faixa etÃ¡ria de 15 a 24 anos, o desemprego chega a 12,6% â€“ e deve seguir crescendo atÃ© 2017. Em paÃ­ses como GrÃ©cia e Espanha, esse percentual ultrapassa os 50%. Na zona do euro, estÃ¡ situado em 22%. Do total de desempregados no mundo, 73,8 milhÃµes sÃ£o jovens.', '73ce4f998b4e4a9b454388fe844b5795781d2420.jpg', '2013-01-24', 'http://localhost/sysagroweb/public/Artigo/edit', 'Sim'),
+(4, 'Shippuuden 296', 'Eae Galera Blz?? To passando aki pra dxar o tao esperado episÃ³dio que eh a volta da saga a historia original. Como sempre sigam o blog comentem os posts e curtam nossa page no facebook.\r\n\r\nNaruto Shippuuden EpisÃ³dio 296 - Naruto Vai a Guerra', 'Eae Galera Blz?? To passando aki pra dxar o tao esperado episÃ³dio que eh a volta da saga a historia original. Como sempre sigam o blog comentem os posts e curtam nossa page no facebook.\r\n\r\nNaruto Shippuuden EpisÃ³dio 296 - Naruto Vai a Guerra', 'f2595cd18b05d5f0280742b61e6baf85c13ac8ab.jpg', '2013-02-22', 'http://portalnarushippuu.blogspot.com.br/2013/01/shippuuden-296.html', 'Sim');
 
 -- --------------------------------------------------------
 
@@ -609,18 +610,24 @@ CREATE TABLE IF NOT EXISTS `site_categoria_noticias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Extraindo dados da tabela `site_categoria_noticias`
 --
 
 INSERT INTO `site_categoria_noticias` (`id`, `descricao`) VALUES
-(1, 'Esportes'),
-(2, 'Politica'),
-(3, 'Informatica'),
-(4, 'Religião'),
-(5, 'Rock');
+(1, 'Agricultura'),
+(2, 'Agroenergia'),
+(3, 'Mercado financeiro'),
+(4, 'AgronegÃ³cio'),
+(5, 'PecuÃ¡ria'),
+(6, 'PolÃ­tica rural'),
+(7, 'Setor florestal'),
+(8, 'Ecologia'),
+(9, 'Tecnologia'),
+(10, 'Setor agroindustrial'),
+(11, 'Biodisel');
 
 -- --------------------------------------------------------
 
@@ -632,7 +639,7 @@ CREATE TABLE IF NOT EXISTS `site_categoria_post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Tablea que contem as categorias do  post divulgado na intern' AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Tablea que contem as categorias do  post divulgado na intern' AUTO_INCREMENT=29 ;
 
 --
 -- Extraindo dados da tabela `site_categoria_post`
@@ -646,7 +653,10 @@ INSERT INTO `site_categoria_post` (`id`, `descricao`) VALUES
 (7, 'C#'),
 (15, 'java'),
 (21, 'prototype'),
-(22, 'teste');
+(22, 'Agricultura'),
+(24, 'Biodisel'),
+(27, 'AgronegÃ³cio'),
+(28, 'Agroenergia');
 
 -- --------------------------------------------------------
 
@@ -801,7 +811,7 @@ CREATE TABLE IF NOT EXISTS `site_noticia_mais_lida` (
   `titulo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_noticia_mais_lida` (`noticia_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Extraindo dados da tabela `site_noticia_mais_lida`
@@ -812,7 +822,10 @@ INSERT INTO `site_noticia_mais_lida` (`id`, `noticia_id`, `click`, `titulo`) VAL
 (11, 1, 2, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre'),
 (12, 1, 3, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre'),
 (13, 1, 4, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre'),
-(14, 1, 5, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre');
+(14, 1, 5, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre'),
+(15, 1, 6, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre'),
+(16, 1, 7, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre'),
+(17, 1, 8, 'PIB brasileiro registra crescimento de 0,6% no 3º trimestre');
 
 --
 -- Gatilhos `site_noticia_mais_lida`
@@ -930,7 +943,8 @@ CREATE TABLE IF NOT EXISTS `site_texto` (
   `rotulo` varchar(20) NOT NULL,
   `titulo` text NOT NULL,
   `comentario` text NOT NULL,
-  `ativo` char(2) NOT NULL DEFAULT 'N',
+  `foto` text NOT NULL,
+  `ativo` varchar(4) NOT NULL DEFAULT 'N',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -938,9 +952,9 @@ CREATE TABLE IF NOT EXISTS `site_texto` (
 -- Extraindo dados da tabela `site_texto`
 --
 
-INSERT INTO `site_texto` (`id`, `rotulo`, `titulo`, `comentario`, `ativo`) VALUES
-(1, 'agronegócio', 'O que é?', 'O Conceito\r\nO conceito de "agribusiness" foi proposto pela primeira vez em 1957, por Davis e Goldberg, como a soma das operações de produção e distribuição de suprimentos agrícolas, processamentos e distribuição dos produtos agrícolas  e itens produzidos a partir deles.\r\n\r\nAssim, de acordo com o conceito de agronegócio, a agricultura passa a ser abordada de maneira associada aos outros agentes responsáveis  por todas as atividades, que garantem a produção, transformação, distribuição e consumo de alimentos, considerando assim, a agricultura como parte  de uma extensa rede de agentes ecômicos.\r\n\r\nCom este conceito formalizado por tais autores, a visão sistêmica passa a ganhar  importância, abrangendo todos os envolvidos, desde a pesquisa até o cosumidor final, desde o que comumente se chama "antes da porteira" até "pós-porteira".\r\n\r\nAs exportações do agronegócio em 2007, segundo dados do Ministério da Agricultura, Pecuária e Abastecimento, totalizaram US$ 58,415 bilhões, um recorde histórico para o setor. Em relação a 2006, as exportações apresentaram um aumento de US$ 8,992 bilhões, o que significou uma taxa de crescimento de 18,2%. \r\n\r\nCom isso, as exportações do agronegócio corresponderam a 36,4% das exportações totais brasileiras no período, que foram de US$ 160 bilhões. As importações apresentaram variação anual de 30,2%, totalizando US$ 8,719 bilhões.\r\nComo conseqüência, registrou-se um superávit da balança comercial do agronegócio de US$ 49,696 bilhões, também um recorde histórico, que automaticamente repercute no saldo brasileiro como um todo, já que em 2006 o agronegócio teve a participação de 35,9%, subindo para 36,4% em 2007, apresentando queda de participação nas importações totais de 7,3 para 7,2%.\r\n\r\nO Mercado\r\nO agronegócio é fundamental para a economia do país, pois representa cerca de um terço do nosso PIB e tem dado grande contribuição às exportações de commodities e produtos agro-industriais. O Brasil caminha para se tornar uma liderança mundial no agronegócio e para consolidar nessa atividade é preciso ampliar sua competência para atuar de modo eficiente no controle das cadeias de produção agropecuária de modo a garantir qualidade e segurança dos produtos e das cadeias de produção. Já exportamos hoje para 180 países. Podemos conquistar novos mercados, mas para isto precisamos alcançar padrões elevados de certificação e qualidade sanitária e fitossanitária, mantendo assim elevada competitividade no mercado internacional com melhor enfrentamento das exigências e barreiras como afirmado recentemente pelo presidente Luis Inácio Lula da Silva "investir em sanidade é na verdade proteger o patrimônio nacional e por isso colocamos a sanidade animal e vegetal entre as prioridades deste mandato". \r\nO Brasil ainda enfrenta situações oriundas da imposição de barreiras sanitárias e fitossanitárias que precisam ser superadas. Além disso, está sob ameaça constante do avanço e severidade de pragas e doenças de plantas e animais já existentes no país e daquelas quarentenárias que podem ser introduzidas no país a qualquer momento se medidas preventivas competentes e eficazes não forem delineadas e implementadas pelo poder público e pelo setor produtivo.\r\n \r\nA missão institucional do Ministério da Agricultura, Pecuária e Abastecimento (MAPA) é promover o desenvolvimento sustentável e a competitividade do agronegócio em benefício da sociedade brasileira. No cumprimento de sua missão, o MAPA formula e executa políticas para o desenvolvimento do agronegócio, integrando aspectos mercadológicos, tecnológicos, científicos, organizacionais e ambientais, na busca do atendimento às exigências dos consumidores brasileiros e do mercado internacional.\r\n \r\nAs medidas adotadas pela Secretaria de Defesa Agropecuária-SDA do MAPA fundamentam-se na técnica, na ciência e na legislação em vigor, conforme preconizam os Acordos de Medidas Sanitárias e Fitossanitárias e de Obstáculos Técnicos ao Comércio da OMC.', 'S'),
-(2, 'agroenergia', 'O que é agroenergia?', 'Marília Weigert Ennes \r\n\r\nO Brasil tem tudo para ocupar um papel neste segmento. \r\n\r\nO esforço mundial e brasileiro na busca de suprir as demandas energéticas com base em processos mais sustentáveis do ponto de vista econômico, social e ambiental revela um importante espaço para o desenvolvimento da agroenergia. \r\n\r\nA agroenergia trata do conjunto de produtos derivados da biomassa – produzidos ou liberados pela atividade humana ou animal - que podem ser transformados em fontes energéticas para usos humanos distintos – eletricidade, calor e transporte. \r\n\r\nO Brasil por suas características de país tropical e extenso território apresenta condições inigualáveis para ocupar um importante papel no mundo contemporâneo neste segmento. \r\n\r\nA energia é um dos vetores determinantes para o desenvolvimento no mundo contemporâneo. O crescimento populacional e as atividades econômicas demandam de forma contínua e crescente energia para responder as necessidades da vida humana tal qual a vemos hoje. \r\n\r\nO suprimento de energia primária varia entre os blocos econômicos e está diretamente correlacionado ao grau de desenvolvimento econômico dos países que os integram. Nos países com processos econômicos mais consolidados, a demanda energética por habitante é mais elevada do que em países com economias em fase de consolidação ou em desenvolvimento. \r\n\r\nA\r\nsociedade\r\ncontemporânea estabeleceu o seu desenvolvimento econômico baseado na utilização intensiva de fontes energéticas de origem fóssil e hoje se defronta com a necessidade de alterar substancialmente a matriz energética em intensificando o investimento e o uso em de energia a partir de fontes alternativas, preferencialmente renováveis, e sustentáveis do ponto vista social, econômico e ambiental. \r\n\r\nO crescente aumento do preço do petróleo, a possível instabilidade de suprimento dado que as maiores reservas estão em áreas de conflito, o risco das alterações climáticas derivadas da liberação excessiva de gases de efeito estufa pelo elevado consumo de combustíveis fósseis, recomendam a busca de alternativas energéticas menos poluentes e com perspectivas de renovação continuada. \r\n\r\nAssim, são estabelecidos tratados entre as nações, atos sem precedentes na história da humanidade, manifestados de maneira formal por um acordo entre 175 países com a assinatura da Convenção-Quadro das Nações Unidas sobre Mudança do Clima e mais recentemente com a assinatura e o compromisso firmado com o Protocolo de Quioto. \r\n\r\nO Brasil é signatário do Protocolo de Quioto, e mesmo não tendo a obrigatoriedade, até o momento, com metas de redução de gases de efeito estufa (GEE), assumiu o compromisso de partilhar do esforço mundial para reduzir suas emissões domésticas. \r\n\r\nNesse sentido, apresenta vantagens comparativas aos demais países em função de clima e disponibilidade de área para massificar os\r\ninvestimentos\r\nna produção agrícola de suporte à agroenergia sem necessariamente afetar a segurança alimentar. \r\n\r\nComo uma das medidas de apoio para mitigar os efeitos dos gases estufa lançou o Plano Nacional de Agroenergia para o período de 2006 a 2011 que visa estabelecer marco e rumo para as ações públicas e privadas de geração de conhecimento e de tecnologias que contribuam para a produção sustentável da agricultura de energia e para o uso racional dessa energia renovável. \r\n\r\nTem por meta tornar competitivo o agronegócio brasileiro e dar suporte a determinadas políticas públicas, como a inclusão social, a regionalização do desenvolvimento e a sustentabilidade ambiental.\r\n\r\n(Sebrae Nacional) ', 'N');
+INSERT INTO `site_texto` (`id`, `rotulo`, `titulo`, `comentario`, `foto`, `ativo`) VALUES
+(1, 'agronegÃ³cio', 'O que Ã©?', '<p>\r\n	<span style="color: rgb(51, 51, 51); font-family: Calibri, tahoma, arial, sans-serif; font-size: 14px; line-height: 20px; text-align: justify; background-color: rgb(255, 255, 255);">O Conceito de &quot;agribusiness&quot; foi proposto pela primeira vez em 1957, por Davis e Goldberg, como a soma das opera&ccedil;&otilde;es de produ&ccedil;&atilde;o e distribui&ccedil;&atilde;o de suprimentos agr&iacute;colas, processamentos e distribui&ccedil;&atilde;o dos produtos agr&iacute;colas e itens produzidos a partir deles. Assim, de acordo com o conceito de agroneg&oacute;cio, a agricultura passa a ser abordada de maneira associada aos outros agentes respons&aacute;veis por todas as atividades, que garantem a produ&ccedil;&atilde;o, transforma&ccedil;&atilde;o, distribui&ccedil;&atilde;o e consumo de alimentos, considerando assim, a agricultura como parte de uma extensa rede de agentes ec&ocirc;micos. Com este conceito formalizado por tais autores, a vis&atilde;o sist&ecirc;mica passa a ganhar import&acirc;ncia, abrangendo todos os envolvidos, desde a pesquisa at&eacute; o cosumidor final, desde o que comumente se chama &quot;antes da porteira&quot; at&eacute; &quot;p&oacute;s-porteira&quot;. As exporta&ccedil;&otilde;es do agroneg&oacute;cio em 2007, segundo dados do Minist&eacute;rio da Agricultura, Pecu&aacute;ria e Abastecimento, totalizaram US$ 58,415 bilh&otilde;es, um recorde hist&oacute;rico para o setor. Em rela&ccedil;&atilde;o a 2006, as exporta&ccedil;&otilde;es apresentaram um aumento de US$ 8,992 bilh&otilde;es, o que significou uma taxa de crescimento de 18,2%. Com isso, as exporta&ccedil;&otilde;es do agroneg&oacute;cio corresponderam a 36,4% das exporta&ccedil;&otilde;es totais brasileiras no per&iacute;odo, que foram de US$ 160 bilh&otilde;es. As importa&ccedil;&otilde;es apresentaram varia&ccedil;&atilde;o anual de 30,2%, totalizando US$ 8,719 bilh&otilde;es. Como conseq&uuml;&ecirc;ncia, registrou-se um super&aacute;vit da balan&ccedil;a comercial do agroneg&oacute;cio de US$ 49,696 bilh&otilde;es, tamb&eacute;m um recorde hist&oacute;rico, que automaticamente repercute no saldo brasileiro como um todo, j&aacute; que em 2006 o agroneg&oacute;cio teve a participa&ccedil;&atilde;o de 35,9%, subindo para 36,4% em 2007, apresentando queda de participa&ccedil;&atilde;o nas importa&ccedil;&otilde;es totais de 7,3 para 7,2%. O Mercado O agroneg&oacute;cio &eacute; fundamental para a economia do pa&iacute;s, pois representa cerca de um ter&ccedil;o do nosso PIB e tem dado grande contribui&ccedil;&atilde;o &agrave;s exporta&ccedil;&otilde;es de commodities e produtos agro-industriais. O Brasil caminha para se tornar uma lideran&ccedil;a mundial no agroneg&oacute;cio e para consolidar nessa atividade &eacute; preciso ampliar sua compet&ecirc;ncia para atuar de modo eficiente no controle das cadeias de produ&ccedil;&atilde;o agropecu&aacute;ria de modo a garantir qualidade e seguran&ccedil;a dos produtos e das cadeias de produ&ccedil;&atilde;o. J&aacute; exportamos hoje para 180 pa&iacute;ses. Podemos conquistar novos mercados, mas para isto precisamos alcan&ccedil;ar padr&otilde;es elevados de certifica&ccedil;&atilde;o e qualidade sanit&aacute;ria e fitossanit&aacute;ria, mantendo assim elevada competitividade no mercado internacional com melhor enfrentamento das exig&ecirc;ncias e barreiras como afirmado recentemente pelo presidente Luis In&aacute;cio Lula da Silva &quot;investir em sanidade &eacute; na verdade proteger o patrim&ocirc;nio nacional e por isso colocamos a sanidade animal e vegetal entre as prioridades deste mandato&quot;. O Brasil ainda enfrenta situa&ccedil;&otilde;es oriundas da imposi&ccedil;&atilde;o de barreiras sanit&aacute;rias e fitossanit&aacute;rias que precisam ser superadas. Al&eacute;m disso, est&aacute; sob amea&ccedil;a constante do avan&ccedil;o e severidade de pragas e doen&ccedil;as de plantas e animais j&aacute; existentes no pa&iacute;s e daquelas quarenten&aacute;rias que podem ser introduzidas no pa&iacute;s a qualquer momento se medidas preventivas competentes e eficazes n&atilde;o forem delineadas e implementadas pelo poder p&uacute;blico e pelo setor produtivo. A miss&atilde;o institucional do Minist&eacute;rio da Agricultura, Pecu&aacute;ria e Abastecimento (MAPA) &eacute; promover o desenvolvimento sustent&aacute;vel e a competitividade do agroneg&oacute;cio em benef&iacute;cio da sociedade brasileira. No cumprimento de sua miss&atilde;o, o MAPA formula e executa pol&iacute;ticas para o desenvolvimento do agroneg&oacute;cio, integrando aspectos mercadol&oacute;gicos, tecnol&oacute;gicos, cient&iacute;ficos, organizacionais e ambientais, na busca do atendimento &agrave;s exig&ecirc;ncias dos consumidores brasileiros e do mercado internacional. As medidas adotadas pela Secretaria de Defesa Agropecu&aacute;ria-SDA do MAPA fundamentam-se na t&eacute;cnica, na ci&ecirc;ncia e na legisla&ccedil;&atilde;o em vigor, conforme preconizam os Acordos de Medidas Sanit&aacute;rias e Fitossanit&aacute;rias e de Obst&aacute;culos T&eacute;cnicos ao Com&eacute;rcio da OMC.</span></p>', '73ce4f998b4e4a9b454388fe844b5795781d2420.jpg', 'Sim'),
+(2, 'sobre', 'Quem Somos', '<p>\r\n	&nbsp;</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; border: none; color: rgb(122, 122, 122); text-align: justify; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">\r\n	Desde 2001 o Portal Educa&ccedil;&atilde;o trabalha para mudar a vida das pessoas, com base na efici&ecirc;ncia, confiabilidade e agilidade de seus servi&ccedil;os. Para isso, constituiu ao longo da sua trajet&oacute;ria uma empresa s&oacute;lida, que forma cidad&atilde;os em mais de diversas &aacute;reas do conhecimento, incluindo,&nbsp;<a href="http://www.portaleducacao.com.br/cursos" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">cursos&nbsp;<em style="margin: 0px; padding: 0px; border: none;">online</em></a>,&nbsp;<a href="http://www.portaleducacao.com.br/pos-graduacao" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">p&oacute;s-gradua&ccedil;&atilde;o</a>,&nbsp;<a href="http://www.portaleducacao.com.br/idiomas" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">idiomas</a>&nbsp;e&nbsp;<a href="http://www.portaleducacao.com.br/assinatura" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">assinatura</a>, com o melhor e mais premiado ensino a dist&acirc;ncia do mundo.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; border: none; color: rgb(122, 122, 122); text-align: justify; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">\r\n	O Portal Educa&ccedil;&atilde;o conta com uma equipe de mais de mais de 150 colaboradores, integrados e satisfeitos, com uma &uacute;nica&nbsp;<a href="http://www.portaleducacao.com.br/tudo-sobre-a-empresa/missao-visao-valores" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">miss&atilde;o</a>: tornar o aprendizado empolgante e universalmente acess&iacute;vel para potencializar a capacidade humana, mantendo nossos&nbsp;<a href="http://www.portaleducacao.com.br/tudo-sobre-a-empresa/missao-visao-valores" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">valores</a>&nbsp;em excel&ecirc;ncia da gest&atilde;o. Focado na Pol&iacute;tica de Qualidade de melhoria cont&iacute;nua, somos mantenedores de institui&ccedil;&otilde;es renomadas, como a Associa&ccedil;&atilde;o Brasileira de Ensino a Dist&acirc;ncia (<strong style="margin: 0px; padding: 0px; border: none;"><a href="http://www.portaleducacao.com.br/abed" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148);">ABED</a></strong>) e fazemos parte do Grupo&nbsp;<em style="margin: 0px; padding: 0px; border: none;">Endeavor</em>&nbsp;de empreendedores de alto impacto, para melhor atender nosso p&uacute;blico.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; border: none; color: rgb(122, 122, 122); text-align: justify; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">\r\n	Desenvolvemos programas para a fideliza&ccedil;&atilde;o de clientes, como o&nbsp;<a href="http://www.portaleducacao.com.br/programa-de-fidelidade" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">e-Duc</a>, e tamb&eacute;m trabalhamos com as novidades tecnol&oacute;gicas, ampliando assim, o aprendizado dos nossos alunos, com a cria&ccedil;&atilde;o do&nbsp;<a href="http://www.portaleducacao.com.br/iphone" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">aplicativo para&nbsp;<em style="margin: 0px; padding: 0px; border: none;">iPhone/Ipod</em></a>.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; border: none; color: rgb(122, 122, 122); text-align: justify; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">\r\n	Pensando em contribuir ainda mais com nosso p&uacute;blico foi desenvolvida a&nbsp;<a href="http://www.portaleducacao.com.br/e-revista" style="margin: 0px; padding: 0px; border: none; color: rgb(103, 124, 148); font-weight: bold;">e-Revista</a>, uma edi&ccedil;&atilde;o eletr&ocirc;nica contempor&acirc;nea, que est&aacute; inserida nas tend&ecirc;ncias da Web 2.0. Outra recente ado&ccedil;&atilde;o &eacute; o novo sistema de Ambiente Virtual de Aprendizagem - AVA 2.0, que possibilita a intera&ccedil;&atilde;o do aluno com o curso, chegando perto do conceito de uma rede social.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; border: none; color: rgb(122, 122, 122); text-align: justify; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 13px;">\r\n	Para conhecer melhor o Portal Educa&ccedil;&atilde;o,&nbsp;<a class="link" style="margin: 0px; padding: 0px; border: none; font-weight: bold; color: rgb(103, 124, 148); text-decoration: underline; cursor: pointer;">veja depoimentos de nossos alunos</a>&nbsp;e conhe&ccedil;a alguns&nbsp;<a class="link" style="margin: 0px; padding: 0px; border: none; font-weight: bold; color: rgb(103, 124, 148); text-decoration: underline; cursor: pointer;">indicadores de qualidade</a>.</p>\r\n<div>\r\n	&nbsp;</div>', '292cc466893d3b41049827231553f6ffa5b1378b.jpg', 'Sim');
 
 -- --------------------------------------------------------
 
@@ -1006,14 +1020,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(50) NOT NULL,
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `salt`, `role`, `date_created`) VALUES
-(1, 'axel', 'eb7da2365c1e4c6920704868072bb0f24c88cc3f', '6804a56d7db90ccad4bdb3df4bf2f390a265aa12', 'Administrador', '2012-09-01 00:00:00');
+(1, 'axel', 'eb7da2365c1e4c6920704868072bb0f24c88cc3f', '6804a56d7db90ccad4bdb3df4bf2f390a265aa12', 'Administrador', '2012-09-01 00:00:00'),
+(2, 'pedro', '22899923c716e1f994f68c628d7f5f163a60bd0a', 'be20a50f6a29d09a47d48fb8ea178cba98e918b5', 'Usuario', '2013-02-28 00:00:00'),
+(3, 'maria', '3619a8359675541bb781ed7d76fe7f58b599b33f', 'e611d119d12737619f28ab27d85f00f52cc2a7d3', 'Administrador', '2013-02-23 00:00:00'),
+(4, 'mario', 'b1a9e6f771c95d2d84242cec86ab246d46423722', 'c12f93daa5c943686733df484539388befc6ca2e', 'Usuario', '2013-02-15 00:00:00');
 
 -- --------------------------------------------------------
 

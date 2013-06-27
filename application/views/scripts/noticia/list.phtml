@@ -1,18 +1,146 @@
 <div id="pagina-big"><!-- Begin texto -->
-
-
-	<div class="portal-bloco">
-
+    <div class="portal-bloco">
 		<h1 class="title-noz-red">
-				<a href="" class="link-titulo-2" title="">
-					Noticia Principal			
-				</a>
-			</h1>
-	</div>
-		
-
-
-</div>	
-		
-
+			<a href="" class="link-titulo-2" title="">Noticia Principal</a>
+		</h1>
+		<div id="centro">
+				<div align="center">
+					<div id="lista-noticia-banner">
+						barrner
+					</div>      
+		        </div>
 	
+			<div class="linha-blue-2"></div>
+			<h1>Busca / Noticias</h1>
+			<form name="filtro" action="conteudos.php" method="post" style="line-height:50px;">
+			    <script type="text/javascript">
+                    $(document).ready(function() {
+                        $.getJSON(base_url +"Categorianoticia/getjsncategoria")
+                            .done(function( dados ) {
+                                jQuery("#tipo").find("option").remove();
+                                jQuery("<option value=''>Selecione...</option>").appendTo("#tipo");                            
+                                // carregando dados 
+                                $.each(dados.retorno, function(index , item) {
+								jQuery("<option value='" + item.id + "'>" 
+									      + item.nome + "</option>").appendTo("#tipo");
+			                    });
+                            })
+                            .fail(function( jqxhr, textStatus, error ) {
+                                var err = textStatus + ', ' + error;
+                                exibirMensagenAlerta(ERRO_REQUISICAO + err);
+                                
+                        });
+                    });
+                </script>
+				<select id="tipo" name="tipo">
+					<option label="Todos os tipos" value="">Todos os tipos</option>
+					<option label="Notícias" value="N">Notícias</option>
+					<option label="Eventos" value="E">Eventos</option>
+					<option label="Artigos" value="A" selected="selected">Artigos</option>
+					<option label="Cursos" value="C">Cursos</option>
+					<option label="Entrevistas" value="EN">Entrevistas</option>
+				</select>
+				&nbsp;&nbsp;&nbsp;
+
+			    <select name="idsubmenu">
+						<option label="Todas as páginas" value="0">Todas as páginas</option>
+						<optgroup label="Mercado Financeiro">
+						<option label="Análise de Mercado" value="75">Análise de Mercado</option>
+						<option label="Economia" value="1">Economia</option>
+						<option label="Crédito Rural" value="69">Crédito Rural</option>
+						</optgroup>
+						<optgroup label="Energias R.">
+						<option label="Biodiesel" value="20">Biodiesel</option>
+						<option label="Etanol" value="52">Etanol</option>
+						<option label="Outros" value="54">Outros</option>
+						</optgroup>
+						<optgroup label="Agricultura">
+						<option label="Algodão" value="38">Algodão</option>
+						<option label="Arroz" value="55">Arroz</option>
+						<option label="Café" value="2">Café</option>
+						<option label="Cana de açúcar" value="42">Cana de açúcar</option>
+						<option label="Feijão" value="62">Feijão</option>
+						<option label="Flores" value="7">Flores</option>
+						<option label="Fruticultura" value="8">Fruticultura</option>
+						<option label="Milho e sorgo" value="29">Milho e sorgo</option>
+						<option label="Pragas e doenças" value="25">Pragas e doenças</option>
+						<option label="Soja" value="9">Soja</option>
+						<option label="Trigo" value="58">Trigo</option>
+						<option label="Outros" value="33">Outros</option>
+						</optgroup>
+						<optgroup label="Pecuária">
+						<option label="Apicultura" value="11">Apicultura</option>
+						<option label="Aquicultura e Piscicultura" value="12">Aquicultura e Piscicultura</option>
+						<option label="Avicultura" value="13">Avicultura</option>
+						<option label="Bovinos (corte)" value="14">Bovinos (corte)</option>
+						<option label="Bovinos (leite)" value="23">Bovinos (leite)</option>
+						<option label="Caprinos e ovinos" value="16">Caprinos e ovinos</option>
+						<option label="Equídeos" value="17">Equídeos</option>
+						<option label="Nutrição animal" value="60">Nutrição animal</option>
+						<option label="Pastagem" value="59">Pastagem</option>
+						<option label="Saúde animal" value="46">Saúde animal</option>
+						<option label="Suínos" value="18">Suínos</option>
+						<option label="Outros" value="61">Outros</option>
+						</optgroup>
+						<optgroup label="Política Rural">
+						<option label="Agricultura familiar" value="30">Agricultura familiar</option>
+						<option label="Administração rural" value="34">Administração rural</option>
+						<option label="Capacitação" value="26">Capacitação</option>
+						<option label="Certificação" value="3">Certificação</option>
+						<option label="Direito agrário" value="24">Direito agrário</option>
+						<option label="Governo" value="27">Governo</option>
+						<option label="Outros" value="70">Outros</option>
+						</optgroup>
+						<optgroup label="Setor Florestal">
+						<option label="Agroflorestal" value="31">Agroflorestal</option>
+						</optgroup>
+						<optgroup label="Ecologia">
+						<option label="Meio ambiente" value="4">Meio ambiente</option>
+						<option label="Orgânico" value="5">Orgânico</option>
+						<option label="Turismo rural" value="50">Turismo rural</option>
+						</optgroup>
+						<optgroup label="Tecnologia">
+						<option label="Agric. de precisão" value="21">Agric. de precisão</option>
+						<option label="Biotecnologia" value="19">Biotecnologia</option>
+						<option label="Informação" value="22">Informação</option>
+						<option label="Informática" value="47">Informática</option>
+						<option label="Transgênicos" value="28">Transgênicos</option>
+						<option label="Outros" value="68">Outros</option>
+						</optgroup>
+						<optgroup label="Setor Agroindustrial">
+						<option label="Frigoríficos" value="63">Frigoríficos</option>
+						<option label="Laticínios" value="64">Laticínios</option>
+						<option label="Máquinas e Implementos" value="72">Máquinas e Implementos</option>
+						<option label="Processamento" value="66">Processamento</option>
+						<option label="Outros" value="71">Outros</option>
+						</optgroup>
+				</select>
+			    &nbsp;&nbsp;&nbsp;
+			    <input type="hidden" name="idcategorias" value="">
+			    Palavra: 
+			    <input type="text" name="palavra" id="palavra" class="imput-pesquisa" size="20" value="">
+			    &nbsp;&nbsp;&nbsp;
+				<input type="submit" class="btn-pesquisa" value="Buscar"> 
+		    </form>
+		    <div id="art-related">
+		        <ul>  
+		        	<?php foreach ($this->noticia as $item): ?>
+		        	<li class="first">             
+		                <div class="box-img">
+		                 <?php echo $this->img($this->baseUrl().'/upload/noticia/'.$item->foto, 100, 100,'Imagem'); ?>
+		                </div>
+		                <a href="<?php echo $this->url(array('controller' => 'Noticia', 'action' => 'read', 'id' => $item->id), null, true); ?>">	 <?php echo utf8_decode( $item->titulo ) ?> 
+						</a>
+						<h6> <?php echo $item->data ?></h6>
+		            </li>                                                                       
+				 <?php endforeach; ?>
+				</ul>
+		    </div>
+    		
+    		<div class="linha-blue-2"></div>
+    		<?php echo $this->paginationControl($this->noticia, 'Sliding', 'pagination_noticia.phtml'); ?> 
+			<div align="center">Lista de Noticias</div>
+    		</hr>
+        </div>
+	</div>
+</div>	
