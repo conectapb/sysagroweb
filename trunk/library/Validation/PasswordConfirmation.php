@@ -29,4 +29,3 @@ class My_Validate_PasswordConfirmation extends Zend_Validate_Abstract
         return true;
     }
 }
-?>

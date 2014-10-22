@@ -48,4 +48,3 @@ class Application_Model_DbTable_Produtounidade extends Zend_Db_Table_Abstract
     }
    
 }
-?>

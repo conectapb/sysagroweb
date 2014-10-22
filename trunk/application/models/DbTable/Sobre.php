@@ -50,4 +50,3 @@ class Application_Model_DbTable_Sobre extends Zend_Db_Table_Abstract
 
 }
 
-?>

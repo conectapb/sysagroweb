@@ -16,8 +16,8 @@
  * @category   Zend
  * @package    Zend_Http
  * @subpackage Client
- * @version    $Id: Client.php 24337 2011-08-01 13:04:41Z ezimuel $
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @version    $Id$
+ * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
@@ -60,7 +60,7 @@ require_once 'Zend/Http/Response/Stream.php';
  * @package    Zend_Http
  * @subpackage Client
  * @throws     Zend_Http_Client_Exception
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Http_Client
@@ -77,6 +77,7 @@ class Zend_Http_Client
     const OPTIONS = 'OPTIONS';
     const CONNECT = 'CONNECT';
     const MERGE   = 'MERGE';
+    const PATCH   = 'PATCH';
 
     /**
      * Supported HTTP Authentication methods
@@ -101,7 +102,7 @@ class Zend_Http_Client
      */
     const ENC_URLENCODED = 'application/x-www-form-urlencoded';
     const ENC_FORMDATA   = 'multipart/form-data';
-    
+
     /**
      * Value types for Body key/value pairs
      */
@@ -207,14 +208,14 @@ class Zend_Http_Client
      * @var array
      */
     protected $files = array();
-    
+
     /**
      * Ordered list of keys from key/value pair data to include in body
-     * 
+     *
      * An associative array, where each element is of the format:
      *   '<field name>' => VTYPE_SCALAR | VTYPE_FILE
-     * 
-     * @var array 
+     *
+     * @var array
      */
     protected $body_field_order = array();
 
@@ -247,6 +248,20 @@ class Zend_Http_Client
     protected $redirectCounter = 0;
 
     /**
+     * Status for unmasking GET array params
+     *
+     * @var boolean
+     */
+    protected $_unmaskStatus = false;
+
+    /**
+     * Status if the http_build_query function escapes brackets
+     *
+     * @var boolean
+     */
+    protected $_queryBracketsEscaped = true;
+
+    /**
      * Fileinfo magic database resource
      *
      * This variable is populated the first time _detectFileMimeType is called
@@ -254,7 +269,7 @@ class Zend_Http_Client
      *
      * @var resource
      */
-    static protected $_fileInfoDb = null;
+    protected static $_fileInfoDb = null;
 
     /**
      * Constructor method. Will create a new HTTP client. Accepts the target
@@ -271,6 +286,8 @@ class Zend_Http_Client
         if ($config !== null) {
             $this->setConfig($config);
         }
+
+        $this->_queryBracketsEscaped = version_compare(phpversion(), '5.1.3', '>=');
     }
 
     /**
@@ -369,12 +386,17 @@ class Zend_Http_Client
     public function setMethod($method = self::GET)
     {
         if (! preg_match('/^[^\x00-\x1f\x7f-\xff\(\)<>@,;:\\\\"\/\[\]\?={}\s]+$/', $method)) {
-            /** @see Zend_Http_Client_Exception */
             require_once 'Zend/Http/Client/Exception.php';
             throw new Zend_Http_Client_Exception("'{$method}' is not a valid HTTP request method.");
         }
 
-        if (($method == self::POST || $method == self::PUT || $method == self::DELETE) && $this->enctype === null) {
+        if (($method == self::POST
+                || $method == self::PUT
+                || $method == self::DELETE
+                || $method == self::PATCH
+                || $method == self::OPTIONS)
+            && $this->enctype === null
+        ) {
             $this->setEncType(self::ENC_URLENCODED);
         }
 
@@ -743,7 +765,7 @@ class Zend_Http_Client
             'ctype'    => $ctype,
             'data'     => $data
         );
-        
+
         $this->body_field_order[$formname] = self::VTYPE_FILE;
 
         return $this;
@@ -791,6 +813,35 @@ class Zend_Http_Client
     }
 
     /**
+     * Set the unmask feature for GET parameters as array
+     *
+     * Example:
+     * foo%5B0%5D=a&foo%5B1%5D=b
+     * becomes
+     * foo=a&foo=b
+     *
+     * This is usefull for some services
+     *
+     * @param boolean $status
+     * @return Zend_Http_Client
+     */
+    public function setUnmaskStatus($status = true)
+    {
+        $this->_unmaskStatus = (BOOL)$status;
+        return $this;
+    }
+
+    /**
+     * Returns the currently configured unmask status
+     *
+     * @return boolean
+     */
+    public function getUnmaskStatus()
+    {
+        return $this->_unmaskStatus;
+    }
+
+    /**
      * Clear all GET and POST parameters
      *
      * Should be used to reset the request parameters if the client is
@@ -810,7 +861,7 @@ class Zend_Http_Client
         $this->files         = array();
         $this->raw_post_data = null;
         $this->enctype       = null;
-        
+
         if($clearAll) {
             $this->headers = array();
             $this->last_request = null;
@@ -894,7 +945,7 @@ class Zend_Http_Client
      */
     public function getAdapter()
     {
-         if (null === $this->adapter) {
+        if (null === $this->adapter) {
             $this->setAdapter($this->config['adapter']);
         }
 
@@ -987,6 +1038,15 @@ class Zend_Http_Client
                     $query = str_replace('+', '%20', $query);
                 }
 
+                // @see ZF-11671 to unmask for some services to foo=val1&foo=val2
+                if ($this->getUnmaskStatus()) {
+                    if ($this->_queryBracketsEscaped) {
+                        $query = preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $query);
+                    } else {
+                        $query = preg_replace('/\\[(?:[0-9]|[1-9][0-9]+)\\]=/', '=', $query);
+                    }
+                }
+
                 $uri->setQuery($query);
             }
 
@@ -1057,7 +1117,7 @@ class Zend_Http_Client
                 // Avoid problems with buggy servers that add whitespace at the
                 // end of some headers (See ZF-11283)
                 $location = trim($location);
-                
+
                 // Check whether we send the exact same request again, or drop the parameters
                 // and send a GET request
                 if ($response->getStatus() == 303 ||
@@ -1236,7 +1296,7 @@ class Zend_Http_Client
                     // Encode body as multipart/form-data
                     $boundary = '---ZENDHTTPCLIENT-' . md5(microtime());
                     $this->setHeaders(self::CONTENT_TYPE, self::ENC_FORMDATA . "; boundary={$boundary}");
-                    
+
                     // Encode all files and POST vars in the order they were given
                     foreach ($this->body_field_order as $fieldName=>$fieldType) {
                         switch ($fieldType) {
@@ -1400,7 +1460,8 @@ class Zend_Http_Client
      * @param array $headers Associative array of optional headers @example ("Content-Transfer-Encoding" => "binary")
      * @return string
      */
-    public static function encodeFormData($boundary, $name, $value, $filename = null, $headers = array()) {
+    public static function encodeFormData($boundary, $name, $value, $filename = null, $headers = array())
+    {
         $ret = "--{$boundary}\r\n" .
             'Content-Disposition: form-data; name="' . $name .'"';
 
@@ -1475,7 +1536,7 @@ class Zend_Http_Client
      * @param  string $prefix
      * @return array
      */
-    static protected function _flattenParametersArray($parray, $prefix = null)
+    protected static function _flattenParametersArray($parray, $prefix = null)
     {
         if (! is_array($parray)) {
             return $parray;
