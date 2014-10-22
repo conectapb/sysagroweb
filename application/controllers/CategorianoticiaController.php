@@ -230,4 +230,3 @@ class CategorianoticiaController extends Zend_Controller_Action{
 
 
 }
-?>

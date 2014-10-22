@@ -1,7 +1,7 @@
 <?php
 //ini_set('memory_limit','16M');
-setlocale(LC_ALL, 'BRA');
-date_default_timezone_set('America/Sao_Paulo');
+//setlocale(LC_ALL, 'BRA');
+//date_default_timezone_set('America/Sao_Paulo');
 
 /*
 set_include_path('.' . PATH_SEPARATOR . '..' . PATH_SEPARATOR . './library'
@@ -11,13 +11,20 @@ set_include_path('.' . PATH_SEPARATOR . '..' . PATH_SEPARATOR . './library'
 . get_include_path() ); */
 
 
-// Define path to application directory
-defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 
+
+
+// Error Reporting 
+//error_reporting(E_ALL|E_STRICT); 
+//ini_set('display_errors','on'); 
+
+
+// Define path to application directory
+defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+
+//define('APPLICATION_PATH',  realpath(dirname(__FILE__) . '/../application')) ;
 // Define application environment
-defined('APPLICATION_ENV')
-    || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+defined('APPLICATION_ENV')    || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
@@ -33,5 +40,4 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
-$application->bootstrap()
-            ->run();
+$application->bootstrap()->run();

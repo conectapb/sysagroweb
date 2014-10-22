@@ -141,4 +141,4 @@ class Application_Plugin_Calendario extends Zend_Controller_Plugin_Abstract
     }
     
 }
-?>
+

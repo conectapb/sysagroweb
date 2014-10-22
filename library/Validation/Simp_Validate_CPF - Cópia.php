@@ -42,4 +42,4 @@ class Simp_Validate_CPF extends Zend_Validate_Abstract
         return true;
     }
 }
-?>
+

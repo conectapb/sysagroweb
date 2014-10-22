@@ -97,5 +97,3 @@ class Application_Model_DbTable_Entrevista extends Zend_Db_Table_Abstract
 
 
 }
-
-?>

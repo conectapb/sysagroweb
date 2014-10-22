@@ -14,9 +14,9 @@
  *
  * @category   Zend
  * @package    Zend_Oauth
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Client.php 24311 2011-07-30 03:12:18Z ramon $
+ * @version    $Id$
  */
 
 /** Zend_Oauth */
@@ -34,7 +34,7 @@ require_once 'Zend/Oauth/Config.php';
 /**
  * @category   Zend
  * @package    Zend_Oauth
- * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Oauth_Client extends Zend_Http_Client
@@ -196,10 +196,12 @@ class Zend_Oauth_Client extends Zend_Http_Client
             $this->setRequestMethod(self::POST);
         } elseif($method == self::PUT) {
             $this->setRequestMethod(self::PUT);
-        }  elseif($method == self::DELETE) {
+        } elseif($method == self::DELETE) {
             $this->setRequestMethod(self::DELETE);
-        }   elseif($method == self::HEAD) {
+        } elseif($method == self::HEAD) {
             $this->setRequestMethod(self::HEAD);
+        } elseif($method == self::OPTIONS) {
+            $this->setRequestMethod(self::OPTIONS);
         }
         return parent::setMethod($method);
     }
@@ -261,7 +263,7 @@ class Zend_Oauth_Client extends Zend_Http_Client
             $this->setRawData($raw, 'application/x-www-form-urlencoded');
             $this->paramsPost = array();
         } elseif ($requestScheme == Zend_Oauth::REQUEST_SCHEME_QUERYSTRING) {
-            $params = array();
+            $params = $this->paramsGet;            
             $query = $this->getUri()->getQuery();
             if ($query) {
                 $queryParts = explode('&', $this->getUri()->getQuery());
@@ -290,27 +292,20 @@ class Zend_Oauth_Client extends Zend_Http_Client
 
     /**
      * Collect all signable parameters into a single array across query string
-     * and POST body. These are returned as a properly formatted single
-     * query string.
+     * and POST body. Don't include POST parameters if content type is multipart POST.
      *
-     * @return string
+     * @return array
      */
     protected function _getSignableParametersAsQueryString()
     {
         $params = array();
-            if (!empty($this->paramsGet)) {
-                $params = array_merge($params, $this->paramsGet);
-                $query  = $this->getToken()->toQueryString(
-                    $this->getUri(true), $this->_config, $params
-                );
-            }
-            if (!empty($this->paramsPost)) {
-                $params = array_merge($params, $this->paramsPost);
-                $query  = $this->getToken()->toQueryString(
-                    $this->getUri(true), $this->_config, $params
-                );
-            }
-            return $params;
+        if (!empty($this->paramsGet)) {
+            $params = array_merge($params, $this->paramsGet);
+        }
+        if ($this->enctype != self::ENC_FORMDATA && !empty($this->paramsPost)) {
+            $params = array_merge($params, $this->paramsPost);
+        }
+        return $params;
     }
 
     /**

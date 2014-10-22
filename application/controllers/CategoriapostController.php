@@ -131,5 +131,3 @@ class CategoriapostController extends Zend_Controller_Action{
          }
     }
 }
-
-?>
